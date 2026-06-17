@@ -4,6 +4,14 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
+fun gitVersionCode(): Int =
+    providers.exec { commandLine("git", "rev-list", "--count", "HEAD") }
+        .standardOutput.asText.get().trim().toInt()
+
+fun gitVersionName(): String =
+    providers.exec { commandLine("git", "describe", "--tags", "--abbrev=0") }
+        .standardOutput.asText.get().trim()
+
 android {
     namespace = "com.futurae.sdk.ts.sample"
     compileSdk {
@@ -15,6 +23,9 @@ android {
     defaultConfig {
         minSdk = 26
         targetSdk = 36
+
+        versionCode = gitVersionCode()
+        versionName = gitVersionName()
 
         val tsBaseUrl = project.findProperty("TS_BASE_URL") as String
 
