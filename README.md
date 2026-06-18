@@ -2,7 +2,7 @@
 
 Collect and upload device trust signals — location, network state, Bluetooth, Wi-Fi, telephony, battery, and more — from Android apps to the Futurae Trust Signals backend.
 
-**[API Reference (Dokka)](https://futurae-technologies.github.io/android-trust-signals-sdk/html/)** &nbsp;|&nbsp;
+**[API Reference (Dokka)](https://futurae-technologies.github.io/android-trust-signals-sdk/)** &nbsp;|&nbsp;
 **[Changelog](https://github.com/Futurae-Technologies/android-trust-signals-sdk/releases)**
 
 ---
@@ -19,6 +19,7 @@ Collect and upload device trust signals — location, network state, Bluetooth, 
   - [2. Collect and Upload](#2-collect-and-upload)
   - [3. Schedule Periodic Collections](#3-schedule-periodic-collections)
   - [4. Handle Errors and Stop or Reschedule](#4-handle-errors-and-stop-or-reschedule)
+- [Sample App](#sample-app)
 - [Releases](#releases)
 
 ---
@@ -345,6 +346,32 @@ TrustSignalsSDK.stopScheduledCollections()
 | Unexpected exceptions | No | Yes |
 
 ---
+
+## Sample App
+
+A runnable sample app is available in the [`sample/`](sample/) directory. It demonstrates SDK initialization, manual collect-and-upload, and scheduled background collections using a minimal Jetpack Compose UI.
+
+### Prerequisites
+
+**1. GitHub Packages credentials**
+
+The sample pulls the SDK from GitHub Packages. Add your credentials to `~/.gradle/gradle.properties` (recommended) or to `sample/gradle.properties`:
+
+```properties
+gpr.user=YOUR_GITHUB_USERNAME
+gpr.key=YOUR_GITHUB_PERSONAL_ACCESS_TOKEN
+```
+
+Your token needs the `read:packages` scope. See [Installation](#installation) for details.
+
+**2. Backend URL**
+
+The sample requires a `TS_BASE_URL` Gradle property pointing to your Trust Signals backend. Add it to `~/.gradle/gradle.properties` or `sample/gradle.properties`:
+
+```properties
+TS_BASE_URL=https://your-trust-signals-server.example.com
+```
+
 
 ## Releases
 
