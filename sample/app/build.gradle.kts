@@ -34,7 +34,7 @@ android {
         buildConfigField(
             "String",
             "TS_BASE_URL",
-            "\"$tsBaseUrl\""
+            tsBaseUrl
         )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
