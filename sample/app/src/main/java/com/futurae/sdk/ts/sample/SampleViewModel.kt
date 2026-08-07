@@ -29,7 +29,7 @@ class SampleViewModel : ViewModel() {
 
     sealed interface ScheduleState {
         data object None : ScheduleState
-        data class Active(val accountId: String, val interval: Duration) : ScheduleState
+        data class Active(val accountIds: List<String>, val interval: Duration) : ScheduleState
         data class Error(val message: String) : ScheduleState
     }
 
@@ -39,13 +39,11 @@ class SampleViewModel : ViewModel() {
     var scheduleState by mutableStateOf<ScheduleState>(ScheduleState.None)
         private set
 
-    fun collectAndUpload(accountId: String, accessToken: String) {
+    fun collectAndUpload(requests: List<TSCollectionRequest>) {
         collectState = CollectState.Loading
         viewModelScope.launch {
             collectState = try {
-                val result: TSCollection = TrustSignalsSDK.collectAndUpload(
-                    TSCollectionRequest(accountId = accountId, accessToken = accessToken)
-                )
+                val result: TSCollection = TrustSignalsSDK.collectAndUpload(*requests.toTypedArray())
                 CollectState.Success(prettyJson.encodeToString(result))
             } catch (e: Exception) {
                 CollectState.Error(e.message ?: e.toString())
@@ -53,13 +51,10 @@ class SampleViewModel : ViewModel() {
         }
     }
 
-    fun scheduleCollection(accountId: String, accessToken: String, interval: Duration) {
+    fun scheduleCollection(requests: List<TSCollectionRequest>, interval: Duration) {
         scheduleState = try {
-            TrustSignalsSDK.scheduleCollections(
-                interval = interval,
-                request = TSCollectionRequest(accountId = accountId, accessToken = accessToken),
-            )
-            ScheduleState.Active(accountId, interval)
+            TrustSignalsSDK.scheduleCollections(interval, *requests.toTypedArray())
+            ScheduleState.Active(requests.map { it.accountId }, interval)
         } catch (e: IllegalArgumentException) {
             ScheduleState.Error(e.message ?: e.toString())
         }
