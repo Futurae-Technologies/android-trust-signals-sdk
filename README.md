@@ -86,8 +86,6 @@ Replace `<version>` with the [latest release tag](https://github.com/Futurae-Tec
 
 ## Permissions
 
-The SDK declares the following permissions in its manifest. They are merged into your app automatically.
-
 The SDK declares the following permissions in its AAR manifest, which are merged into your app automatically:
 
 | Permission | Level | Notes |
@@ -137,17 +135,16 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 
 ## Core Types
 
-All public types are in the `com.futurae.sdk.ts.model.public` package. The main entry point, `TrustSignalsSDK`, and the error type, `TSAuthenticationException`, live in `com.futurae.sdk.ts` and `com.futurae.sdk.ts.error` respectively.
+All public types are in the `com.futurae.sdk.ts.model.public` package. The main entry point `TrustSignalsSDK` and the error types `TSAuthenticationException` / `TSUploadException` live in `com.futurae.sdk.ts.error`.
 
 ### `TSConfiguration`
 
-Holds the static configuration for the SDK. Passed once to `TrustSignalsSDK.initialize()`.
+Holds the static SDK configuration. Passed once to `TrustSignalsSDK.initialize()`.
 
 ```kotlin
 import com.futurae.sdk.ts.model.public.TSConfiguration
 
 TSConfiguration(
-  appId = "your-app-id",
   serverURL = "https://your-trust-signals-server.example.com",
   collectionTimeoutMS = 20_000L, // optional, default is 20 000 ms
 )
@@ -155,7 +152,6 @@ TSConfiguration(
 
 | Parameter | Type | Required | Description |
 |---|---|---|---|
-| `appId` | `String` | Yes | Identifier for your application. Can be any arbitrary value that meaningfully identifies the app on the backend. |
 | `serverURL` | `String` | Yes | Base URL of the Trust Signals backend that will receive uploaded observations. |
 | `collectionTimeoutMS` | `Long` | No | Maximum time in milliseconds to wait for all signal collectors before returning a partial result. Defaults to 20 000 ms. |
 
@@ -163,7 +159,7 @@ TSConfiguration(
 
 ### `TSCollectionRequest`
 
-Carries the per-request credentials used to authenticate an upload. Passed to `collectAndUpload()` and `scheduleCollections()`.
+Carries the per-account credentials used to authenticate an upload. Passed to `collectAndUpload()` and `scheduleCollections()`. Multiple requests can be supplied in a single call to upload for several accounts in parallel.
 
 ```kotlin
 import com.futurae.sdk.ts.model.public.TSCollectionRequest
@@ -171,13 +167,15 @@ import com.futurae.sdk.ts.model.public.TSCollectionRequest
 TSCollectionRequest(
   accountId = "user-account-id",
   accessToken = "bearer-token",
+  appId = "your-app-id",
 )
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| `accountId` | `String` | Identifies the end-user entity associated with this collection. |
-| `accessToken` | `String` | Bearer token used to authenticate the upload request. An expired or invalid token causes the upload to fail with `TSAuthenticationException` (HTTP 401/403). |
+| Parameter | Type | Description                                                                                                                                                                  |
+|---|---|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `accountId` | `String` | Identifies the end-user account associated with this upload.                                                                                                                 |
+| `accessToken` | `String` | Bearer token used to authenticate the upload request. An expired or invalid token is reported as `TSAuthenticationException` (HTTP 401/403) in `TSUploadException.failures`. |
+| `appId` | `String` | Identifier for host app and tenant.                                                                                                                                          |
 
 ---
 
@@ -198,7 +196,6 @@ class MyApplication : Application() {
     TrustSignalsSDK.initialize(
       context = this,
       configuration = TSConfiguration(
-        appId = "your-app-id",
         serverURL = "https://your-trust-signals-server.example.com",
       )
     )
@@ -218,23 +215,48 @@ See [`TSConfiguration`](#tsconfiguration) for a full parameter reference.
 import com.futurae.sdk.ts.TrustSignalsSDK
 import com.futurae.sdk.ts.model.public.TSCollectionRequest
 import com.futurae.sdk.ts.error.TSAuthenticationException
+import com.futurae.sdk.ts.error.TSUploadException
 
 // Collect only (no upload)
 val collection = TrustSignalsSDK.collect()
 
-// Collect and upload in one call
+// Collect and upload — single account
 try {
   val collection = TrustSignalsSDK.collectAndUpload(
     TSCollectionRequest(
       accountId = "user-account-id",
       accessToken = "bearer-token",
+      appId = "your-app-id",
     )
   )
   // collection contains the signals that were uploaded
-} catch (e: TSAuthenticationException) {
-  // Token is invalid or expired — refresh and retry
+} catch (e: TSUploadException) {
+  // One or more uploads failed — inspect per-account causes
+  e.failures.forEach { (accountId, error) ->
+    if (error is TSAuthenticationException) { /* refresh token for accountId */ }
+  }
 } catch (e: IllegalStateException) {
-  // SDK not initialized, or upload failed with a non-auth HTTP error
+  // SDK not initialized
+}
+```
+
+#### Multiple accounts — signals collected once, uploaded in parallel
+
+`collectAndUpload` accepts any number of `TSCollectionRequest` objects. Signals are collected **once** and uploaded in parallel for every account. All uploads are always attempted — a failure for one account does not cancel the others.
+
+```kotlin
+try {
+  val collection = TrustSignalsSDK.collectAndUpload(
+    TSCollectionRequest(accountId = "account-1", accessToken = "token-1", appId = "your-app-id"),
+    TSCollectionRequest(accountId = "account-2", accessToken = "token-2", appId = "your-app-id"),
+    TSCollectionRequest(accountId = "account-3", accessToken = "token-3", appId = "your-app-id"),
+  )
+  // All uploads succeeded
+} catch (e: TSUploadException) {
+  // e.failures contains only the accounts that failed
+  e.failures.forEach { (accountId, error) ->
+    if (error is TSAuthenticationException) { /* refresh token for accountId */ }
+  }
 }
 ```
 
@@ -243,19 +265,20 @@ try {
 ```kotlin
 import com.futurae.sdk.ts.TrustSignalsSDK
 import com.futurae.sdk.ts.model.public.TSCollectionRequest
-import com.futurae.sdk.ts.error.TSAuthenticationException
+import com.futurae.sdk.ts.error.TSUploadException
 
 TrustSignalsSDK.collectAndUpload(
-  request = TSCollectionRequest(
+  TSCollectionRequest(
     accountId = "user-account-id",
     accessToken = "bearer-token",
+    appId = "your-app-id",
   ),
   onSuccess = { collection ->
     // Runs on the main thread
   },
   onError = { error ->
     // Runs on the main thread
-    if (error is TSAuthenticationException) { /* refresh token */ }
+    if (error is TSUploadException) { /* inspect error.failures */ }
   }
 )
 ```
@@ -270,21 +293,32 @@ Use `scheduleCollections` to run automatic collect-and-upload jobs in the backgr
 >
 > **Note:** To collect location data during background jobs, the host app must declare and request `ACCESS_BACKGROUND_LOCATION`. See [Background location for scheduled collections](#background-location-for-scheduled-collections).
 
+Each `TSCollectionRequest` produces one **independent** periodic job. Jobs can be stopped individually by account ID, so a failure or cancellation for one account does not affect any other.
+
 ```kotlin
 import com.futurae.sdk.ts.TrustSignalsSDK
 import com.futurae.sdk.ts.model.public.TSCollectionRequest
 import kotlin.time.Duration.Companion.minutes
 
+// Single account
 TrustSignalsSDK.scheduleCollections(
   interval = 30.minutes,
-  request = TSCollectionRequest(
+  TSCollectionRequest(
     accountId = "user-account-id",
     accessToken = "bearer-token",
+    appId = "your-app-id",
   )
+)
+
+// Multiple accounts — one independent job per account
+TrustSignalsSDK.scheduleCollections(
+  interval = 30.minutes,
+  TSCollectionRequest(accountId = "account-1", accessToken = "token-1", appId = "your-app-id"),
+  TSCollectionRequest(accountId = "account-2", accessToken = "token-2", appId = "your-app-id"),
 )
 ```
 
-Calling `scheduleCollections` again for the same account replaces the existing schedule.
+Calling `scheduleCollections` again for the same account replaces that account's existing schedule without affecting others.
 
 ---
 
@@ -303,16 +337,17 @@ import kotlin.time.Duration.Companion.minutes
 TrustSignalsSDK.registerErrorHandler { accountId, error ->
   when (error) {
     is TSAuthenticationException -> {
-      // Token expired — stop the failing schedule and restart with a fresh token
+      // Token expired — stop only the failing account and reschedule with a fresh token
       TrustSignalsSDK.stopScheduledCollections(accountId)
 
       val newToken = refreshAccessToken(accountId)
 
       TrustSignalsSDK.scheduleCollections(
         interval = 30.minutes,
-        request = TSCollectionRequest(
+        TSCollectionRequest(
           accountId = accountId,
           accessToken = newToken,
+          appId = "your-app-id",
         )
       )
     }
@@ -329,7 +364,7 @@ TrustSignalsSDK.registerErrorHandler { accountId, error ->
 // Stop a specific account's schedule
 TrustSignalsSDK.stopScheduledCollections("user-account-id")
 
-// Stop multiple accounts at once
+// Stop several accounts at once
 TrustSignalsSDK.stopScheduledCollections("account-1", "account-2")
 
 // Stop all active schedules
@@ -338,18 +373,20 @@ TrustSignalsSDK.stopScheduledCollections()
 
 **Error behaviour summary:**
 
-| Error type | Retry | Delivered to handler |
-|---|---|---|
-| Network / connectivity (`IOException`) | Up to 3 times, then permanent failure | Yes, after final attempt |
-| HTTP 401 / 403 | No | Yes, as `TSAuthenticationException` |
-| Other HTTP errors | No | Yes, as `IllegalStateException` |
-| Unexpected exceptions | No | Yes |
+| Context | Error type | Retry | How it surfaces |
+|---|---|---|---|
+| `collectAndUpload` | HTTP 401 / 403 | No | `TSUploadException` with `TSAuthenticationException` in `failures` |
+| `collectAndUpload` | Other HTTP errors | No | `TSUploadException` with `IllegalStateException` in `failures` |
+| Scheduled worker | Network / connectivity (`IOException`) | Up to 3 times, then permanent failure | Error handler, after final attempt |
+| Scheduled worker | HTTP 401 / 403 | No | Error handler, as `TSAuthenticationException` |
+| Scheduled worker | Other HTTP errors | No | Error handler, as `IllegalStateException` |
+| Scheduled worker | Unexpected exceptions | No | Error handler |
 
 ---
 
 ## Sample App
 
-A runnable sample app is available in the [`sample/`](sample/) directory. It demonstrates SDK initialization, manual collect-and-upload, and scheduled background collections using a minimal Jetpack Compose UI.
+A runnable sample app is available in the [`sample/`](sample/) directory. It demonstrates SDK initialization, manual collect-and-upload (single and multiple accounts), and scheduled background collections using a minimal Jetpack Compose UI.
 
 ### Prerequisites
 
@@ -358,8 +395,8 @@ A runnable sample app is available in the [`sample/`](sample/) directory. It dem
 The sample pulls the SDK from GitHub Packages. Add your credentials to `~/.gradle/gradle.properties` (recommended) or to `sample/gradle.properties`:
 
 ```properties
-gpr.user=YOUR_GITHUB_USERNAME
-gpr.key=YOUR_GITHUB_PERSONAL_ACCESS_TOKEN
+GITHUB_ACTOR=YOUR_GITHUB_USERNAME
+GITHUB_TOKEN=YOUR_GITHUB_PERSONAL_ACCESS_TOKEN
 ```
 
 Your token needs the `read:packages` scope. See [Installation](#installation) for details.
@@ -372,6 +409,7 @@ The sample requires a `TS_BASE_URL` Gradle property pointing to your Trust Signa
 TS_BASE_URL=https://your-trust-signals-server.example.com
 ```
 
+---
 
 ## Releases
 
