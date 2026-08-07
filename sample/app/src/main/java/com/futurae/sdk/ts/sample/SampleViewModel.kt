@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.futurae.sdk.ts.model.public.TSCollectionRequest
 import com.futurae.sdk.ts.TrustSignalsSDK
+import com.futurae.sdk.ts.error.TSUploadException
 import com.futurae.sdk.ts.model.public.TSCollection
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
@@ -45,6 +46,9 @@ class SampleViewModel : ViewModel() {
             collectState = try {
                 val result: TSCollection = TrustSignalsSDK.collectAndUpload(*requests.toTypedArray())
                 CollectState.Success(prettyJson.encodeToString(result))
+            } catch (e: TSUploadException) {
+                val detail = e.failures.entries.joinToString("\n") { (id, err) -> "$id: ${err.message}" }
+                CollectState.Error(detail)
             } catch (e: Exception) {
                 CollectState.Error(e.message ?: e.toString())
             }
