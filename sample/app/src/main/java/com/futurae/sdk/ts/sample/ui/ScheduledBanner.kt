@@ -87,7 +87,7 @@ fun ScheduledBanner(
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
                 Text(
-                    text = "Every ${state.interval.toLabel()} · ${state.accountId}",
+                    text = "Every ${state.interval.toLabel()} · ${state.accountIds.joinToString(", ")}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )

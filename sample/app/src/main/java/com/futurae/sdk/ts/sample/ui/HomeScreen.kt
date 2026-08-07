@@ -37,10 +37,10 @@ fun HomeScreen(vm: SampleViewModel = viewModel()) {
     pendingAction?.let { action ->
         CredentialsDialog(
             title = if (action == Action.CollectAndUpload) "Collect & Upload" else "Schedule Collection",
-            onConfirm = { accountId, token ->
+            onConfirm = { requests ->
                 when (action) {
-                    Action.CollectAndUpload -> vm.collectAndUpload(accountId, token)
-                    Action.Schedule -> vm.scheduleCollection(accountId, token, selectedInterval)
+                    Action.CollectAndUpload -> vm.collectAndUpload(requests)
+                    Action.Schedule -> vm.scheduleCollection(requests, selectedInterval)
                 }
                 pendingAction = null
             },

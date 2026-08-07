@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.futurae.sdk.ts.model.public.TSCollectionRequest
 import com.futurae.sdk.ts.TrustSignalsSDK
+import com.futurae.sdk.ts.error.TSUploadException
 import com.futurae.sdk.ts.model.public.TSCollection
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
@@ -29,7 +30,7 @@ class SampleViewModel : ViewModel() {
 
     sealed interface ScheduleState {
         data object None : ScheduleState
-        data class Active(val accountId: String, val interval: Duration) : ScheduleState
+        data class Active(val accountIds: List<String>, val interval: Duration) : ScheduleState
         data class Error(val message: String) : ScheduleState
     }
 
@@ -39,27 +40,25 @@ class SampleViewModel : ViewModel() {
     var scheduleState by mutableStateOf<ScheduleState>(ScheduleState.None)
         private set
 
-    fun collectAndUpload(accountId: String, accessToken: String) {
+    fun collectAndUpload(requests: List<TSCollectionRequest>) {
         collectState = CollectState.Loading
         viewModelScope.launch {
             collectState = try {
-                val result: TSCollection = TrustSignalsSDK.collectAndUpload(
-                    TSCollectionRequest(accountId = accountId, accessToken = accessToken)
-                )
+                val result: TSCollection = TrustSignalsSDK.collectAndUpload(*requests.toTypedArray())
                 CollectState.Success(prettyJson.encodeToString(result))
+            } catch (e: TSUploadException) {
+                val detail = e.failures.entries.joinToString("\n") { (id, err) -> "$id: ${err.message}" }
+                CollectState.Error(detail)
             } catch (e: Exception) {
                 CollectState.Error(e.message ?: e.toString())
             }
         }
     }
 
-    fun scheduleCollection(accountId: String, accessToken: String, interval: Duration) {
+    fun scheduleCollection(requests: List<TSCollectionRequest>, interval: Duration) {
         scheduleState = try {
-            TrustSignalsSDK.scheduleCollections(
-                interval = interval,
-                request = TSCollectionRequest(accountId = accountId, accessToken = accessToken),
-            )
-            ScheduleState.Active(accountId, interval)
+            TrustSignalsSDK.scheduleCollections(interval, *requests.toTypedArray())
+            ScheduleState.Active(requests.map { it.accountId }, interval)
         } catch (e: IllegalArgumentException) {
             ScheduleState.Error(e.message ?: e.toString())
         }
