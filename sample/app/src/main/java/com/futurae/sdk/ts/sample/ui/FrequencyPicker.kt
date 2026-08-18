@@ -12,45 +12,41 @@ import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
-import kotlin.time.Duration
-import kotlin.time.Duration.Companion.hours
-import kotlin.time.Duration.Companion.minutes
-
-internal val scheduleIntervals = listOf(15.minutes, 30.minutes, 1.hours, 6.hours)
-
-internal fun Duration.toLabel(): String = toComponents { hours, minutes, _, _ ->
-    when {
-        hours > 0 && minutes == 0 -> "${hours}h"
-        hours > 0 -> "${hours}h ${minutes}m"
-        else -> "${minutes}m"
-    }
-}
+import com.futurae.sdk.ts.sample.SampleViewModel
+import com.futurae.sdk.ts.sample.utils.UITestTags
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FrequencyPicker(
-    selected: Duration,
-    onSelect: (Duration) -> Unit,
+    selected: SampleViewModel.ScheduleFrequency,
+    onSelect: (SampleViewModel.ScheduleFrequency) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val options = SampleViewModel.ScheduleFrequency.entries
     Column(modifier = modifier) {
         Text(
-            text = "Collection frequency",
+            text = "Scheduled Collection Frequency",
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Spacer(Modifier.height(6.dp))
-        SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-            scheduleIntervals.forEachIndexed { index, interval ->
+        SingleChoiceSegmentedButtonRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .semantics { testTag = UITestTags.FrequencyOption.tag },
+        ) {
+            options.forEachIndexed { index, frequency ->
                 SegmentedButton(
-                    selected = interval == selected,
-                    onClick = { onSelect(interval) },
+                    selected = frequency == selected,
+                    onClick = { onSelect(frequency) },
                     shape = SegmentedButtonDefaults.itemShape(
                         index = index,
-                        count = scheduleIntervals.size,
+                        count = options.size,
                     ),
-                    label = { Text(interval.toLabel()) },
+                    label = { Text(frequency.label) },
                 )
             }
         }

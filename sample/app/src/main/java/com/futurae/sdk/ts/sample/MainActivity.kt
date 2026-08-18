@@ -9,9 +9,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.futurae.sdk.ts.TrustSignalsSDK
 import com.futurae.sdk.ts.model.public.TSConfiguration
+import com.futurae.sdk.ts.sample.ui.CollectionDetailScreen
 import com.futurae.sdk.ts.sample.ui.HomeScreen
 
 class MainActivity : ComponentActivity() {
@@ -33,7 +36,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    HomeScreen()
+                    AppContent()
                 }
             }
         }
@@ -51,4 +54,14 @@ class MainActivity : ComponentActivity() {
         }
         add(Manifest.permission.READ_PHONE_STATE)
     }.toTypedArray()
+}
+
+@Composable
+private fun AppContent(vm: SampleViewModel = viewModel()) {
+    val selected = vm.selectedEntry
+    if (selected != null) {
+        CollectionDetailScreen(entry = selected, onBack = vm::clearSelection)
+    } else {
+        HomeScreen(vm = vm)
+    }
 }
