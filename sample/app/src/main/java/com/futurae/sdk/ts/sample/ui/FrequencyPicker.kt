@@ -47,6 +47,9 @@ fun FrequencyPicker(
                         count = options.size,
                     ),
                     label = { Text(frequency.label) },
+                    modifier = Modifier.semantics {
+                        testTag = "${UITestTags.FrequencyOption.tag}_${frequency.name.lowercase()}"
+                    },
                 )
             }
         }

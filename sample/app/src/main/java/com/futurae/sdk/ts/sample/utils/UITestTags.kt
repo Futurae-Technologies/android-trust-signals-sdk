@@ -11,7 +11,7 @@ enum class UITestTags(val tag: String) {
     AccessTokenInput("access_token_input"),
 
     // Home screen — frequency picker (tag on the whole row)
-    FrequencyOption("frequency_option"),
+    FrequencyOption("frequency_option"),    // individual buttons use "${FrequencyOption.tag}_${frequency.name.lowercase()}", e.g. frequency_option_off
 
     // Home screen — collections list
     CollectionsCount("collections_count"),
