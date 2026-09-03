@@ -220,6 +220,10 @@ import com.futurae.sdk.ts.error.TSUploadException
 // Collect only (no upload)
 val collection = TrustSignalsSDK.collect()
 
+// Collect only, overriding collectionTimeoutMS for this call. Falls back to the value from
+// TSConfiguration when omitted.
+val fastCollection = TrustSignalsSDK.collect(timeoutMs = 5_000L)
+
 // Collect and upload — single account
 try {
   val collection = TrustSignalsSDK.collectAndUpload(
@@ -227,7 +231,8 @@ try {
       accountId = "user-account-id",
       accessToken = "bearer-token",
       appId = "your-app-id",
-    )
+    ),
+    timeoutMs = 5_000L, // optional — overrides collectionTimeoutMS for this call
   )
   // collection contains the signals that were uploaded
 } catch (e: TSUploadException) {
@@ -242,6 +247,7 @@ try {
 
 #### Multiple accounts — signals collected once, uploaded in parallel
 
+__
 `collectAndUpload` accepts any number of `TSCollectionRequest` objects. Signals are collected **once** and uploaded in parallel for every account. All uploads are always attempted — a failure for one account does not cancel the others.
 
 ```kotlin
