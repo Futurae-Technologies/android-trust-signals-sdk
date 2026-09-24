@@ -6,9 +6,14 @@ enum class UITestTags(val tag: String) {
     CollectAndUploadButton("collect_and_upload"),
 
     // Home screen — inputs
-    AppIDInput("appid_input"),
     AccountIDInput("accountid_input"),
     AccessTokenInput("access_token_input"),
+    ServiceIDInput("serviceid_input"),
+    UnitIDInput("unitid_input"),
+    InteractionIDInput("interactionid_input"),
+
+    // Home screen — verification status picker (tag on the whole row)
+    VerificationStatusOption("verification_status_option"),    // individual buttons use "${VerificationStatusOption.tag}_${status.name.lowercase()}", e.g. verification_status_option_verified
 
     // Home screen — frequency picker (tag on the whole row)
     FrequencyOption("frequency_option"),    // individual buttons use "${FrequencyOption.tag}_${frequency.name.lowercase()}", e.g. frequency_option_off
