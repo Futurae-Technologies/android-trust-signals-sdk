@@ -9,6 +9,7 @@ import com.futurae.sdk.ts.TrustSignalsSDK
 import com.futurae.sdk.ts.error.TSUploadException
 import com.futurae.sdk.ts.model.public.TSCollection
 import com.futurae.sdk.ts.model.public.TSCollectionRequest
+import com.futurae.sdk.ts.model.public.TSVerificationStatus
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -36,9 +37,12 @@ class SampleViewModel : ViewModel() {
         data class Error(val message: String) : CollectionEntry
     }
 
-    var appId by mutableStateOf("")
     var accountIds by mutableStateOf("")
     var accessToken by mutableStateOf("")
+    var serviceId by mutableStateOf("")
+    var unitId by mutableStateOf("")
+    var interactionId by mutableStateOf(UUID.randomUUID().toString())
+    var verificationStatus by mutableStateOf(TSVerificationStatus.VERIFIED)
 
     var selectedFrequency by mutableStateOf(ScheduleFrequency.Off)
         private set
@@ -116,7 +120,24 @@ class SampleViewModel : ViewModel() {
 
     private fun buildRequests(): List<TSCollectionRequest>? {
         val ids = accountIds.split(",").map { it.trim() }.filter { it.isNotEmpty() }
-        if (ids.isEmpty() || accessToken.isBlank() || appId.isBlank()) return null
-        return ids.map { TSCollectionRequest(accountId = it, accessToken = accessToken, appId = appId) }
+        if (ids.isEmpty() || accessToken.isBlank() || serviceId.isBlank() || unitId.isBlank() || interactionId.isBlank()) {
+            return null
+        }
+        return try {
+            ids.map {
+                TSCollectionRequest(
+                    accountId = it,
+                    accessToken = accessToken,
+                    serviceId = serviceId.trim(),
+                    unitId = unitId.trim(),
+                    interactionId = interactionId.trim(),
+                    verificationStatus = verificationStatus,
+                )
+            }
+        } catch (e: IllegalArgumentException) {
+            // The constructor validates identifier formats; surface the problem instead of crashing.
+            collections = listOf(CollectionEntry.Error("Invalid request: ${e.message}")) + collections
+            null
+        }
     }
 }
