@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
 
         TrustSignalsSDK.initialize(
             context = this,
-            configuration = TSConfiguration(serverURL = BuildConfig.TS_BASE_URL),
+            configuration = TSConfiguration(collectionUrl = BuildConfig.TS_COLLECTION_URL),
         )
 
         permissionsLauncher.launch(buildRequiredPermissions())

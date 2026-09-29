@@ -295,7 +295,7 @@ TrustSignalsSDK.collectAndUpload(
 
 Use `scheduleCollections` to run automatic collect-and-upload jobs in the background via WorkManager. Jobs survive app restarts.
 
-> **Note:** The minimum interval is **15 minutes** (`TrustSignalsSDK.MIN_COLLECTION_INTERVAL`). Passing a shorter value throws `IllegalArgumentException`.
+> **Note:** The minimum collectionInterval is **15 minutes** (`TrustSignalsSDK.MIN_COLLECTION_INTERVAL`). Passing a shorter value throws `IllegalArgumentException`.
 >
 > **Note:** To collect location data during background jobs, the host app must declare and request `ACCESS_BACKGROUND_LOCATION`. See [Background location for scheduled collections](#background-location-for-scheduled-collections).
 
@@ -308,7 +308,7 @@ import kotlin.time.Duration.Companion.minutes
 
 // Single account
 TrustSignalsSDK.scheduleCollections(
-  interval = 30.minutes,
+  collectionInterval = 30.minutes,
   TSCollectionRequest(
     accountId = "user-account-id",
     accessToken = "bearer-token",
@@ -318,7 +318,7 @@ TrustSignalsSDK.scheduleCollections(
 
 // Multiple accounts — one independent job per account
 TrustSignalsSDK.scheduleCollections(
-  interval = 30.minutes,
+  collectionInterval = 30.minutes,
   TSCollectionRequest(accountId = "account-1", accessToken = "token-1", appId = "your-app-id"),
   TSCollectionRequest(accountId = "account-2", accessToken = "token-2", appId = "your-app-id"),
 )
@@ -349,7 +349,7 @@ TrustSignalsSDK.registerErrorHandler { accountId, error ->
       val newToken = refreshAccessToken(accountId)
 
       TrustSignalsSDK.scheduleCollections(
-        interval = 30.minutes,
+        collectionInterval = 30.minutes,
         TSCollectionRequest(
           accountId = accountId,
           accessToken = newToken,
@@ -409,10 +409,10 @@ Your token needs the `read:packages` scope. See [Installation](#installation) fo
 
 **2. Backend URL**
 
-The sample requires a `TS_BASE_URL` Gradle property pointing to your Trust Signals backend. Add it to `~/.gradle/gradle.properties` or `sample/gradle.properties`:
+The sample requires a `TS_COLLECTION_URL` Gradle property pointing to your Trust Signals backend. Add it to `~/.gradle/gradle.properties` or `sample/gradle.properties`:
 
 ```properties
-TS_BASE_URL=https://your-trust-signals-server.example.com
+TS_COLLECTION_URL=https://your-trust-signals-server.example.com/api/v1/collections"
 ```
 
 ---
