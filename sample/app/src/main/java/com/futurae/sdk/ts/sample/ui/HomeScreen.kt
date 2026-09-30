@@ -43,7 +43,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.futurae.sdk.ts.model.public.TSCollection
 import com.futurae.sdk.ts.sample.SampleViewModel
 import com.futurae.sdk.ts.sample.utils.UITestTags
 import java.text.SimpleDateFormat
@@ -209,7 +208,9 @@ fun HomeScreen(vm: SampleViewModel = viewModel()) {
         )
 
         if (vm.collections.isEmpty()) {
-            Card(modifier = Modifier.fillMaxWidth().semantics { testTag = UITestTags.CollectionEmptyState.tag }) {
+            Card(modifier = Modifier
+                .fillMaxWidth()
+                .semantics { testTag = UITestTags.CollectionEmptyState.tag }) {
                 Text(
                     text = "No collections yet — tap Collect Now",
                     modifier = Modifier.padding(16.dp),
@@ -286,11 +287,11 @@ private fun CollectionSuccessContent(entry: SampleViewModel.CollectionEntry.Succ
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = collection.timestamp.toDateTimeString(),
+                text = collection.observationTime,
                 style = MaterialTheme.typography.bodySmall,
                 fontWeight = FontWeight.Medium,
             )
-            TagBadge(collection.tag)
+            TagBadge(collection.sensorTag)
         }
 
         Row(
@@ -298,12 +299,20 @@ private fun CollectionSuccessContent(entry: SampleViewModel.CollectionEntry.Succ
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            SignalStat("BLE", obs.bleScan?.permission, obs.bleScan?.scanResults?.size?.toString() ?: "0")
-            SignalStat("WiFi", obs.wifiScan?.permission, obs.wifiScan?.scanResults?.size?.toString() ?: "—")
+            SignalStat(
+                "BLE",
+                obs.bleScan?.permissionGranted,
+                obs.bleScan?.scanResults?.size?.toString() ?: "0"
+            )
+            SignalStat(
+                "WiFi",
+                obs.wifiScan?.permissionGranted,
+                obs.wifiScan?.scanResults?.size?.toString() ?: "—"
+            )
             SignalStat(
                 label = "Loc",
-                permitted = obs.locationCollection != null,
-                value = obs.locationCollection?.lat?.toTruncated() ?: "—",
+                permitted = obs.location != null,
+                value = obs.location?.lat?.toTruncated() ?: "—",
             )
             SignalStat("Near", null, obs.nearbyDevices?.size?.toString() ?: "—")
             SignalStat("Call", null, if (obs.activeCall == true) "yes" else "no")

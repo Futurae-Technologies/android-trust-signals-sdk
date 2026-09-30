@@ -157,25 +157,34 @@ TSConfiguration(
 
 ---
 
-### `TSCollectionRequest`
+### `TSCredentials`
 
-Carries the per-account credentials used to authenticate an upload. Passed to `collectAndUpload()` and `scheduleCollections()`. Multiple requests can be supplied in a single call to upload for several accounts in parallel.
+Carries the per-account credentials and identifiers used to authenticate an upload. Passed to
+`collectAndUpload()` and `scheduleCollections()`. Multiple credentials can be supplied in a single
+call to upload for several accounts in parallel.
 
 ```kotlin
-import com.futurae.sdk.ts.model.public.TSCollectionRequest
+import com.futurae.sdk.ts.model.public.TSCredentials
+import com.futurae.sdk.ts.model.public.TSVerificationStatus
 
-TSCollectionRequest(
+TSCredentials(
   accountId = "user-account-id",
   accessToken = "bearer-token",
-  appId = "your-app-id",
+  serviceId = "550e8400-e29b-41d4-a716-446655440000",
+  unitId = "futapp-android",
+  interactionId = "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  verificationStatus = TSVerificationStatus.VERIFIED,
 )
 ```
 
-| Parameter | Type | Description                                                                                                                                                                  |
-|---|---|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `accountId` | `String` | Identifies the end-user account associated with this upload.                                                                                                                 |
-| `accessToken` | `String` | Bearer token used to authenticate the upload request. An expired or invalid token is reported as `TSAuthenticationException` (HTTP 401/403) in `TSUploadException.failures`. |
-| `appId` | `String` | Identifier for host app and tenant.                                                                                                                                          |
+| Parameter            | Type                   | Description                                                                                                                                                                  |
+|----------------------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `accountId`          | `String`               | Identifies the end-user account associated with this upload. Must be a UUID.                                                                                                 |
+| `accessToken`        | `String`               | Bearer token used to authenticate the upload request. An expired or invalid token is reported as `TSAuthenticationException` (HTTP 401/403) in `TSUploadException.failures`. |
+| `serviceId`          | `String`               | Tenant identifier. Must be a UUID.                                                                                                                                           |
+| `unitId`             | `String`               | Mobile app identifier, e.g. `futapp-android`. 1–1000 characters: letters, numbers and `-` only.                                                                              |
+| `interactionId`      | `String`               | Per-installation identifier. Must be a UUID.                                                                                                                                 |
+| `verificationStatus` | `TSVerificationStatus` | Outcome of the host app's own verification: `VERIFIED`, `UNVERIFIED` or `FRAUD`.                                                                                             |
 
 ---
 
@@ -213,8 +222,10 @@ See [`TSConfiguration`](#tsconfiguration) for a full parameter reference.
 
 ```kotlin
 import com.futurae.sdk.ts.TrustSignalsSDK
-import com.futurae.sdk.ts.model.public.TSCollectionRequest
+import com.futurae.sdk.ts.model.public.TSCredentials
+import com.futurae.sdk.ts.model.public.TSVerificationStatus
 import com.futurae.sdk.ts.error.TSAuthenticationException
+import com.futurae.sdk.ts.error.TSNotInitializedException
 import com.futurae.sdk.ts.error.TSUploadException
 
 // Collect only (no upload)
@@ -227,10 +238,13 @@ val fastCollection = TrustSignalsSDK.collect(timeoutMs = 5_000L)
 // Collect and upload — single account
 try {
   val collection = TrustSignalsSDK.collectAndUpload(
-    TSCollectionRequest(
+    TSCredentials(
       accountId = "user-account-id",
       accessToken = "bearer-token",
-      appId = "your-app-id",
+      serviceId = "550e8400-e29b-41d4-a716-446655440000",
+      unitId = "futapp-android",
+      interactionId = "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+      verificationStatus = TSVerificationStatus.VERIFIED,
     ),
     timeoutMs = 5_000L, // optional — overrides collectionTimeoutMS for this call
   )
@@ -240,22 +254,45 @@ try {
   e.failures.forEach { (accountId, error) ->
     if (error is TSAuthenticationException) { /* refresh token for accountId */ }
   }
-} catch (e: IllegalStateException) {
-  // SDK not initialized
+} catch (e: TSNotInitializedException) {
+  // SDK not initialized — call TrustSignalsSDK.initialize() first
 }
 ```
 
 #### Multiple accounts — signals collected once, uploaded in parallel
 
 __
-`collectAndUpload` accepts any number of `TSCollectionRequest` objects. Signals are collected **once** and uploaded in parallel for every account. All uploads are always attempted — a failure for one account does not cancel the others.
+`collectAndUpload` accepts any number of `TSCredentials` objects. Signals are collected **once** and
+uploaded in parallel for every account. All uploads are always attempted — a failure for one account
+does not cancel the others.
 
 ```kotlin
 try {
   val collection = TrustSignalsSDK.collectAndUpload(
-    TSCollectionRequest(accountId = "account-1", accessToken = "token-1", appId = "your-app-id"),
-    TSCollectionRequest(accountId = "account-2", accessToken = "token-2", appId = "your-app-id"),
-    TSCollectionRequest(accountId = "account-3", accessToken = "token-3", appId = "your-app-id"),
+    TSCredentials(
+      accountId = "account-1",
+      accessToken = "token-1",
+      serviceId = SERVICE_ID,
+      unitId = UNIT_ID,
+      interactionId = INTERACTION_ID,
+      verificationStatus = TSVerificationStatus.VERIFIED
+    ),
+    TSCredentials(
+      accountId = "account-2",
+      accessToken = "token-2",
+      serviceId = SERVICE_ID,
+      unitId = UNIT_ID,
+      interactionId = INTERACTION_ID,
+      verificationStatus = TSVerificationStatus.VERIFIED
+    ),
+    TSCredentials(
+      accountId = "account-3",
+      accessToken = "token-3",
+      serviceId = SERVICE_ID,
+      unitId = UNIT_ID,
+      interactionId = INTERACTION_ID,
+      verificationStatus = TSVerificationStatus.VERIFIED
+    ),
   )
   // All uploads succeeded
 } catch (e: TSUploadException) {
@@ -270,14 +307,17 @@ try {
 
 ```kotlin
 import com.futurae.sdk.ts.TrustSignalsSDK
-import com.futurae.sdk.ts.model.public.TSCollectionRequest
+import com.futurae.sdk.ts.model.public.TSCredentials
 import com.futurae.sdk.ts.error.TSUploadException
 
 TrustSignalsSDK.collectAndUpload(
-  TSCollectionRequest(
+  TSCredentials(
     accountId = "user-account-id",
     accessToken = "bearer-token",
-    appId = "your-app-id",
+    serviceId = "550e8400-e29b-41d4-a716-446655440000",
+    unitId = "futapp-android",
+    interactionId = "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    verificationStatus = TSVerificationStatus.VERIFIED,
   ),
   onSuccess = { collection ->
     // Runs on the main thread
@@ -299,28 +339,47 @@ Use `scheduleCollections` to run automatic collect-and-upload jobs in the backgr
 >
 > **Note:** To collect location data during background jobs, the host app must declare and request `ACCESS_BACKGROUND_LOCATION`. See [Background location for scheduled collections](#background-location-for-scheduled-collections).
 
-Each `TSCollectionRequest` produces one **independent** periodic job. Jobs can be stopped individually by account ID, so a failure or cancellation for one account does not affect any other.
+Each `TSCredentials` produces one **independent** periodic job. Jobs can be stopped individually by
+account ID, so a failure or cancellation for one account does not affect any other.
 
 ```kotlin
 import com.futurae.sdk.ts.TrustSignalsSDK
-import com.futurae.sdk.ts.model.public.TSCollectionRequest
+import com.futurae.sdk.ts.model.public.TSCredentials
+import com.futurae.sdk.ts.model.public.TSVerificationStatus
 import kotlin.time.Duration.Companion.minutes
 
 // Single account
 TrustSignalsSDK.scheduleCollections(
   collectionInterval = 30.minutes,
-  TSCollectionRequest(
+  TSCredentials(
     accountId = "user-account-id",
     accessToken = "bearer-token",
-    appId = "your-app-id",
+    serviceId = "550e8400-e29b-41d4-a716-446655440000",
+    unitId = "futapp-android",
+    interactionId = "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    verificationStatus = TSVerificationStatus.VERIFIED,
   )
 )
 
 // Multiple accounts — one independent job per account
 TrustSignalsSDK.scheduleCollections(
   collectionInterval = 30.minutes,
-  TSCollectionRequest(accountId = "account-1", accessToken = "token-1", appId = "your-app-id"),
-  TSCollectionRequest(accountId = "account-2", accessToken = "token-2", appId = "your-app-id"),
+  TSCredentials(
+    accountId = "account-1",
+    accessToken = "token-1",
+    serviceId = SERVICE_ID,
+    unitId = UNIT_ID,
+    interactionId = INTERACTION_ID,
+    verificationStatus = TSVerificationStatus.VERIFIED
+  ),
+  TSCredentials(
+    accountId = "account-2",
+    accessToken = "token-2",
+    serviceId = SERVICE_ID,
+    unitId = UNIT_ID,
+    interactionId = INTERACTION_ID,
+    verificationStatus = TSVerificationStatus.VERIFIED
+  ),
 )
 ```
 
@@ -336,7 +395,8 @@ Errors from background workers (e.g. expired tokens) are delivered to a register
 
 ```kotlin
 import com.futurae.sdk.ts.TrustSignalsSDK
-import com.futurae.sdk.ts.model.public.TSCollectionRequest
+import com.futurae.sdk.ts.model.public.TSCredentials
+import com.futurae.sdk.ts.model.public.TSVerificationStatus
 import com.futurae.sdk.ts.error.TSAuthenticationException
 import kotlin.time.Duration.Companion.minutes
 
@@ -350,10 +410,13 @@ TrustSignalsSDK.registerErrorHandler { accountId, error ->
 
       TrustSignalsSDK.scheduleCollections(
         collectionInterval = 30.minutes,
-        TSCollectionRequest(
+        TSCredentials(
           accountId = accountId,
           accessToken = newToken,
-          appId = "your-app-id",
+          serviceId = serviceId,
+          unitId = unitId,
+          interactionId = interactionId,
+          verificationStatus = verificationStatus,
         )
       )
     }
@@ -379,14 +442,14 @@ TrustSignalsSDK.stopScheduledCollections()
 
 **Error behaviour summary:**
 
-| Context | Error type | Retry | How it surfaces |
-|---|---|---|---|
-| `collectAndUpload` | HTTP 401 / 403 | No | `TSUploadException` with `TSAuthenticationException` in `failures` |
-| `collectAndUpload` | Other HTTP errors | No | `TSUploadException` with `IllegalStateException` in `failures` |
-| Scheduled worker | Network / connectivity (`IOException`) | Up to 3 times, then permanent failure | Error handler, after final attempt |
-| Scheduled worker | HTTP 401 / 403 | No | Error handler, as `TSAuthenticationException` |
-| Scheduled worker | Other HTTP errors | No | Error handler, as `IllegalStateException` |
-| Scheduled worker | Unexpected exceptions | No | Error handler |
+| Context            | Error type                             | Retry                                 | How it surfaces                                                                          |
+|--------------------|----------------------------------------|---------------------------------------|------------------------------------------------------------------------------------------|
+| `collectAndUpload` | HTTP 401 / 403                         | No                                    | `TSUploadException` with `TSAuthenticationException` in `failures`                       |
+| `collectAndUpload` | Other HTTP errors                      | No                                    | `TSUploadException` with `TSUploadFailedException` in `failures`                         |
+| Scheduled worker   | Network / connectivity (`IOException`) | Up to 3 times, then permanent failure | Error handler, after final attempt, as `TSUploadFailedException` (cause = `IOException`) |
+| Scheduled worker   | HTTP 401 / 403                         | No                                    | Error handler, as `TSAuthenticationException`                                            |
+| Scheduled worker   | Other HTTP errors                      | No                                    | Error handler, as `TSUploadFailedException`                                              |
+| Scheduled worker   | Unexpected exceptions                  | No                                    | Error handler                                                                            |
 
 ---
 

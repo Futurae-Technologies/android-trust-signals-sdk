@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.futurae.sdk.ts.TrustSignalsSDK
 import com.futurae.sdk.ts.error.TSUploadException
 import com.futurae.sdk.ts.model.public.TSCollection
-import com.futurae.sdk.ts.model.public.TSCollectionRequest
+import com.futurae.sdk.ts.model.public.TSCredentials
 import com.futurae.sdk.ts.model.public.TSVerificationStatus
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -66,7 +66,7 @@ class SampleViewModel : ViewModel() {
         scheduleJob = viewModelScope.launch {
             while (isActive) {
                 delay(duration)
-                buildRequests()?.let { doCollectAndUpload(it) }
+                buildCredentials()?.let { doCollectAndUpload(it) }
             }
         }
     }
@@ -80,7 +80,7 @@ class SampleViewModel : ViewModel() {
             val entry = try {
                 val collection = TrustSignalsSDK.collect()
                 CollectionEntry.Success(
-                    id = UUID.randomUUID().toString(),
+                    id = collection.collectionId,
                     collection = collection,
                     uploaded = false,
                 )
@@ -93,7 +93,7 @@ class SampleViewModel : ViewModel() {
     }
 
     fun collectAndUpload() {
-        val requests = buildRequests() ?: return
+        val requests = buildCredentials() ?: return
         viewModelScope.launch {
             isLoading = true
             doCollectAndUpload(requests)
@@ -101,11 +101,11 @@ class SampleViewModel : ViewModel() {
         }
     }
 
-    private suspend fun doCollectAndUpload(requests: List<TSCollectionRequest>) {
+    private suspend fun doCollectAndUpload(requests: List<TSCredentials>) {
         val entry = try {
             val collection = TrustSignalsSDK.collectAndUpload(*requests.toTypedArray())
             CollectionEntry.Success(
-                id = UUID.randomUUID().toString(),
+                id = collection.collectionId,
                 collection = collection,
                 uploaded = true,
             )
@@ -118,14 +118,14 @@ class SampleViewModel : ViewModel() {
         collections = listOf(entry) + collections
     }
 
-    private fun buildRequests(): List<TSCollectionRequest>? {
+    private fun buildCredentials(): List<TSCredentials>? {
         val ids = accountIds.split(",").map { it.trim() }.filter { it.isNotEmpty() }
         if (ids.isEmpty() || accessToken.isBlank() || serviceId.isBlank() || unitId.isBlank() || interactionId.isBlank()) {
             return null
         }
         return try {
             ids.map {
-                TSCollectionRequest(
+                TSCredentials(
                     accountId = it,
                     accessToken = accessToken,
                     serviceId = serviceId.trim(),
