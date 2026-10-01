@@ -175,7 +175,7 @@ fun CollectionDetailScreen(
                     KeyValueRow("speed", it.toString())
                 }
                 HorizontalDivider()
-                KeyValueRow("timestamp", loc.timestamp.toString())
+                KeyValueRow("observationTime", loc.observationTime)
             }
         }
 
@@ -194,7 +194,7 @@ fun CollectionDetailScreen(
                     KeyValueRow("rssi", it.toString())
                 }
                 HorizontalDivider()
-                KeyValueRow("timestamp", net.timestamp.toString())
+                KeyValueRow("observationTime", net.observationTime)
                 net.connectedDevices?.takeIf { it.isNotEmpty() }?.let { devices ->
                     devices.forEachIndexed { i, device ->
                         HorizontalDivider()
