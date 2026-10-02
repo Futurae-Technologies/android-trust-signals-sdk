@@ -85,7 +85,7 @@ fun CollectionDetailScreen(
 
         // ── deviceInfoSignals ─────────────────────────────────────────────────
 
-        collection.deviceInfoSignals?.let { d ->
+        collection.observation.deviceInfoSignals.let { d ->
             SectionLabel("deviceInfoSignals")
             KeyValueCard {
                 d.model?.let { KeyValueRow("model", it); HorizontalDivider() }
