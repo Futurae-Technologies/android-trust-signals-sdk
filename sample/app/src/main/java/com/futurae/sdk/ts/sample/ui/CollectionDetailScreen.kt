@@ -67,7 +67,7 @@ fun CollectionDetailScreen(
         }
 
         Text(
-            text = collection.observationTime,
+            text = collection.observationTime.toString(),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
         )
@@ -76,7 +76,7 @@ fun CollectionDetailScreen(
 
         SectionLabel("Header")
         KeyValueCard {
-            KeyValueRow("observationTime", collection.observationTime)
+            KeyValueRow("observationTime", collection.observationTime.toString())
             HorizontalDivider()
             KeyValueRow("sensorTag", collection.sensorTag)
             HorizontalDivider()
@@ -175,7 +175,7 @@ fun CollectionDetailScreen(
                     KeyValueRow("speed", it.toString())
                 }
                 HorizontalDivider()
-                KeyValueRow("observationTime", loc.observationTime)
+                KeyValueRow("observationTime", loc.observationTime.toString())
             }
         }
 
@@ -194,7 +194,7 @@ fun CollectionDetailScreen(
                     KeyValueRow("rssi", it.toString())
                 }
                 HorizontalDivider()
-                KeyValueRow("observationTime", net.observationTime)
+                KeyValueRow("observationTime", net.observationTime.toString())
                 net.connectedDevices?.takeIf { it.isNotEmpty() }?.let { devices ->
                     devices.forEachIndexed { i, device ->
                         HorizontalDivider()

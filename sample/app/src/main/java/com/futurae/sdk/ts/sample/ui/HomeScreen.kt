@@ -287,7 +287,7 @@ private fun CollectionSuccessContent(entry: SampleViewModel.CollectionEntry.Succ
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = collection.observationTime,
+                text = collection.observationTime.toString(),
                 style = MaterialTheme.typography.bodySmall,
                 fontWeight = FontWeight.Medium,
             )
