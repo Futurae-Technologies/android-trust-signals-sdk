@@ -8,7 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.futurae.sdk.ts.TrustSignalsSDK
 import com.futurae.sdk.ts.error.TSUploadException
 import com.futurae.sdk.ts.model.public.TSCollection
-import com.futurae.sdk.ts.model.public.TSCollectionRequest
+import com.futurae.sdk.ts.model.public.TSCredentials
+import com.futurae.sdk.ts.model.public.TSVerificationStatus
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -36,9 +37,12 @@ class SampleViewModel : ViewModel() {
         data class Error(val message: String) : CollectionEntry
     }
 
-    var appId by mutableStateOf("")
     var accountIds by mutableStateOf("")
     var accessToken by mutableStateOf("")
+    var serviceId by mutableStateOf("")
+    var unitId by mutableStateOf("")
+    var interactionId by mutableStateOf(UUID.randomUUID().toString())
+    var verificationStatus by mutableStateOf(TSVerificationStatus.VERIFIED)
 
     var selectedFrequency by mutableStateOf(ScheduleFrequency.Off)
         private set
@@ -62,7 +66,7 @@ class SampleViewModel : ViewModel() {
         scheduleJob = viewModelScope.launch {
             while (isActive) {
                 delay(duration)
-                buildRequests()?.let { doCollectAndUpload(it) }
+                buildCredentials()?.let { doCollectAndUpload(it) }
             }
         }
     }
@@ -76,7 +80,7 @@ class SampleViewModel : ViewModel() {
             val entry = try {
                 val collection = TrustSignalsSDK.collect()
                 CollectionEntry.Success(
-                    id = UUID.randomUUID().toString(),
+                    id = collection.collectionId,
                     collection = collection,
                     uploaded = false,
                 )
@@ -89,7 +93,7 @@ class SampleViewModel : ViewModel() {
     }
 
     fun collectAndUpload() {
-        val requests = buildRequests() ?: return
+        val requests = buildCredentials() ?: return
         viewModelScope.launch {
             isLoading = true
             doCollectAndUpload(requests)
@@ -97,11 +101,11 @@ class SampleViewModel : ViewModel() {
         }
     }
 
-    private suspend fun doCollectAndUpload(requests: List<TSCollectionRequest>) {
+    private suspend fun doCollectAndUpload(requests: List<TSCredentials>) {
         val entry = try {
             val collection = TrustSignalsSDK.collectAndUpload(*requests.toTypedArray())
             CollectionEntry.Success(
-                id = UUID.randomUUID().toString(),
+                id = collection.collectionId,
                 collection = collection,
                 uploaded = true,
             )
@@ -114,9 +118,26 @@ class SampleViewModel : ViewModel() {
         collections = listOf(entry) + collections
     }
 
-    private fun buildRequests(): List<TSCollectionRequest>? {
+    private fun buildCredentials(): List<TSCredentials>? {
         val ids = accountIds.split(",").map { it.trim() }.filter { it.isNotEmpty() }
-        if (ids.isEmpty() || accessToken.isBlank() || appId.isBlank()) return null
-        return ids.map { TSCollectionRequest(accountId = it, accessToken = accessToken, appId = appId) }
+        if (ids.isEmpty() || accessToken.isBlank() || serviceId.isBlank() || unitId.isBlank() || interactionId.isBlank()) {
+            return null
+        }
+        return try {
+            ids.map {
+                TSCredentials(
+                    accountId = it,
+                    accessToken = accessToken,
+                    serviceId = serviceId.trim(),
+                    unitId = unitId.trim(),
+                    interactionId = interactionId.trim(),
+                    verificationStatus = verificationStatus,
+                )
+            }
+        } catch (e: IllegalArgumentException) {
+            // The constructor validates identifier formats; surface the problem instead of crashing.
+            collections = listOf(CollectionEntry.Error("Invalid request: ${e.message}")) + collections
+            null
+        }
     }
 }

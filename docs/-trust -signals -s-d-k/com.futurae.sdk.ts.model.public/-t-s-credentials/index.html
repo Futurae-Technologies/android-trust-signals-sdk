@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>TSCredentials</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
+                    Trust Signals SDK
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+            0.1.2-alpha
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":sdk/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":sdk/release"
+                                       data-filter=":sdk/release"/>
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    Trust Signals SDK
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+            <div class="main-content" data-page-type="classlike" id="content"
+                 pageIds="Trust Signals SDK::com.futurae.sdk.ts.model.public/TSCredentials///PointingToDeclaration//108330000">
+                <div class="breadcrumbs"><a href="../../../index.html">Trust Signals SDK</a><span
+                        class="delimiter">/</span><a href="../index.html">com.futurae.sdk.ts.model.public</a><span
+                        class="delimiter">/</span><span class="current">TSCredentials</span></div>
+  <div class="cover ">
+      <h1 class="cover"><span><span>TSCredentials</span></span></h1>
+      <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+          <div class="content sourceset-dependent-content" data-active=""
+               data-togglable=":sdk/release">
+              <div class="symbol monospace"><span class="token keyword">data </span><span
+                      class="token keyword">class </span><a href="index.html">TSCredentials</a><span
+                      class="token punctuation">(</span><span class="parameters "><span
+                      class="parameter "><span class="token keyword">val </span>accountId<span
+                      class="token operator">: </span><a
+                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                      class="token punctuation">, </span></span><span class="parameter "><span
+                      class="token keyword">val </span>accessToken<span
+                      class="token operator">: </span><a
+                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                      class="token punctuation">, </span></span><span class="parameter "><span
+                      class="token keyword">val </span>serviceId<span
+                      class="token operator">: </span><a
+                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                      class="token punctuation">, </span></span><span class="parameter "><span
+                      class="token keyword">val </span>unitId<span
+                      class="token operator">: </span><a
+                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                      class="token punctuation">, </span></span><span class="parameter "><span
+                      class="token keyword">val </span>interactionId<span
+                      class="token operator">: </span><a
+                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                      class="token punctuation">, </span></span><span class="parameter "><span
+                      class="token keyword">val </span>verificationStatus<span
+                      class="token operator">: </span><a
+                      href="../-t-s-verification-status/index.html">TSVerificationStatus</a></span></span><span
+                      class="token punctuation">)</span></div>
+              <p class="paragraph">Credentials and identifiers used for a collect-and-upload
+                  operation.</p><h4 class="tableheader">Parameters</h4>
+              <div class="table">
+                  <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                       data-filterable-set=":sdk/release">
+                      <div class="main-subrow keyValue ">
+                          <div class=""><span class="inline-flex"><div><u><span>account</span><wbr></wbr><span><span>Id</span></span></u></div></span>
+                          </div>
+                          <div>
+                              <div class="title"><p class="paragraph">Account identifier sent in the
+                                  upload request body.</p></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                       data-filterable-set=":sdk/release">
+                      <div class="main-subrow keyValue ">
+                          <div class=""><span class="inline-flex"><div><u><span>access</span><wbr></wbr><span><span>Token</span></span></u></div></span>
+                          </div>
+                          <div>
+                              <div class="title"><p class="paragraph">Bearer token used to
+                                  authenticate the upload.</p></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                       data-filterable-set=":sdk/release">
+                      <div class="main-subrow keyValue ">
+                          <div class=""><span class="inline-flex"><div><u><span>service</span><wbr></wbr><span><span>Id</span></span></u></div></span>
+                          </div>
+                          <div>
+                              <div class="title"><p class="paragraph">Caller-supplied tenant
+                                  identifier (UUID). Not derived from the access token.</p></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                       data-filterable-set=":sdk/release">
+                      <div class="main-subrow keyValue ">
+                          <div class=""><span class="inline-flex"><div><u><span>unit</span><wbr></wbr><span><span>Id</span></span></u></div></span>
+                          </div>
+                          <div>
+                              <div class="title"><p class="paragraph">Mobile app identifier, e.g.
+                                  <code class="lang-kotlin">futapp-android</code>. Letters, numbers
+                                  and <code class="lang-kotlin">-</code>, max 1000 characters.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                       data-filterable-set=":sdk/release">
+                      <div class="main-subrow keyValue ">
+                          <div class=""><span class="inline-flex"><div><u><span>interaction</span><wbr></wbr><span><span>Id</span></span></u></div></span>
+                          </div>
+                          <div>
+                              <div class="title"><p class="paragraph">Per-installation identifier:
+                                  <code class="lang-kotlin">&lt;installationUUID&gt;</code> or <code
+                                          class="lang-kotlin">&lt;installationUUID&gt;-&lt;sessionId&gt;</code>.
+                                  Letters, numbers and <code class="lang-kotlin">-</code>, max 1000
+                                  characters.</p></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                       data-filterable-set=":sdk/release">
+                      <div class="main-subrow keyValue ">
+                          <div class=""><span class="inline-flex"><div><u><span>verification</span><wbr></wbr><span><span>Status</span></span></u></div></span>
+                          </div>
+                          <div>
+                              <div class="title"><p class="paragraph">Outcome of the host app's own
+                                  verification of this interaction.</p></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <h4 class="tableheader">Throws</h4>
+              <div class="table">
+                  <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                       data-filterable-set=":sdk/release">
+                      <div class="main-subrow keyValue ">
+                          <div class=""><span class="inline-flex"><div><a
+                                  href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-illegal-argument-exception/index.html"><span>Illegal</span><wbr></wbr><span>Argument</span><wbr></wbr><span><span>Exception</span></span></a></div></span>
+                          </div>
+                          <div>
+                              <div class="title"><p class="paragraph">if any identifier does not
+                                  match its required format.</p></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+          <div class="table"><a anchor-label="TSCredentials"
+                                data-filterable-set=":sdk/release"
+                                data-name="1995004622%2FConstructors%2F108330000"
+                                id="1995004622%2FConstructors%2F108330000"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-t-s-credentials.html"><span><span>TSCredentials</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="1995004622%2FConstructors%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span
+                                    class="token keyword">constructor</span><span
+                                    class="token punctuation">(</span><span
+                                    class="parameters "><span class="parameter ">accountId<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter ">accessToken<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter ">serviceId<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter ">unitId<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter ">interactionId<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter ">verificationStatus<span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-verification-status/index.html">TSVerificationStatus</a></span></span><span
+                                    class="token punctuation">)</span></div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+          <div class="table"><a anchor-label="accessToken"
+                                data-filterable-set=":sdk/release" data-name="1578319957%2FProperties%2F108330000"
+                                id="1578319957%2FProperties%2F108330000"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="access-token.html"><span>access</span><wbr></wbr><span><span>Token</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="1578319957%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">val </span><a
+                                    href="access-token.html">accessToken</a><span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              <a anchor-label="accountId" data-filterable-set=":sdk/release"
+                 data-name="-1605329470%2FProperties%2F108330000" id="-1605329470%2FProperties%2F108330000"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="account-id.html"><span>account</span><wbr></wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-1605329470%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">val </span><a
+                                    href="account-id.html">accountId</a><span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              <a anchor-label="interactionId" data-filterable-set=":sdk/release"
+                 data-name="-763841475%2FProperties%2F108330000" id="-763841475%2FProperties%2F108330000"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="interaction-id.html"><span>interaction</span><wbr></wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-763841475%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">val </span><a
+                                    href="interaction-id.html">interactionId</a><span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              <a anchor-label="serviceId" data-filterable-set=":sdk/release"
+                 data-name="-1968780230%2FProperties%2F108330000" id="-1968780230%2FProperties%2F108330000"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="service-id.html"><span>service</span><wbr></wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-1968780230%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">val </span><a
+                                    href="service-id.html">serviceId</a><span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              <a anchor-label="unitId" data-filterable-set=":sdk/release"
+                 data-name="-248097583%2FProperties%2F108330000" id="-248097583%2FProperties%2F108330000"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unit-id.html"><span>unit</span><wbr></wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-248097583%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">val </span><a
+                                    href="unit-id.html">unitId</a><span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              <a anchor-label="verificationStatus" data-filterable-set=":sdk/release"
+                 data-name="-646631453%2FProperties%2F108330000" id="-646631453%2FProperties%2F108330000"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="verification-status.html"><span>verification</span><wbr></wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-646631453%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">val </span><a
+                                    href="verification-status.html">verificationStatus</a><span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-verification-status/index.html">TSVerificationStatus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,5 +1,35 @@
 [
   {
+    "name": "FRAUD",
+    "description": "com.futurae.sdk.ts.model.public.TSVerificationStatus.FRAUD",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-verification-status/-f-r-a-u-d/index.html",
+    "searchKeys": [
+      "FRAUD",
+      "FRAUD",
+      "com.futurae.sdk.ts.model.public.TSVerificationStatus.FRAUD"
+    ]
+  },
+  {
+    "name": "UNVERIFIED",
+    "description": "com.futurae.sdk.ts.model.public.TSVerificationStatus.UNVERIFIED",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-verification-status/-u-n-v-e-r-i-f-i-e-d/index.html",
+    "searchKeys": [
+      "UNVERIFIED",
+      "UNVERIFIED",
+      "com.futurae.sdk.ts.model.public.TSVerificationStatus.UNVERIFIED"
+    ]
+  },
+  {
+    "name": "VERIFIED",
+    "description": "com.futurae.sdk.ts.model.public.TSVerificationStatus.VERIFIED",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-verification-status/-v-e-r-i-f-i-e-d/index.html",
+    "searchKeys": [
+      "VERIFIED",
+      "VERIFIED",
+      "com.futurae.sdk.ts.model.public.TSVerificationStatus.VERIFIED"
+    ]
+  },
+  {
     "name": "class TSAuthenticationException(message: String = \"The access token is invalid or expired.\") : Exception",
     "description": "com.futurae.sdk.ts.error.TSAuthenticationException",
     "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-authentication-exception/index.html",
@@ -7,6 +37,36 @@
       "TSAuthenticationException",
       "class TSAuthenticationException(message: String = \"The access token is invalid or expired.\") : Exception",
       "com.futurae.sdk.ts.error.TSAuthenticationException"
+    ]
+  },
+  {
+    "name": "class TSCollectionTimedOutException(message: String = \"Signal collection timed out.\") : Exception",
+    "description": "com.futurae.sdk.ts.error.TSCollectionTimedOutException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-collection-timed-out-exception/index.html",
+    "searchKeys": [
+      "TSCollectionTimedOutException",
+      "class TSCollectionTimedOutException(message: String = \"Signal collection timed out.\") : Exception",
+      "com.futurae.sdk.ts.error.TSCollectionTimedOutException"
+    ]
+  },
+  {
+    "name": "class TSLegacyScheduleException(message: String = \"This scheduled collection was created by an earlier SDK version and is no longer \" +\n        \"supported, so it has been cancelled. Call scheduleCollections again with a complete \" +\n        \"TSCredentials to resume collections.\") : Exception",
+    "description": "com.futurae.sdk.ts.error.TSLegacyScheduleException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-legacy-schedule-exception/index.html",
+    "searchKeys": [
+      "TSLegacyScheduleException",
+      "class TSLegacyScheduleException(message: String = \"This scheduled collection was created by an earlier SDK version and is no longer \" +\n        \"supported, so it has been cancelled. Call scheduleCollections again with a complete \" +\n        \"TSCredentials to resume collections.\") : Exception",
+      "com.futurae.sdk.ts.error.TSLegacyScheduleException"
+    ]
+  },
+  {
+    "name": "class TSNotInitializedException(message: String = \"TrustSignalsSDK not initialized — call initialize() first.\") : Exception",
+    "description": "com.futurae.sdk.ts.error.TSNotInitializedException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-not-initialized-exception/index.html",
+    "searchKeys": [
+      "TSNotInitializedException",
+      "class TSNotInitializedException(message: String = \"TrustSignalsSDK not initialized — call initialize() first.\") : Exception",
+      "com.futurae.sdk.ts.error.TSNotInitializedException"
     ]
   },
   {
@@ -20,23 +80,73 @@
     ]
   },
   {
-    "name": "constructor(accountId: String, accessToken: String, appId: String)",
-    "description": "com.futurae.sdk.ts.model.public.TSCollectionRequest.TSCollectionRequest",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection-request/-t-s-collection-request.html",
+    "name": "class TSUploadRejectedException(message: String) : Exception",
+    "description": "com.futurae.sdk.ts.error.TSUploadRejectedException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-upload-rejected-exception/index.html",
     "searchKeys": [
-      "TSCollectionRequest",
-      "constructor(accountId: String, accessToken: String, appId: String)",
-      "com.futurae.sdk.ts.model.public.TSCollectionRequest.TSCollectionRequest"
+      "TSUploadRejectedException",
+      "class TSUploadRejectedException(message: String) : Exception",
+      "com.futurae.sdk.ts.error.TSUploadRejectedException"
     ]
   },
   {
-    "name": "constructor(debuggerAttached: Boolean, developerModeEnabled: Boolean)",
-    "description": "com.futurae.sdk.ts.model.public.SecurityObservation.SecurityObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-security-observation/-security-observation.html",
+    "name": "class TSUploadTransportException(message: String, cause: Throwable) : Exception",
+    "description": "com.futurae.sdk.ts.error.TSUploadTransportException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-upload-transport-exception/index.html",
     "searchKeys": [
-      "SecurityObservation",
-      "constructor(debuggerAttached: Boolean, developerModeEnabled: Boolean)",
-      "com.futurae.sdk.ts.model.public.SecurityObservation.SecurityObservation"
+      "TSUploadTransportException",
+      "class TSUploadTransportException(message: String, cause: Throwable) : Exception",
+      "com.futurae.sdk.ts.error.TSUploadTransportException"
+    ]
+  },
+  {
+    "name": "const val version: String",
+    "description": "com.futurae.sdk.ts.TrustSignalsSDK.version",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts/-trust-signals-s-d-k/version.html",
+    "searchKeys": [
+      "version",
+      "const val version: String",
+      "com.futurae.sdk.ts.TrustSignalsSDK.version"
+    ]
+  },
+  {
+    "name": "constructor(accountId: String, accessToken: String, serviceId: String, unitId: String, interactionId: String, verificationStatus: TSVerificationStatus)",
+    "description": "com.futurae.sdk.ts.model.public.TSCredentials.TSCredentials",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-credentials/-t-s-credentials.html",
+    "searchKeys": [
+      "TSCredentials",
+      "constructor(accountId: String, accessToken: String, serviceId: String, unitId: String, interactionId: String, verificationStatus: TSVerificationStatus)",
+      "com.futurae.sdk.ts.model.public.TSCredentials.TSCredentials"
+    ]
+  },
+  {
+    "name": "constructor(collectionId: String = UUID.randomUUID().toString(), observationTime: Date = now(), sensorTag: String, timedOut: Boolean = false, observation: TSObservation)",
+    "description": "com.futurae.sdk.ts.model.public.TSCollection.TSCollection",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/-t-s-collection.html",
+    "searchKeys": [
+      "TSCollection",
+      "constructor(collectionId: String = UUID.randomUUID().toString(), observationTime: Date = now(), sensorTag: String, timedOut: Boolean = false, observation: TSObservation)",
+      "com.futurae.sdk.ts.model.public.TSCollection.TSCollection"
+    ]
+  },
+  {
+    "name": "constructor(collectionUrl: String, collectionTimeoutMs: Long = DEFAULT_COLLECTION_TIMEOUT_MS, sensorTag: String)",
+    "description": "com.futurae.sdk.ts.model.public.TSConfiguration.TSConfiguration",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-configuration/-t-s-configuration.html",
+    "searchKeys": [
+      "TSConfiguration",
+      "constructor(collectionUrl: String, collectionTimeoutMs: Long = DEFAULT_COLLECTION_TIMEOUT_MS, sensorTag: String)",
+      "com.futurae.sdk.ts.model.public.TSConfiguration.TSConfiguration"
+    ]
+  },
+  {
+    "name": "constructor(deviceInfoSignals: TSDeviceInfoSignals, wifiScan: TSWifiScan?, bleScan: TSBleScan?, location: TSLocation?, wifiNetwork: TSWifiNetwork?, blePeripherals: TSBlePeripherals?, nearbyDevices: List<TSDevice>?, ip: String?, timezone: String, networkState: TSNetworkState?, activeCall: Boolean?)",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.TSObservation",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/-t-s-observation.html",
+    "searchKeys": [
+      "TSObservation",
+      "constructor(deviceInfoSignals: TSDeviceInfoSignals, wifiScan: TSWifiScan?, bleScan: TSBleScan?, location: TSLocation?, wifiNetwork: TSWifiNetwork?, blePeripherals: TSBlePeripherals?, nearbyDevices: List<TSDevice>?, ip: String?, timezone: String, networkState: TSNetworkState?, activeCall: Boolean?)",
+      "com.futurae.sdk.ts.model.public.TSObservation.TSObservation"
     ]
   },
   {
@@ -50,43 +160,23 @@
     ]
   },
   {
-    "name": "constructor(id: String, name: String)",
-    "description": "com.futurae.sdk.ts.model.public.TimezoneObservation.TimezoneObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-timezone-observation/-timezone-observation.html",
+    "name": "constructor(lat: Double, lon: Double, accuracy: Float? = null, speed: Float? = null, observationTime: Date)",
+    "description": "com.futurae.sdk.ts.model.public.TSLocation.TSLocation",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-location/-t-s-location.html",
     "searchKeys": [
-      "TimezoneObservation",
-      "constructor(id: String, name: String)",
-      "com.futurae.sdk.ts.model.public.TimezoneObservation.TimezoneObservation"
+      "TSLocation",
+      "constructor(lat: Double, lon: Double, accuracy: Float? = null, speed: Float? = null, observationTime: Date)",
+      "com.futurae.sdk.ts.model.public.TSLocation.TSLocation"
     ]
   },
   {
-    "name": "constructor(language: String, region: String)",
-    "description": "com.futurae.sdk.ts.model.public.LocaleObservation.LocaleObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-locale-observation/-locale-observation.html",
+    "name": "constructor(message: String = \"Signal collection timed out.\")",
+    "description": "com.futurae.sdk.ts.error.TSCollectionTimedOutException.TSCollectionTimedOutException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-collection-timed-out-exception/-t-s-collection-timed-out-exception.html",
     "searchKeys": [
-      "LocaleObservation",
-      "constructor(language: String, region: String)",
-      "com.futurae.sdk.ts.model.public.LocaleObservation.LocaleObservation"
-    ]
-  },
-  {
-    "name": "constructor(lat: Double, lon: Double, accuracy: Float? = null, speed: Float? = null, timestamp: Long)",
-    "description": "com.futurae.sdk.ts.model.public.LocationObservation.LocationObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-location-observation/-location-observation.html",
-    "searchKeys": [
-      "LocationObservation",
-      "constructor(lat: Double, lon: Double, accuracy: Float? = null, speed: Float? = null, timestamp: Long)",
-      "com.futurae.sdk.ts.model.public.LocationObservation.LocationObservation"
-    ]
-  },
-  {
-    "name": "constructor(level: Int, status: String)",
-    "description": "com.futurae.sdk.ts.model.public.BatteryObservation.BatteryObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-battery-observation/-battery-observation.html",
-    "searchKeys": [
-      "BatteryObservation",
-      "constructor(level: Int, status: String)",
-      "com.futurae.sdk.ts.model.public.BatteryObservation.BatteryObservation"
+      "TSCollectionTimedOutException",
+      "constructor(message: String = \"Signal collection timed out.\")",
+      "com.futurae.sdk.ts.error.TSCollectionTimedOutException.TSCollectionTimedOutException"
     ]
   },
   {
@@ -100,323 +190,243 @@
     ]
   },
   {
-    "name": "constructor(model: String, manufacturer: String, device: String, screenResolution: String, screenDensityDpi: Int, androidVersion: String, sdkInt: Int, uptimeMs: Long)",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation.DeviceObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/-device-observation.html",
+    "name": "constructor(message: String = \"This scheduled collection was created by an earlier SDK version and is no longer \" +\n        \"supported, so it has been cancelled. Call scheduleCollections again with a complete \" +\n        \"TSCredentials to resume collections.\")",
+    "description": "com.futurae.sdk.ts.error.TSLegacyScheduleException.TSLegacyScheduleException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-legacy-schedule-exception/-t-s-legacy-schedule-exception.html",
     "searchKeys": [
-      "DeviceObservation",
-      "constructor(model: String, manufacturer: String, device: String, screenResolution: String, screenDensityDpi: Int, androidVersion: String, sdkInt: Int, uptimeMs: Long)",
-      "com.futurae.sdk.ts.model.public.DeviceObservation.DeviceObservation"
+      "TSLegacyScheduleException",
+      "constructor(message: String = \"This scheduled collection was created by an earlier SDK version and is no longer \" +\n        \"supported, so it has been cancelled. Call scheduleCollections again with a complete \" +\n        \"TSCredentials to resume collections.\")",
+      "com.futurae.sdk.ts.error.TSLegacyScheduleException.TSLegacyScheduleException"
     ]
   },
   {
-    "name": "constructor(name: String?, bssid: String? = null, rssi: Int? = null, timestamp: Long, connectedDevices: List<ConnectedDeviceEntry>? = null)",
-    "description": "com.futurae.sdk.ts.model.public.WifiNetworkObservation.WifiNetworkObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-network-observation/-wifi-network-observation.html",
+    "name": "constructor(message: String = \"TrustSignalsSDK not initialized — call initialize() first.\")",
+    "description": "com.futurae.sdk.ts.error.TSNotInitializedException.TSNotInitializedException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-not-initialized-exception/-t-s-not-initialized-exception.html",
     "searchKeys": [
-      "WifiNetworkObservation",
-      "constructor(name: String?, bssid: String? = null, rssi: Int? = null, timestamp: Long, connectedDevices: List<ConnectedDeviceEntry>? = null)",
-      "com.futurae.sdk.ts.model.public.WifiNetworkObservation.WifiNetworkObservation"
+      "TSNotInitializedException",
+      "constructor(message: String = \"TrustSignalsSDK not initialized — call initialize() first.\")",
+      "com.futurae.sdk.ts.error.TSNotInitializedException.TSNotInitializedException"
     ]
   },
   {
-    "name": "constructor(name: String?, timestamp: Long, address: String)",
-    "description": "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry.ConnectedDeviceEntry",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-connected-device-entry/-connected-device-entry.html",
+    "name": "constructor(message: String)",
+    "description": "com.futurae.sdk.ts.error.TSUploadRejectedException.TSUploadRejectedException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-upload-rejected-exception/-t-s-upload-rejected-exception.html",
     "searchKeys": [
-      "ConnectedDeviceEntry",
-      "constructor(name: String?, timestamp: Long, address: String)",
-      "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry.ConnectedDeviceEntry"
+      "TSUploadRejectedException",
+      "constructor(message: String)",
+      "com.futurae.sdk.ts.error.TSUploadRejectedException.TSUploadRejectedException"
     ]
   },
   {
-    "name": "constructor(name: String?, timestamp: Long, address: String)",
-    "description": "com.futurae.sdk.ts.model.public.NearbyDeviceEntry.NearbyDeviceEntry",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-nearby-device-entry/-nearby-device-entry.html",
+    "name": "constructor(message: String, cause: Throwable)",
+    "description": "com.futurae.sdk.ts.error.TSUploadTransportException.TSUploadTransportException",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.error/-t-s-upload-transport-exception/-t-s-upload-transport-exception.html",
     "searchKeys": [
-      "NearbyDeviceEntry",
-      "constructor(name: String?, timestamp: Long, address: String)",
-      "com.futurae.sdk.ts.model.public.NearbyDeviceEntry.NearbyDeviceEntry"
+      "TSUploadTransportException",
+      "constructor(message: String, cause: Throwable)",
+      "com.futurae.sdk.ts.error.TSUploadTransportException.TSUploadTransportException"
     ]
   },
   {
-    "name": "constructor(name: String?, timestamp: Long, address: String)",
-    "description": "com.futurae.sdk.ts.model.public.ScannedDeviceEntry.ScannedDeviceEntry",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-scanned-device-entry/-scanned-device-entry.html",
+    "name": "constructor(model: String?, manufacturer: String?, device: String?, screenResolution: String?, screenDensityDpi: Int?, androidVersion: String?, sdkInt: Int?, uptimeMs: Long?, language: String?, region: String?, debuggerAttached: Boolean?, developerModeEnabled: Boolean?, appVersion: String?, installerPackage: String?, batteryLevel: Int?, batteryStatus: String?)",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.TSDeviceInfoSignals",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/-t-s-device-info-signals.html",
     "searchKeys": [
-      "ScannedDeviceEntry",
-      "constructor(name: String?, timestamp: Long, address: String)",
-      "com.futurae.sdk.ts.model.public.ScannedDeviceEntry.ScannedDeviceEntry"
+      "TSDeviceInfoSignals",
+      "constructor(model: String?, manufacturer: String?, device: String?, screenResolution: String?, screenDensityDpi: Int?, androidVersion: String?, sdkInt: Int?, uptimeMs: Long?, language: String?, region: String?, debuggerAttached: Boolean?, developerModeEnabled: Boolean?, appVersion: String?, installerPackage: String?, batteryLevel: Int?, batteryStatus: String?)",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.TSDeviceInfoSignals"
+    ]
+  },
+  {
+    "name": "constructor(name: String?, bssid: String? = null, rssi: Int? = null, observationTime: Date, connectedDevices: List<TSDevice>? = null)",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiNetwork.TSWifiNetwork",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-network/-t-s-wifi-network.html",
+    "searchKeys": [
+      "TSWifiNetwork",
+      "constructor(name: String?, bssid: String? = null, rssi: Int? = null, observationTime: Date, connectedDevices: List<TSDevice>? = null)",
+      "com.futurae.sdk.ts.model.public.TSWifiNetwork.TSWifiNetwork"
+    ]
+  },
+  {
+    "name": "constructor(name: String?, observationTime: Date, address: String)",
+    "description": "com.futurae.sdk.ts.model.public.TSDevice.TSDevice",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device/-t-s-device.html",
+    "searchKeys": [
+      "TSDevice",
+      "constructor(name: String?, observationTime: Date, address: String)",
+      "com.futurae.sdk.ts.model.public.TSDevice.TSDevice"
     ]
   },
   {
     "name": "constructor(networkType: String, vpnActive: Boolean, proxyHost: String?)",
-    "description": "com.futurae.sdk.ts.model.public.NetworkStateObservation.NetworkStateObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-network-state-observation/-network-state-observation.html",
+    "description": "com.futurae.sdk.ts.model.public.TSNetworkState.TSNetworkState",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-network-state/-t-s-network-state.html",
     "searchKeys": [
-      "NetworkStateObservation",
+      "TSNetworkState",
       "constructor(networkType: String, vpnActive: Boolean, proxyHost: String?)",
-      "com.futurae.sdk.ts.model.public.NetworkStateObservation.NetworkStateObservation"
+      "com.futurae.sdk.ts.model.public.TSNetworkState.TSNetworkState"
     ]
   },
   {
-    "name": "constructor(permission: Boolean, connectedBLEs: List<ConnectedDeviceEntry>)",
-    "description": "com.futurae.sdk.ts.model.public.BlePeripheralsObservation.BlePeripheralsObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-ble-peripherals-observation/-ble-peripherals-observation.html",
+    "name": "constructor(permissionGranted: Boolean, connectedBLEs: List<TSDevice>)",
+    "description": "com.futurae.sdk.ts.model.public.TSBlePeripherals.TSBlePeripherals",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-ble-peripherals/-t-s-ble-peripherals.html",
     "searchKeys": [
-      "BlePeripheralsObservation",
-      "constructor(permission: Boolean, connectedBLEs: List<ConnectedDeviceEntry>)",
-      "com.futurae.sdk.ts.model.public.BlePeripheralsObservation.BlePeripheralsObservation"
+      "TSBlePeripherals",
+      "constructor(permissionGranted: Boolean, connectedBLEs: List<TSDevice>)",
+      "com.futurae.sdk.ts.model.public.TSBlePeripherals.TSBlePeripherals"
     ]
   },
   {
-    "name": "constructor(permission: Boolean, scanResults: List<ScannedDeviceEntry>)",
-    "description": "com.futurae.sdk.ts.model.public.BleScanObservation.BleScanObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-ble-scan-observation/-ble-scan-observation.html",
+    "name": "constructor(permissionGranted: Boolean, scanResults: List<TSDevice>)",
+    "description": "com.futurae.sdk.ts.model.public.TSBleScan.TSBleScan",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-ble-scan/-t-s-ble-scan.html",
     "searchKeys": [
-      "BleScanObservation",
-      "constructor(permission: Boolean, scanResults: List<ScannedDeviceEntry>)",
-      "com.futurae.sdk.ts.model.public.BleScanObservation.BleScanObservation"
+      "TSBleScan",
+      "constructor(permissionGranted: Boolean, scanResults: List<TSDevice>)",
+      "com.futurae.sdk.ts.model.public.TSBleScan.TSBleScan"
     ]
   },
   {
-    "name": "constructor(permission: Boolean, scanResults: List<ScannedDeviceEntry>)",
-    "description": "com.futurae.sdk.ts.model.public.WifiScanObservation.WifiScanObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-scan-observation/-wifi-scan-observation.html",
+    "name": "constructor(permissionGranted: Boolean, scanResults: List<TSDevice>)",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiScan.TSWifiScan",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-scan/-t-s-wifi-scan.html",
     "searchKeys": [
-      "WifiScanObservation",
-      "constructor(permission: Boolean, scanResults: List<ScannedDeviceEntry>)",
-      "com.futurae.sdk.ts.model.public.WifiScanObservation.WifiScanObservation"
+      "TSWifiScan",
+      "constructor(permissionGranted: Boolean, scanResults: List<TSDevice>)",
+      "com.futurae.sdk.ts.model.public.TSWifiScan.TSWifiScan"
     ]
   },
   {
-    "name": "constructor(serverURL: String, collectionTimeoutMS: Long = DEFAULT_COLLECTION_TIMEOUT_MS)",
-    "description": "com.futurae.sdk.ts.model.public.TSConfiguration.TSConfiguration",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-configuration/-t-s-configuration.html",
+    "name": "data class TSBlePeripherals(val permissionGranted: Boolean, val connectedBLEs: List<TSDevice>)",
+    "description": "com.futurae.sdk.ts.model.public.TSBlePeripherals",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-ble-peripherals/index.html",
     "searchKeys": [
-      "TSConfiguration",
-      "constructor(serverURL: String, collectionTimeoutMS: Long = DEFAULT_COLLECTION_TIMEOUT_MS)",
-      "com.futurae.sdk.ts.model.public.TSConfiguration.TSConfiguration"
+      "TSBlePeripherals",
+      "data class TSBlePeripherals(val permissionGranted: Boolean, val connectedBLEs: List<TSDevice>)",
+      "com.futurae.sdk.ts.model.public.TSBlePeripherals"
     ]
   },
   {
-    "name": "constructor(timestamp: Long = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()), tag: String = \"android\", observation: SignalsObservation)",
-    "description": "com.futurae.sdk.ts.model.public.TSCollection.TSCollection",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/-t-s-collection.html",
+    "name": "data class TSBleScan(val permissionGranted: Boolean, val scanResults: List<TSDevice>)",
+    "description": "com.futurae.sdk.ts.model.public.TSBleScan",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-ble-scan/index.html",
     "searchKeys": [
-      "TSCollection",
-      "constructor(timestamp: Long = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()), tag: String = \"android\", observation: SignalsObservation)",
-      "com.futurae.sdk.ts.model.public.TSCollection.TSCollection"
+      "TSBleScan",
+      "data class TSBleScan(val permissionGranted: Boolean, val scanResults: List<TSDevice>)",
+      "com.futurae.sdk.ts.model.public.TSBleScan"
     ]
   },
   {
-    "name": "constructor(version: String?, installerPackage: String?)",
-    "description": "com.futurae.sdk.ts.model.public.AppObservation.AppObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-app-observation/-app-observation.html",
-    "searchKeys": [
-      "AppObservation",
-      "constructor(version: String?, installerPackage: String?)",
-      "com.futurae.sdk.ts.model.public.AppObservation.AppObservation"
-    ]
-  },
-  {
-    "name": "constructor(wifiScan: WifiScanObservation?, bleScan: BleScanObservation?, locationCollection: LocationObservation?, wifiNetwork: WifiNetworkObservation?, blePeripherals: BlePeripheralsObservation?, nearbyDevices: List<NearbyDeviceEntry>?, ip: String?, timezone: TimezoneObservation, device: DeviceObservation?, locale: LocaleObservation?, networkState: NetworkStateObservation?, activeCall: Boolean?, security: SecurityObservation?, app: AppObservation?, battery: BatteryObservation?)",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.SignalsObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/-signals-observation.html",
-    "searchKeys": [
-      "SignalsObservation",
-      "constructor(wifiScan: WifiScanObservation?, bleScan: BleScanObservation?, locationCollection: LocationObservation?, wifiNetwork: WifiNetworkObservation?, blePeripherals: BlePeripheralsObservation?, nearbyDevices: List<NearbyDeviceEntry>?, ip: String?, timezone: TimezoneObservation, device: DeviceObservation?, locale: LocaleObservation?, networkState: NetworkStateObservation?, activeCall: Boolean?, security: SecurityObservation?, app: AppObservation?, battery: BatteryObservation?)",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.SignalsObservation"
-    ]
-  },
-  {
-    "name": "data class AppObservation(val version: String?, val installerPackage: String?)",
-    "description": "com.futurae.sdk.ts.model.public.AppObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-app-observation/index.html",
-    "searchKeys": [
-      "AppObservation",
-      "data class AppObservation(val version: String?, val installerPackage: String?)",
-      "com.futurae.sdk.ts.model.public.AppObservation"
-    ]
-  },
-  {
-    "name": "data class BatteryObservation(val level: Int, val status: String)",
-    "description": "com.futurae.sdk.ts.model.public.BatteryObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-battery-observation/index.html",
-    "searchKeys": [
-      "BatteryObservation",
-      "data class BatteryObservation(val level: Int, val status: String)",
-      "com.futurae.sdk.ts.model.public.BatteryObservation"
-    ]
-  },
-  {
-    "name": "data class BlePeripheralsObservation(val permission: Boolean, val connectedBLEs: List<ConnectedDeviceEntry>)",
-    "description": "com.futurae.sdk.ts.model.public.BlePeripheralsObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-ble-peripherals-observation/index.html",
-    "searchKeys": [
-      "BlePeripheralsObservation",
-      "data class BlePeripheralsObservation(val permission: Boolean, val connectedBLEs: List<ConnectedDeviceEntry>)",
-      "com.futurae.sdk.ts.model.public.BlePeripheralsObservation"
-    ]
-  },
-  {
-    "name": "data class BleScanObservation(val permission: Boolean, val scanResults: List<ScannedDeviceEntry>)",
-    "description": "com.futurae.sdk.ts.model.public.BleScanObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-ble-scan-observation/index.html",
-    "searchKeys": [
-      "BleScanObservation",
-      "data class BleScanObservation(val permission: Boolean, val scanResults: List<ScannedDeviceEntry>)",
-      "com.futurae.sdk.ts.model.public.BleScanObservation"
-    ]
-  },
-  {
-    "name": "data class ConnectedDeviceEntry(val name: String?, val timestamp: Long, val address: String)",
-    "description": "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-connected-device-entry/index.html",
-    "searchKeys": [
-      "ConnectedDeviceEntry",
-      "data class ConnectedDeviceEntry(val name: String?, val timestamp: Long, val address: String)",
-      "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry"
-    ]
-  },
-  {
-    "name": "data class DeviceObservation(val model: String, val manufacturer: String, val device: String, val screenResolution: String, val screenDensityDpi: Int, val androidVersion: String, val sdkInt: Int, val uptimeMs: Long)",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/index.html",
-    "searchKeys": [
-      "DeviceObservation",
-      "data class DeviceObservation(val model: String, val manufacturer: String, val device: String, val screenResolution: String, val screenDensityDpi: Int, val androidVersion: String, val sdkInt: Int, val uptimeMs: Long)",
-      "com.futurae.sdk.ts.model.public.DeviceObservation"
-    ]
-  },
-  {
-    "name": "data class LocaleObservation(val language: String, val region: String)",
-    "description": "com.futurae.sdk.ts.model.public.LocaleObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-locale-observation/index.html",
-    "searchKeys": [
-      "LocaleObservation",
-      "data class LocaleObservation(val language: String, val region: String)",
-      "com.futurae.sdk.ts.model.public.LocaleObservation"
-    ]
-  },
-  {
-    "name": "data class LocationObservation(val lat: Double, val lon: Double, val accuracy: Float? = null, val speed: Float? = null, val timestamp: Long)",
-    "description": "com.futurae.sdk.ts.model.public.LocationObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-location-observation/index.html",
-    "searchKeys": [
-      "LocationObservation",
-      "data class LocationObservation(val lat: Double, val lon: Double, val accuracy: Float? = null, val speed: Float? = null, val timestamp: Long)",
-      "com.futurae.sdk.ts.model.public.LocationObservation"
-    ]
-  },
-  {
-    "name": "data class NearbyDeviceEntry(val name: String?, val timestamp: Long, val address: String)",
-    "description": "com.futurae.sdk.ts.model.public.NearbyDeviceEntry",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-nearby-device-entry/index.html",
-    "searchKeys": [
-      "NearbyDeviceEntry",
-      "data class NearbyDeviceEntry(val name: String?, val timestamp: Long, val address: String)",
-      "com.futurae.sdk.ts.model.public.NearbyDeviceEntry"
-    ]
-  },
-  {
-    "name": "data class NetworkStateObservation(val networkType: String, val vpnActive: Boolean, val proxyHost: String?)",
-    "description": "com.futurae.sdk.ts.model.public.NetworkStateObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-network-state-observation/index.html",
-    "searchKeys": [
-      "NetworkStateObservation",
-      "data class NetworkStateObservation(val networkType: String, val vpnActive: Boolean, val proxyHost: String?)",
-      "com.futurae.sdk.ts.model.public.NetworkStateObservation"
-    ]
-  },
-  {
-    "name": "data class ScannedDeviceEntry(val name: String?, val timestamp: Long, val address: String)",
-    "description": "com.futurae.sdk.ts.model.public.ScannedDeviceEntry",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-scanned-device-entry/index.html",
-    "searchKeys": [
-      "ScannedDeviceEntry",
-      "data class ScannedDeviceEntry(val name: String?, val timestamp: Long, val address: String)",
-      "com.futurae.sdk.ts.model.public.ScannedDeviceEntry"
-    ]
-  },
-  {
-    "name": "data class SecurityObservation(val debuggerAttached: Boolean, val developerModeEnabled: Boolean)",
-    "description": "com.futurae.sdk.ts.model.public.SecurityObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-security-observation/index.html",
-    "searchKeys": [
-      "SecurityObservation",
-      "data class SecurityObservation(val debuggerAttached: Boolean, val developerModeEnabled: Boolean)",
-      "com.futurae.sdk.ts.model.public.SecurityObservation"
-    ]
-  },
-  {
-    "name": "data class SignalsObservation(val wifiScan: WifiScanObservation?, val bleScan: BleScanObservation?, val locationCollection: LocationObservation?, val wifiNetwork: WifiNetworkObservation?, val blePeripherals: BlePeripheralsObservation?, val nearbyDevices: List<NearbyDeviceEntry>?, val ip: String?, val timezone: TimezoneObservation, val device: DeviceObservation?, val locale: LocaleObservation?, val networkState: NetworkStateObservation?, val activeCall: Boolean?, val security: SecurityObservation?, val app: AppObservation?, val battery: BatteryObservation?)",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/index.html",
-    "searchKeys": [
-      "SignalsObservation",
-      "data class SignalsObservation(val wifiScan: WifiScanObservation?, val bleScan: BleScanObservation?, val locationCollection: LocationObservation?, val wifiNetwork: WifiNetworkObservation?, val blePeripherals: BlePeripheralsObservation?, val nearbyDevices: List<NearbyDeviceEntry>?, val ip: String?, val timezone: TimezoneObservation, val device: DeviceObservation?, val locale: LocaleObservation?, val networkState: NetworkStateObservation?, val activeCall: Boolean?, val security: SecurityObservation?, val app: AppObservation?, val battery: BatteryObservation?)",
-      "com.futurae.sdk.ts.model.public.SignalsObservation"
-    ]
-  },
-  {
-    "name": "data class TSCollection(val timestamp: Long = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()), val tag: String = \"android\", val observation: SignalsObservation)",
+    "name": "data class TSCollection(val collectionId: String = UUID.randomUUID().toString(), val observationTime: Date = now(), val sensorTag: String, val timedOut: Boolean = false, val observation: TSObservation)",
     "description": "com.futurae.sdk.ts.model.public.TSCollection",
     "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/index.html",
     "searchKeys": [
       "TSCollection",
-      "data class TSCollection(val timestamp: Long = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()), val tag: String = \"android\", val observation: SignalsObservation)",
+      "data class TSCollection(val collectionId: String = UUID.randomUUID().toString(), val observationTime: Date = now(), val sensorTag: String, val timedOut: Boolean = false, val observation: TSObservation)",
       "com.futurae.sdk.ts.model.public.TSCollection"
     ]
   },
   {
-    "name": "data class TSCollectionRequest(val accountId: String, val accessToken: String, val appId: String)",
-    "description": "com.futurae.sdk.ts.model.public.TSCollectionRequest",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection-request/index.html",
-    "searchKeys": [
-      "TSCollectionRequest",
-      "data class TSCollectionRequest(val accountId: String, val accessToken: String, val appId: String)",
-      "com.futurae.sdk.ts.model.public.TSCollectionRequest"
-    ]
-  },
-  {
-    "name": "data class TSConfiguration(val serverURL: String, val collectionTimeoutMS: Long = DEFAULT_COLLECTION_TIMEOUT_MS)",
+    "name": "data class TSConfiguration(val collectionUrl: String, val collectionTimeoutMs: Long = DEFAULT_COLLECTION_TIMEOUT_MS, val sensorTag: String)",
     "description": "com.futurae.sdk.ts.model.public.TSConfiguration",
     "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-configuration/index.html",
     "searchKeys": [
       "TSConfiguration",
-      "data class TSConfiguration(val serverURL: String, val collectionTimeoutMS: Long = DEFAULT_COLLECTION_TIMEOUT_MS)",
+      "data class TSConfiguration(val collectionUrl: String, val collectionTimeoutMs: Long = DEFAULT_COLLECTION_TIMEOUT_MS, val sensorTag: String)",
       "com.futurae.sdk.ts.model.public.TSConfiguration"
     ]
   },
   {
-    "name": "data class TimezoneObservation(val id: String, val name: String)",
-    "description": "com.futurae.sdk.ts.model.public.TimezoneObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-timezone-observation/index.html",
+    "name": "data class TSCredentials(val accountId: String, val accessToken: String, val serviceId: String, val unitId: String, val interactionId: String, val verificationStatus: TSVerificationStatus)",
+    "description": "com.futurae.sdk.ts.model.public.TSCredentials",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-credentials/index.html",
     "searchKeys": [
-      "TimezoneObservation",
-      "data class TimezoneObservation(val id: String, val name: String)",
-      "com.futurae.sdk.ts.model.public.TimezoneObservation"
+      "TSCredentials",
+      "data class TSCredentials(val accountId: String, val accessToken: String, val serviceId: String, val unitId: String, val interactionId: String, val verificationStatus: TSVerificationStatus)",
+      "com.futurae.sdk.ts.model.public.TSCredentials"
     ]
   },
   {
-    "name": "data class WifiNetworkObservation(val name: String?, val bssid: String? = null, val rssi: Int? = null, val timestamp: Long, val connectedDevices: List<ConnectedDeviceEntry>? = null)",
-    "description": "com.futurae.sdk.ts.model.public.WifiNetworkObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-network-observation/index.html",
+    "name": "data class TSDevice(val name: String?, val observationTime: Date, val address: String)",
+    "description": "com.futurae.sdk.ts.model.public.TSDevice",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device/index.html",
     "searchKeys": [
-      "WifiNetworkObservation",
-      "data class WifiNetworkObservation(val name: String?, val bssid: String? = null, val rssi: Int? = null, val timestamp: Long, val connectedDevices: List<ConnectedDeviceEntry>? = null)",
-      "com.futurae.sdk.ts.model.public.WifiNetworkObservation"
+      "TSDevice",
+      "data class TSDevice(val name: String?, val observationTime: Date, val address: String)",
+      "com.futurae.sdk.ts.model.public.TSDevice"
     ]
   },
   {
-    "name": "data class WifiScanObservation(val permission: Boolean, val scanResults: List<ScannedDeviceEntry>)",
-    "description": "com.futurae.sdk.ts.model.public.WifiScanObservation",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-scan-observation/index.html",
+    "name": "data class TSDeviceInfoSignals(val model: String?, val manufacturer: String?, val device: String?, val screenResolution: String?, val screenDensityDpi: Int?, val androidVersion: String?, val sdkInt: Int?, val uptimeMs: Long?, val language: String?, val region: String?, val debuggerAttached: Boolean?, val developerModeEnabled: Boolean?, val appVersion: String?, val installerPackage: String?, val batteryLevel: Int?, val batteryStatus: String?)",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/index.html",
     "searchKeys": [
-      "WifiScanObservation",
-      "data class WifiScanObservation(val permission: Boolean, val scanResults: List<ScannedDeviceEntry>)",
-      "com.futurae.sdk.ts.model.public.WifiScanObservation"
+      "TSDeviceInfoSignals",
+      "data class TSDeviceInfoSignals(val model: String?, val manufacturer: String?, val device: String?, val screenResolution: String?, val screenDensityDpi: Int?, val androidVersion: String?, val sdkInt: Int?, val uptimeMs: Long?, val language: String?, val region: String?, val debuggerAttached: Boolean?, val developerModeEnabled: Boolean?, val appVersion: String?, val installerPackage: String?, val batteryLevel: Int?, val batteryStatus: String?)",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals"
+    ]
+  },
+  {
+    "name": "data class TSLocation(val lat: Double, val lon: Double, val accuracy: Float? = null, val speed: Float? = null, val observationTime: Date)",
+    "description": "com.futurae.sdk.ts.model.public.TSLocation",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-location/index.html",
+    "searchKeys": [
+      "TSLocation",
+      "data class TSLocation(val lat: Double, val lon: Double, val accuracy: Float? = null, val speed: Float? = null, val observationTime: Date)",
+      "com.futurae.sdk.ts.model.public.TSLocation"
+    ]
+  },
+  {
+    "name": "data class TSNetworkState(val networkType: String, val vpnActive: Boolean, val proxyHost: String?)",
+    "description": "com.futurae.sdk.ts.model.public.TSNetworkState",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-network-state/index.html",
+    "searchKeys": [
+      "TSNetworkState",
+      "data class TSNetworkState(val networkType: String, val vpnActive: Boolean, val proxyHost: String?)",
+      "com.futurae.sdk.ts.model.public.TSNetworkState"
+    ]
+  },
+  {
+    "name": "data class TSObservation(val deviceInfoSignals: TSDeviceInfoSignals, val wifiScan: TSWifiScan?, val bleScan: TSBleScan?, val location: TSLocation?, val wifiNetwork: TSWifiNetwork?, val blePeripherals: TSBlePeripherals?, val nearbyDevices: List<TSDevice>?, val ip: String?, val timezone: String, val networkState: TSNetworkState?, val activeCall: Boolean?)",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/index.html",
+    "searchKeys": [
+      "TSObservation",
+      "data class TSObservation(val deviceInfoSignals: TSDeviceInfoSignals, val wifiScan: TSWifiScan?, val bleScan: TSBleScan?, val location: TSLocation?, val wifiNetwork: TSWifiNetwork?, val blePeripherals: TSBlePeripherals?, val nearbyDevices: List<TSDevice>?, val ip: String?, val timezone: String, val networkState: TSNetworkState?, val activeCall: Boolean?)",
+      "com.futurae.sdk.ts.model.public.TSObservation"
+    ]
+  },
+  {
+    "name": "data class TSWifiNetwork(val name: String?, val bssid: String? = null, val rssi: Int? = null, val observationTime: Date, val connectedDevices: List<TSDevice>? = null)",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiNetwork",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-network/index.html",
+    "searchKeys": [
+      "TSWifiNetwork",
+      "data class TSWifiNetwork(val name: String?, val bssid: String? = null, val rssi: Int? = null, val observationTime: Date, val connectedDevices: List<TSDevice>? = null)",
+      "com.futurae.sdk.ts.model.public.TSWifiNetwork"
+    ]
+  },
+  {
+    "name": "data class TSWifiScan(val permissionGranted: Boolean, val scanResults: List<TSDevice>)",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiScan",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-scan/index.html",
+    "searchKeys": [
+      "TSWifiScan",
+      "data class TSWifiScan(val permissionGranted: Boolean, val scanResults: List<TSDevice>)",
+      "com.futurae.sdk.ts.model.public.TSWifiScan"
+    ]
+  },
+  {
+    "name": "enum TSVerificationStatus : Enum<TSVerificationStatus> ",
+    "description": "com.futurae.sdk.ts.model.public.TSVerificationStatus",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-verification-status/index.html",
+    "searchKeys": [
+      "TSVerificationStatus",
+      "enum TSVerificationStatus : Enum<TSVerificationStatus> ",
+      "com.futurae.sdk.ts.model.public.TSVerificationStatus"
     ]
   },
   {
@@ -430,23 +440,13 @@
     ]
   },
   {
-    "name": "fun collectAndUpload(vararg requests: TSCollectionRequest, timeoutMs: Long? = null, onSuccess: (TSCollection) -> Unit, onError: (Exception) -> Unit)",
+    "name": "fun collectAndUpload(vararg credentials: TSCredentials, timeoutMs: Long? = null, onSuccess: (TSCollection) -> Unit, onError: (Exception) -> Unit)",
     "description": "com.futurae.sdk.ts.TrustSignalsSDK.collectAndUpload",
     "location": "-trust -signals -s-d-k/com.futurae.sdk.ts/-trust-signals-s-d-k/collect-and-upload.html",
     "searchKeys": [
       "collectAndUpload",
-      "fun collectAndUpload(vararg requests: TSCollectionRequest, timeoutMs: Long? = null, onSuccess: (TSCollection) -> Unit, onError: (Exception) -> Unit)",
+      "fun collectAndUpload(vararg credentials: TSCredentials, timeoutMs: Long? = null, onSuccess: (TSCollection) -> Unit, onError: (Exception) -> Unit)",
       "com.futurae.sdk.ts.TrustSignalsSDK.collectAndUpload"
-    ]
-  },
-  {
-    "name": "fun current(): TimezoneObservation",
-    "description": "com.futurae.sdk.ts.model.public.TimezoneObservation.Companion.current",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-timezone-observation/-companion/current.html",
-    "searchKeys": [
-      "current",
-      "fun current(): TimezoneObservation",
-      "com.futurae.sdk.ts.model.public.TimezoneObservation.Companion.current"
     ]
   },
   {
@@ -470,12 +470,12 @@
     ]
   },
   {
-    "name": "fun scheduleCollections(interval: Duration, vararg requests: TSCollectionRequest)",
+    "name": "fun scheduleCollections(collectionInterval: Duration, vararg credentials: TSCredentials)",
     "description": "com.futurae.sdk.ts.TrustSignalsSDK.scheduleCollections",
     "location": "-trust -signals -s-d-k/com.futurae.sdk.ts/-trust-signals-s-d-k/schedule-collections.html",
     "searchKeys": [
       "scheduleCollections",
-      "fun scheduleCollections(interval: Duration, vararg requests: TSCollectionRequest)",
+      "fun scheduleCollections(collectionInterval: Duration, vararg credentials: TSCredentials)",
       "com.futurae.sdk.ts.TrustSignalsSDK.scheduleCollections"
     ]
   },
@@ -500,13 +500,23 @@
     ]
   },
   {
-    "name": "object Companion",
-    "description": "com.futurae.sdk.ts.model.public.TimezoneObservation.Companion",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-timezone-observation/-companion/index.html",
+    "name": "fun valueOf(value: String): TSVerificationStatus",
+    "description": "com.futurae.sdk.ts.model.public.TSVerificationStatus.valueOf",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-verification-status/value-of.html",
     "searchKeys": [
-      "Companion",
-      "object Companion",
-      "com.futurae.sdk.ts.model.public.TimezoneObservation.Companion"
+      "valueOf",
+      "fun valueOf(value: String): TSVerificationStatus",
+      "com.futurae.sdk.ts.model.public.TSVerificationStatus.valueOf"
+    ]
+  },
+  {
+    "name": "fun values(): Array<TSVerificationStatus>",
+    "description": "com.futurae.sdk.ts.model.public.TSVerificationStatus.values",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-verification-status/values.html",
+    "searchKeys": [
+      "values",
+      "fun values(): Array<TSVerificationStatus>",
+      "com.futurae.sdk.ts.model.public.TSVerificationStatus.values"
     ]
   },
   {
@@ -530,12 +540,12 @@
     ]
   },
   {
-    "name": "suspend fun collectAndUpload(vararg requests: TSCollectionRequest, timeoutMs: Long? = null): TSCollection",
+    "name": "suspend fun collectAndUpload(vararg credentials: TSCredentials, timeoutMs: Long? = null): TSCollection",
     "description": "com.futurae.sdk.ts.TrustSignalsSDK.collectAndUpload",
     "location": "-trust -signals -s-d-k/com.futurae.sdk.ts/-trust-signals-s-d-k/collect-and-upload.html",
     "searchKeys": [
       "collectAndUpload",
-      "suspend fun collectAndUpload(vararg requests: TSCollectionRequest, timeoutMs: Long? = null): TSCollection",
+      "suspend fun collectAndUpload(vararg credentials: TSCredentials, timeoutMs: Long? = null): TSCollection",
       "com.futurae.sdk.ts.TrustSignalsSDK.collectAndUpload"
     ]
   },
@@ -551,212 +561,222 @@
   },
   {
     "name": "val accessToken: String",
-    "description": "com.futurae.sdk.ts.model.public.TSCollectionRequest.accessToken",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection-request/access-token.html",
+    "description": "com.futurae.sdk.ts.model.public.TSCredentials.accessToken",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-credentials/access-token.html",
     "searchKeys": [
       "accessToken",
       "val accessToken: String",
-      "com.futurae.sdk.ts.model.public.TSCollectionRequest.accessToken"
+      "com.futurae.sdk.ts.model.public.TSCredentials.accessToken"
     ]
   },
   {
     "name": "val accountId: String",
-    "description": "com.futurae.sdk.ts.model.public.TSCollectionRequest.accountId",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection-request/account-id.html",
+    "description": "com.futurae.sdk.ts.model.public.TSCredentials.accountId",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-credentials/account-id.html",
     "searchKeys": [
       "accountId",
       "val accountId: String",
-      "com.futurae.sdk.ts.model.public.TSCollectionRequest.accountId"
+      "com.futurae.sdk.ts.model.public.TSCredentials.accountId"
     ]
   },
   {
     "name": "val accuracy: Float?",
-    "description": "com.futurae.sdk.ts.model.public.LocationObservation.accuracy",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-location-observation/accuracy.html",
+    "description": "com.futurae.sdk.ts.model.public.TSLocation.accuracy",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-location/accuracy.html",
     "searchKeys": [
       "accuracy",
       "val accuracy: Float?",
-      "com.futurae.sdk.ts.model.public.LocationObservation.accuracy"
+      "com.futurae.sdk.ts.model.public.TSLocation.accuracy"
     ]
   },
   {
     "name": "val activeCall: Boolean?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.activeCall",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/active-call.html",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.activeCall",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/active-call.html",
     "searchKeys": [
       "activeCall",
       "val activeCall: Boolean?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.activeCall"
+      "com.futurae.sdk.ts.model.public.TSObservation.activeCall"
     ]
   },
   {
     "name": "val address: String",
-    "description": "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry.address",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-connected-device-entry/address.html",
+    "description": "com.futurae.sdk.ts.model.public.TSDevice.address",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device/address.html",
     "searchKeys": [
       "address",
       "val address: String",
-      "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry.address"
+      "com.futurae.sdk.ts.model.public.TSDevice.address"
     ]
   },
   {
-    "name": "val address: String",
-    "description": "com.futurae.sdk.ts.model.public.NearbyDeviceEntry.address",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-nearby-device-entry/address.html",
-    "searchKeys": [
-      "address",
-      "val address: String",
-      "com.futurae.sdk.ts.model.public.NearbyDeviceEntry.address"
-    ]
-  },
-  {
-    "name": "val address: String",
-    "description": "com.futurae.sdk.ts.model.public.ScannedDeviceEntry.address",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-scanned-device-entry/address.html",
-    "searchKeys": [
-      "address",
-      "val address: String",
-      "com.futurae.sdk.ts.model.public.ScannedDeviceEntry.address"
-    ]
-  },
-  {
-    "name": "val androidVersion: String",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation.androidVersion",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/android-version.html",
+    "name": "val androidVersion: String?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.androidVersion",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/android-version.html",
     "searchKeys": [
       "androidVersion",
-      "val androidVersion: String",
-      "com.futurae.sdk.ts.model.public.DeviceObservation.androidVersion"
+      "val androidVersion: String?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.androidVersion"
     ]
   },
   {
-    "name": "val app: AppObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.app",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/app.html",
+    "name": "val appVersion: String?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.appVersion",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/app-version.html",
     "searchKeys": [
-      "app",
-      "val app: AppObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.app"
+      "appVersion",
+      "val appVersion: String?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.appVersion"
     ]
   },
   {
-    "name": "val appId: String",
-    "description": "com.futurae.sdk.ts.model.public.TSCollectionRequest.appId",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection-request/app-id.html",
+    "name": "val batteryLevel: Int?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.batteryLevel",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/battery-level.html",
     "searchKeys": [
-      "appId",
-      "val appId: String",
-      "com.futurae.sdk.ts.model.public.TSCollectionRequest.appId"
+      "batteryLevel",
+      "val batteryLevel: Int?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.batteryLevel"
     ]
   },
   {
-    "name": "val battery: BatteryObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.battery",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/battery.html",
+    "name": "val batteryStatus: String?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.batteryStatus",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/battery-status.html",
     "searchKeys": [
-      "battery",
-      "val battery: BatteryObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.battery"
+      "batteryStatus",
+      "val batteryStatus: String?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.batteryStatus"
     ]
   },
   {
-    "name": "val blePeripherals: BlePeripheralsObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.blePeripherals",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/ble-peripherals.html",
+    "name": "val blePeripherals: TSBlePeripherals?",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.blePeripherals",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/ble-peripherals.html",
     "searchKeys": [
       "blePeripherals",
-      "val blePeripherals: BlePeripheralsObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.blePeripherals"
+      "val blePeripherals: TSBlePeripherals?",
+      "com.futurae.sdk.ts.model.public.TSObservation.blePeripherals"
     ]
   },
   {
-    "name": "val bleScan: BleScanObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.bleScan",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/ble-scan.html",
+    "name": "val bleScan: TSBleScan?",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.bleScan",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/ble-scan.html",
     "searchKeys": [
       "bleScan",
-      "val bleScan: BleScanObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.bleScan"
+      "val bleScan: TSBleScan?",
+      "com.futurae.sdk.ts.model.public.TSObservation.bleScan"
     ]
   },
   {
     "name": "val bssid: String?",
-    "description": "com.futurae.sdk.ts.model.public.WifiNetworkObservation.bssid",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-network-observation/bssid.html",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiNetwork.bssid",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-network/bssid.html",
     "searchKeys": [
       "bssid",
       "val bssid: String?",
-      "com.futurae.sdk.ts.model.public.WifiNetworkObservation.bssid"
+      "com.futurae.sdk.ts.model.public.TSWifiNetwork.bssid"
     ]
   },
   {
-    "name": "val collectionTimeoutMS: Long",
-    "description": "com.futurae.sdk.ts.model.public.TSConfiguration.collectionTimeoutMS",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-configuration/collection-timeout-m-s.html",
+    "name": "val collectionId: String",
+    "description": "com.futurae.sdk.ts.model.public.TSCollection.collectionId",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/collection-id.html",
     "searchKeys": [
-      "collectionTimeoutMS",
-      "val collectionTimeoutMS: Long",
-      "com.futurae.sdk.ts.model.public.TSConfiguration.collectionTimeoutMS"
+      "collectionId",
+      "val collectionId: String",
+      "com.futurae.sdk.ts.model.public.TSCollection.collectionId"
     ]
   },
   {
-    "name": "val connectedBLEs: List<ConnectedDeviceEntry>",
-    "description": "com.futurae.sdk.ts.model.public.BlePeripheralsObservation.connectedBLEs",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-ble-peripherals-observation/connected-b-l-es.html",
+    "name": "val collectionTimeoutMs: Long",
+    "description": "com.futurae.sdk.ts.model.public.TSConfiguration.collectionTimeoutMs",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-configuration/collection-timeout-ms.html",
+    "searchKeys": [
+      "collectionTimeoutMs",
+      "val collectionTimeoutMs: Long",
+      "com.futurae.sdk.ts.model.public.TSConfiguration.collectionTimeoutMs"
+    ]
+  },
+  {
+    "name": "val collectionUrl: String",
+    "description": "com.futurae.sdk.ts.model.public.TSConfiguration.collectionUrl",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-configuration/collection-url.html",
+    "searchKeys": [
+      "collectionUrl",
+      "val collectionUrl: String",
+      "com.futurae.sdk.ts.model.public.TSConfiguration.collectionUrl"
+    ]
+  },
+  {
+    "name": "val connectedBLEs: List<TSDevice>",
+    "description": "com.futurae.sdk.ts.model.public.TSBlePeripherals.connectedBLEs",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-ble-peripherals/connected-b-l-es.html",
     "searchKeys": [
       "connectedBLEs",
-      "val connectedBLEs: List<ConnectedDeviceEntry>",
-      "com.futurae.sdk.ts.model.public.BlePeripheralsObservation.connectedBLEs"
+      "val connectedBLEs: List<TSDevice>",
+      "com.futurae.sdk.ts.model.public.TSBlePeripherals.connectedBLEs"
     ]
   },
   {
-    "name": "val connectedDevices: List<ConnectedDeviceEntry>?",
-    "description": "com.futurae.sdk.ts.model.public.WifiNetworkObservation.connectedDevices",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-network-observation/connected-devices.html",
+    "name": "val connectedDevices: List<TSDevice>?",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiNetwork.connectedDevices",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-network/connected-devices.html",
     "searchKeys": [
       "connectedDevices",
-      "val connectedDevices: List<ConnectedDeviceEntry>?",
-      "com.futurae.sdk.ts.model.public.WifiNetworkObservation.connectedDevices"
+      "val connectedDevices: List<TSDevice>?",
+      "com.futurae.sdk.ts.model.public.TSWifiNetwork.connectedDevices"
     ]
   },
   {
-    "name": "val debuggerAttached: Boolean",
-    "description": "com.futurae.sdk.ts.model.public.SecurityObservation.debuggerAttached",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-security-observation/debugger-attached.html",
+    "name": "val debuggerAttached: Boolean?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.debuggerAttached",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/debugger-attached.html",
     "searchKeys": [
       "debuggerAttached",
-      "val debuggerAttached: Boolean",
-      "com.futurae.sdk.ts.model.public.SecurityObservation.debuggerAttached"
+      "val debuggerAttached: Boolean?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.debuggerAttached"
     ]
   },
   {
-    "name": "val developerModeEnabled: Boolean",
-    "description": "com.futurae.sdk.ts.model.public.SecurityObservation.developerModeEnabled",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-security-observation/developer-mode-enabled.html",
+    "name": "val developerModeEnabled: Boolean?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.developerModeEnabled",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/developer-mode-enabled.html",
     "searchKeys": [
       "developerModeEnabled",
-      "val developerModeEnabled: Boolean",
-      "com.futurae.sdk.ts.model.public.SecurityObservation.developerModeEnabled"
+      "val developerModeEnabled: Boolean?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.developerModeEnabled"
     ]
   },
   {
-    "name": "val device: DeviceObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.device",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/device.html",
+    "name": "val device: String?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.device",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/device.html",
     "searchKeys": [
       "device",
-      "val device: DeviceObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.device"
+      "val device: String?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.device"
     ]
   },
   {
-    "name": "val device: String",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation.device",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/device.html",
+    "name": "val deviceInfoSignals: TSDeviceInfoSignals",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.deviceInfoSignals",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/device-info-signals.html",
     "searchKeys": [
-      "device",
-      "val device: String",
-      "com.futurae.sdk.ts.model.public.DeviceObservation.device"
+      "deviceInfoSignals",
+      "val deviceInfoSignals: TSDeviceInfoSignals",
+      "com.futurae.sdk.ts.model.public.TSObservation.deviceInfoSignals"
+    ]
+  },
+  {
+    "name": "val entries: EnumEntries<TSVerificationStatus>",
+    "description": "com.futurae.sdk.ts.model.public.TSVerificationStatus.entries",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-verification-status/entries.html",
+    "searchKeys": [
+      "entries",
+      "val entries: EnumEntries<TSVerificationStatus>",
+      "com.futurae.sdk.ts.model.public.TSVerificationStatus.entries"
     ]
   },
   {
@@ -770,483 +790,423 @@
     ]
   },
   {
-    "name": "val id: String",
-    "description": "com.futurae.sdk.ts.model.public.TimezoneObservation.id",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-timezone-observation/id.html",
-    "searchKeys": [
-      "id",
-      "val id: String",
-      "com.futurae.sdk.ts.model.public.TimezoneObservation.id"
-    ]
-  },
-  {
     "name": "val installerPackage: String?",
-    "description": "com.futurae.sdk.ts.model.public.AppObservation.installerPackage",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-app-observation/installer-package.html",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.installerPackage",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/installer-package.html",
     "searchKeys": [
       "installerPackage",
       "val installerPackage: String?",
-      "com.futurae.sdk.ts.model.public.AppObservation.installerPackage"
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.installerPackage"
+    ]
+  },
+  {
+    "name": "val interactionId: String",
+    "description": "com.futurae.sdk.ts.model.public.TSCredentials.interactionId",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-credentials/interaction-id.html",
+    "searchKeys": [
+      "interactionId",
+      "val interactionId: String",
+      "com.futurae.sdk.ts.model.public.TSCredentials.interactionId"
     ]
   },
   {
     "name": "val ip: String?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.ip",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/ip.html",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.ip",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/ip.html",
     "searchKeys": [
       "ip",
       "val ip: String?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.ip"
+      "com.futurae.sdk.ts.model.public.TSObservation.ip"
     ]
   },
   {
-    "name": "val language: String",
-    "description": "com.futurae.sdk.ts.model.public.LocaleObservation.language",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-locale-observation/language.html",
+    "name": "val language: String?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.language",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/language.html",
     "searchKeys": [
       "language",
-      "val language: String",
-      "com.futurae.sdk.ts.model.public.LocaleObservation.language"
+      "val language: String?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.language"
     ]
   },
   {
     "name": "val lat: Double",
-    "description": "com.futurae.sdk.ts.model.public.LocationObservation.lat",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-location-observation/lat.html",
+    "description": "com.futurae.sdk.ts.model.public.TSLocation.lat",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-location/lat.html",
     "searchKeys": [
       "lat",
       "val lat: Double",
-      "com.futurae.sdk.ts.model.public.LocationObservation.lat"
+      "com.futurae.sdk.ts.model.public.TSLocation.lat"
     ]
   },
   {
-    "name": "val level: Int",
-    "description": "com.futurae.sdk.ts.model.public.BatteryObservation.level",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-battery-observation/level.html",
+    "name": "val location: TSLocation?",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.location",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/location.html",
     "searchKeys": [
-      "level",
-      "val level: Int",
-      "com.futurae.sdk.ts.model.public.BatteryObservation.level"
-    ]
-  },
-  {
-    "name": "val locale: LocaleObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.locale",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/locale.html",
-    "searchKeys": [
-      "locale",
-      "val locale: LocaleObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.locale"
-    ]
-  },
-  {
-    "name": "val locationCollection: LocationObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.locationCollection",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/location-collection.html",
-    "searchKeys": [
-      "locationCollection",
-      "val locationCollection: LocationObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.locationCollection"
+      "location",
+      "val location: TSLocation?",
+      "com.futurae.sdk.ts.model.public.TSObservation.location"
     ]
   },
   {
     "name": "val lon: Double",
-    "description": "com.futurae.sdk.ts.model.public.LocationObservation.lon",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-location-observation/lon.html",
+    "description": "com.futurae.sdk.ts.model.public.TSLocation.lon",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-location/lon.html",
     "searchKeys": [
       "lon",
       "val lon: Double",
-      "com.futurae.sdk.ts.model.public.LocationObservation.lon"
+      "com.futurae.sdk.ts.model.public.TSLocation.lon"
     ]
   },
   {
-    "name": "val manufacturer: String",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation.manufacturer",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/manufacturer.html",
+    "name": "val manufacturer: String?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.manufacturer",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/manufacturer.html",
     "searchKeys": [
       "manufacturer",
-      "val manufacturer: String",
-      "com.futurae.sdk.ts.model.public.DeviceObservation.manufacturer"
+      "val manufacturer: String?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.manufacturer"
     ]
   },
   {
-    "name": "val model: String",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation.model",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/model.html",
+    "name": "val model: String?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.model",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/model.html",
     "searchKeys": [
       "model",
-      "val model: String",
-      "com.futurae.sdk.ts.model.public.DeviceObservation.model"
-    ]
-  },
-  {
-    "name": "val name: String",
-    "description": "com.futurae.sdk.ts.model.public.TimezoneObservation.name",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-timezone-observation/name.html",
-    "searchKeys": [
-      "name",
-      "val name: String",
-      "com.futurae.sdk.ts.model.public.TimezoneObservation.name"
+      "val model: String?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.model"
     ]
   },
   {
     "name": "val name: String?",
-    "description": "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry.name",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-connected-device-entry/name.html",
+    "description": "com.futurae.sdk.ts.model.public.TSDevice.name",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device/name.html",
     "searchKeys": [
       "name",
       "val name: String?",
-      "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry.name"
+      "com.futurae.sdk.ts.model.public.TSDevice.name"
     ]
   },
   {
     "name": "val name: String?",
-    "description": "com.futurae.sdk.ts.model.public.NearbyDeviceEntry.name",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-nearby-device-entry/name.html",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiNetwork.name",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-network/name.html",
     "searchKeys": [
       "name",
       "val name: String?",
-      "com.futurae.sdk.ts.model.public.NearbyDeviceEntry.name"
+      "com.futurae.sdk.ts.model.public.TSWifiNetwork.name"
     ]
   },
   {
-    "name": "val name: String?",
-    "description": "com.futurae.sdk.ts.model.public.ScannedDeviceEntry.name",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-scanned-device-entry/name.html",
-    "searchKeys": [
-      "name",
-      "val name: String?",
-      "com.futurae.sdk.ts.model.public.ScannedDeviceEntry.name"
-    ]
-  },
-  {
-    "name": "val name: String?",
-    "description": "com.futurae.sdk.ts.model.public.WifiNetworkObservation.name",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-network-observation/name.html",
-    "searchKeys": [
-      "name",
-      "val name: String?",
-      "com.futurae.sdk.ts.model.public.WifiNetworkObservation.name"
-    ]
-  },
-  {
-    "name": "val nearbyDevices: List<NearbyDeviceEntry>?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.nearbyDevices",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/nearby-devices.html",
+    "name": "val nearbyDevices: List<TSDevice>?",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.nearbyDevices",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/nearby-devices.html",
     "searchKeys": [
       "nearbyDevices",
-      "val nearbyDevices: List<NearbyDeviceEntry>?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.nearbyDevices"
+      "val nearbyDevices: List<TSDevice>?",
+      "com.futurae.sdk.ts.model.public.TSObservation.nearbyDevices"
     ]
   },
   {
-    "name": "val networkState: NetworkStateObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.networkState",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/network-state.html",
+    "name": "val networkState: TSNetworkState?",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.networkState",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/network-state.html",
     "searchKeys": [
       "networkState",
-      "val networkState: NetworkStateObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.networkState"
+      "val networkState: TSNetworkState?",
+      "com.futurae.sdk.ts.model.public.TSObservation.networkState"
     ]
   },
   {
     "name": "val networkType: String",
-    "description": "com.futurae.sdk.ts.model.public.NetworkStateObservation.networkType",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-network-state-observation/network-type.html",
+    "description": "com.futurae.sdk.ts.model.public.TSNetworkState.networkType",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-network-state/network-type.html",
     "searchKeys": [
       "networkType",
       "val networkType: String",
-      "com.futurae.sdk.ts.model.public.NetworkStateObservation.networkType"
+      "com.futurae.sdk.ts.model.public.TSNetworkState.networkType"
     ]
   },
   {
-    "name": "val observation: SignalsObservation",
+    "name": "val observation: TSObservation",
     "description": "com.futurae.sdk.ts.model.public.TSCollection.observation",
     "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/observation.html",
     "searchKeys": [
       "observation",
-      "val observation: SignalsObservation",
+      "val observation: TSObservation",
       "com.futurae.sdk.ts.model.public.TSCollection.observation"
     ]
   },
   {
-    "name": "val permission: Boolean",
-    "description": "com.futurae.sdk.ts.model.public.BlePeripheralsObservation.permission",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-ble-peripherals-observation/permission.html",
+    "name": "val observationTime: Date",
+    "description": "com.futurae.sdk.ts.model.public.TSCollection.observationTime",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/observation-time.html",
     "searchKeys": [
-      "permission",
-      "val permission: Boolean",
-      "com.futurae.sdk.ts.model.public.BlePeripheralsObservation.permission"
+      "observationTime",
+      "val observationTime: Date",
+      "com.futurae.sdk.ts.model.public.TSCollection.observationTime"
     ]
   },
   {
-    "name": "val permission: Boolean",
-    "description": "com.futurae.sdk.ts.model.public.BleScanObservation.permission",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-ble-scan-observation/permission.html",
+    "name": "val observationTime: Date",
+    "description": "com.futurae.sdk.ts.model.public.TSDevice.observationTime",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device/observation-time.html",
     "searchKeys": [
-      "permission",
-      "val permission: Boolean",
-      "com.futurae.sdk.ts.model.public.BleScanObservation.permission"
+      "observationTime",
+      "val observationTime: Date",
+      "com.futurae.sdk.ts.model.public.TSDevice.observationTime"
     ]
   },
   {
-    "name": "val permission: Boolean",
-    "description": "com.futurae.sdk.ts.model.public.WifiScanObservation.permission",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-scan-observation/permission.html",
+    "name": "val observationTime: Date",
+    "description": "com.futurae.sdk.ts.model.public.TSLocation.observationTime",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-location/observation-time.html",
     "searchKeys": [
-      "permission",
-      "val permission: Boolean",
-      "com.futurae.sdk.ts.model.public.WifiScanObservation.permission"
+      "observationTime",
+      "val observationTime: Date",
+      "com.futurae.sdk.ts.model.public.TSLocation.observationTime"
+    ]
+  },
+  {
+    "name": "val observationTime: Date",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiNetwork.observationTime",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-network/observation-time.html",
+    "searchKeys": [
+      "observationTime",
+      "val observationTime: Date",
+      "com.futurae.sdk.ts.model.public.TSWifiNetwork.observationTime"
+    ]
+  },
+  {
+    "name": "val permissionGranted: Boolean",
+    "description": "com.futurae.sdk.ts.model.public.TSBlePeripherals.permissionGranted",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-ble-peripherals/permission-granted.html",
+    "searchKeys": [
+      "permissionGranted",
+      "val permissionGranted: Boolean",
+      "com.futurae.sdk.ts.model.public.TSBlePeripherals.permissionGranted"
+    ]
+  },
+  {
+    "name": "val permissionGranted: Boolean",
+    "description": "com.futurae.sdk.ts.model.public.TSBleScan.permissionGranted",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-ble-scan/permission-granted.html",
+    "searchKeys": [
+      "permissionGranted",
+      "val permissionGranted: Boolean",
+      "com.futurae.sdk.ts.model.public.TSBleScan.permissionGranted"
+    ]
+  },
+  {
+    "name": "val permissionGranted: Boolean",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiScan.permissionGranted",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-scan/permission-granted.html",
+    "searchKeys": [
+      "permissionGranted",
+      "val permissionGranted: Boolean",
+      "com.futurae.sdk.ts.model.public.TSWifiScan.permissionGranted"
     ]
   },
   {
     "name": "val proxyHost: String?",
-    "description": "com.futurae.sdk.ts.model.public.NetworkStateObservation.proxyHost",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-network-state-observation/proxy-host.html",
+    "description": "com.futurae.sdk.ts.model.public.TSNetworkState.proxyHost",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-network-state/proxy-host.html",
     "searchKeys": [
       "proxyHost",
       "val proxyHost: String?",
-      "com.futurae.sdk.ts.model.public.NetworkStateObservation.proxyHost"
+      "com.futurae.sdk.ts.model.public.TSNetworkState.proxyHost"
     ]
   },
   {
-    "name": "val region: String",
-    "description": "com.futurae.sdk.ts.model.public.LocaleObservation.region",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-locale-observation/region.html",
+    "name": "val region: String?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.region",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/region.html",
     "searchKeys": [
       "region",
-      "val region: String",
-      "com.futurae.sdk.ts.model.public.LocaleObservation.region"
+      "val region: String?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.region"
     ]
   },
   {
     "name": "val rssi: Int?",
-    "description": "com.futurae.sdk.ts.model.public.WifiNetworkObservation.rssi",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-network-observation/rssi.html",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiNetwork.rssi",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-network/rssi.html",
     "searchKeys": [
       "rssi",
       "val rssi: Int?",
-      "com.futurae.sdk.ts.model.public.WifiNetworkObservation.rssi"
+      "com.futurae.sdk.ts.model.public.TSWifiNetwork.rssi"
     ]
   },
   {
-    "name": "val scanResults: List<ScannedDeviceEntry>",
-    "description": "com.futurae.sdk.ts.model.public.BleScanObservation.scanResults",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-ble-scan-observation/scan-results.html",
+    "name": "val scanResults: List<TSDevice>",
+    "description": "com.futurae.sdk.ts.model.public.TSBleScan.scanResults",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-ble-scan/scan-results.html",
     "searchKeys": [
       "scanResults",
-      "val scanResults: List<ScannedDeviceEntry>",
-      "com.futurae.sdk.ts.model.public.BleScanObservation.scanResults"
+      "val scanResults: List<TSDevice>",
+      "com.futurae.sdk.ts.model.public.TSBleScan.scanResults"
     ]
   },
   {
-    "name": "val scanResults: List<ScannedDeviceEntry>",
-    "description": "com.futurae.sdk.ts.model.public.WifiScanObservation.scanResults",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-scan-observation/scan-results.html",
+    "name": "val scanResults: List<TSDevice>",
+    "description": "com.futurae.sdk.ts.model.public.TSWifiScan.scanResults",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-wifi-scan/scan-results.html",
     "searchKeys": [
       "scanResults",
-      "val scanResults: List<ScannedDeviceEntry>",
-      "com.futurae.sdk.ts.model.public.WifiScanObservation.scanResults"
+      "val scanResults: List<TSDevice>",
+      "com.futurae.sdk.ts.model.public.TSWifiScan.scanResults"
     ]
   },
   {
-    "name": "val screenDensityDpi: Int",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation.screenDensityDpi",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/screen-density-dpi.html",
+    "name": "val screenDensityDpi: Int?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.screenDensityDpi",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/screen-density-dpi.html",
     "searchKeys": [
       "screenDensityDpi",
-      "val screenDensityDpi: Int",
-      "com.futurae.sdk.ts.model.public.DeviceObservation.screenDensityDpi"
+      "val screenDensityDpi: Int?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.screenDensityDpi"
     ]
   },
   {
-    "name": "val screenResolution: String",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation.screenResolution",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/screen-resolution.html",
+    "name": "val screenResolution: String?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.screenResolution",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/screen-resolution.html",
     "searchKeys": [
       "screenResolution",
-      "val screenResolution: String",
-      "com.futurae.sdk.ts.model.public.DeviceObservation.screenResolution"
+      "val screenResolution: String?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.screenResolution"
     ]
   },
   {
-    "name": "val sdkInt: Int",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation.sdkInt",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/sdk-int.html",
+    "name": "val sdkInt: Int?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.sdkInt",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/sdk-int.html",
     "searchKeys": [
       "sdkInt",
-      "val sdkInt: Int",
-      "com.futurae.sdk.ts.model.public.DeviceObservation.sdkInt"
+      "val sdkInt: Int?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.sdkInt"
     ]
   },
   {
-    "name": "val security: SecurityObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.security",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/security.html",
+    "name": "val sensorTag: String",
+    "description": "com.futurae.sdk.ts.model.public.TSCollection.sensorTag",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/sensor-tag.html",
     "searchKeys": [
-      "security",
-      "val security: SecurityObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.security"
+      "sensorTag",
+      "val sensorTag: String",
+      "com.futurae.sdk.ts.model.public.TSCollection.sensorTag"
     ]
   },
   {
-    "name": "val serverURL: String",
-    "description": "com.futurae.sdk.ts.model.public.TSConfiguration.serverURL",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-configuration/server-u-r-l.html",
+    "name": "val sensorTag: String",
+    "description": "com.futurae.sdk.ts.model.public.TSConfiguration.sensorTag",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-configuration/sensor-tag.html",
     "searchKeys": [
-      "serverURL",
-      "val serverURL: String",
-      "com.futurae.sdk.ts.model.public.TSConfiguration.serverURL"
+      "sensorTag",
+      "val sensorTag: String",
+      "com.futurae.sdk.ts.model.public.TSConfiguration.sensorTag"
+    ]
+  },
+  {
+    "name": "val serviceId: String",
+    "description": "com.futurae.sdk.ts.model.public.TSCredentials.serviceId",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-credentials/service-id.html",
+    "searchKeys": [
+      "serviceId",
+      "val serviceId: String",
+      "com.futurae.sdk.ts.model.public.TSCredentials.serviceId"
     ]
   },
   {
     "name": "val speed: Float?",
-    "description": "com.futurae.sdk.ts.model.public.LocationObservation.speed",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-location-observation/speed.html",
+    "description": "com.futurae.sdk.ts.model.public.TSLocation.speed",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-location/speed.html",
     "searchKeys": [
       "speed",
       "val speed: Float?",
-      "com.futurae.sdk.ts.model.public.LocationObservation.speed"
+      "com.futurae.sdk.ts.model.public.TSLocation.speed"
     ]
   },
   {
-    "name": "val status: String",
-    "description": "com.futurae.sdk.ts.model.public.BatteryObservation.status",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-battery-observation/status.html",
+    "name": "val timedOut: Boolean",
+    "description": "com.futurae.sdk.ts.model.public.TSCollection.timedOut",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/timed-out.html",
     "searchKeys": [
-      "status",
-      "val status: String",
-      "com.futurae.sdk.ts.model.public.BatteryObservation.status"
+      "timedOut",
+      "val timedOut: Boolean",
+      "com.futurae.sdk.ts.model.public.TSCollection.timedOut"
     ]
   },
   {
-    "name": "val tag: String",
-    "description": "com.futurae.sdk.ts.model.public.TSCollection.tag",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/tag.html",
-    "searchKeys": [
-      "tag",
-      "val tag: String",
-      "com.futurae.sdk.ts.model.public.TSCollection.tag"
-    ]
-  },
-  {
-    "name": "val timestamp: Long",
-    "description": "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry.timestamp",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-connected-device-entry/timestamp.html",
-    "searchKeys": [
-      "timestamp",
-      "val timestamp: Long",
-      "com.futurae.sdk.ts.model.public.ConnectedDeviceEntry.timestamp"
-    ]
-  },
-  {
-    "name": "val timestamp: Long",
-    "description": "com.futurae.sdk.ts.model.public.LocationObservation.timestamp",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-location-observation/timestamp.html",
-    "searchKeys": [
-      "timestamp",
-      "val timestamp: Long",
-      "com.futurae.sdk.ts.model.public.LocationObservation.timestamp"
-    ]
-  },
-  {
-    "name": "val timestamp: Long",
-    "description": "com.futurae.sdk.ts.model.public.NearbyDeviceEntry.timestamp",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-nearby-device-entry/timestamp.html",
-    "searchKeys": [
-      "timestamp",
-      "val timestamp: Long",
-      "com.futurae.sdk.ts.model.public.NearbyDeviceEntry.timestamp"
-    ]
-  },
-  {
-    "name": "val timestamp: Long",
-    "description": "com.futurae.sdk.ts.model.public.ScannedDeviceEntry.timestamp",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-scanned-device-entry/timestamp.html",
-    "searchKeys": [
-      "timestamp",
-      "val timestamp: Long",
-      "com.futurae.sdk.ts.model.public.ScannedDeviceEntry.timestamp"
-    ]
-  },
-  {
-    "name": "val timestamp: Long",
-    "description": "com.futurae.sdk.ts.model.public.TSCollection.timestamp",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-collection/timestamp.html",
-    "searchKeys": [
-      "timestamp",
-      "val timestamp: Long",
-      "com.futurae.sdk.ts.model.public.TSCollection.timestamp"
-    ]
-  },
-  {
-    "name": "val timestamp: Long",
-    "description": "com.futurae.sdk.ts.model.public.WifiNetworkObservation.timestamp",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-wifi-network-observation/timestamp.html",
-    "searchKeys": [
-      "timestamp",
-      "val timestamp: Long",
-      "com.futurae.sdk.ts.model.public.WifiNetworkObservation.timestamp"
-    ]
-  },
-  {
-    "name": "val timezone: TimezoneObservation",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.timezone",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/timezone.html",
+    "name": "val timezone: String",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.timezone",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/timezone.html",
     "searchKeys": [
       "timezone",
-      "val timezone: TimezoneObservation",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.timezone"
+      "val timezone: String",
+      "com.futurae.sdk.ts.model.public.TSObservation.timezone"
     ]
   },
   {
-    "name": "val uptimeMs: Long",
-    "description": "com.futurae.sdk.ts.model.public.DeviceObservation.uptimeMs",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-device-observation/uptime-ms.html",
+    "name": "val unitId: String",
+    "description": "com.futurae.sdk.ts.model.public.TSCredentials.unitId",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-credentials/unit-id.html",
+    "searchKeys": [
+      "unitId",
+      "val unitId: String",
+      "com.futurae.sdk.ts.model.public.TSCredentials.unitId"
+    ]
+  },
+  {
+    "name": "val uptimeMs: Long?",
+    "description": "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.uptimeMs",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-device-info-signals/uptime-ms.html",
     "searchKeys": [
       "uptimeMs",
-      "val uptimeMs: Long",
-      "com.futurae.sdk.ts.model.public.DeviceObservation.uptimeMs"
+      "val uptimeMs: Long?",
+      "com.futurae.sdk.ts.model.public.TSDeviceInfoSignals.uptimeMs"
     ]
   },
   {
-    "name": "val version: String?",
-    "description": "com.futurae.sdk.ts.model.public.AppObservation.version",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-app-observation/version.html",
+    "name": "val verificationStatus: TSVerificationStatus",
+    "description": "com.futurae.sdk.ts.model.public.TSCredentials.verificationStatus",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-credentials/verification-status.html",
     "searchKeys": [
-      "version",
-      "val version: String?",
-      "com.futurae.sdk.ts.model.public.AppObservation.version"
+      "verificationStatus",
+      "val verificationStatus: TSVerificationStatus",
+      "com.futurae.sdk.ts.model.public.TSCredentials.verificationStatus"
     ]
   },
   {
     "name": "val vpnActive: Boolean",
-    "description": "com.futurae.sdk.ts.model.public.NetworkStateObservation.vpnActive",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-network-state-observation/vpn-active.html",
+    "description": "com.futurae.sdk.ts.model.public.TSNetworkState.vpnActive",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-network-state/vpn-active.html",
     "searchKeys": [
       "vpnActive",
       "val vpnActive: Boolean",
-      "com.futurae.sdk.ts.model.public.NetworkStateObservation.vpnActive"
+      "com.futurae.sdk.ts.model.public.TSNetworkState.vpnActive"
     ]
   },
   {
-    "name": "val wifiNetwork: WifiNetworkObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.wifiNetwork",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/wifi-network.html",
+    "name": "val wifiNetwork: TSWifiNetwork?",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.wifiNetwork",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/wifi-network.html",
     "searchKeys": [
       "wifiNetwork",
-      "val wifiNetwork: WifiNetworkObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.wifiNetwork"
+      "val wifiNetwork: TSWifiNetwork?",
+      "com.futurae.sdk.ts.model.public.TSObservation.wifiNetwork"
     ]
   },
   {
-    "name": "val wifiScan: WifiScanObservation?",
-    "description": "com.futurae.sdk.ts.model.public.SignalsObservation.wifiScan",
-    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-signals-observation/wifi-scan.html",
+    "name": "val wifiScan: TSWifiScan?",
+    "description": "com.futurae.sdk.ts.model.public.TSObservation.wifiScan",
+    "location": "-trust -signals -s-d-k/com.futurae.sdk.ts.model.public/-t-s-observation/wifi-scan.html",
     "searchKeys": [
       "wifiScan",
-      "val wifiScan: WifiScanObservation?",
-      "com.futurae.sdk.ts.model.public.SignalsObservation.wifiScan"
+      "val wifiScan: TSWifiScan?",
+      "com.futurae.sdk.ts.model.public.TSObservation.wifiScan"
     ]
   }
 ]

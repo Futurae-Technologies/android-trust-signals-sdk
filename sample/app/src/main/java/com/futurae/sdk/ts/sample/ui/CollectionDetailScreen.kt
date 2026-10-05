@@ -33,19 +33,10 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import kotlinx.serialization.json.Json
 import androidx.compose.ui.unit.dp
 import com.futurae.sdk.ts.sample.SampleViewModel
 import com.futurae.sdk.ts.sample.utils.UITestTags
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
-
-private fun Long.toTimeString(): String =
-    SimpleDateFormat("h:mm:ss a", Locale.getDefault()).format(Date(this * 1000))
-
-private fun Long.toDateTimeString(): String =
-    SimpleDateFormat("MMM d, yyyy 'at' h:mm:ss a", Locale.getDefault()).format(Date(this * 1000))
+import kotlinx.serialization.json.Json
 
 @Composable
 fun CollectionDetailScreen(
@@ -76,7 +67,7 @@ fun CollectionDetailScreen(
         }
 
         Text(
-            text = collection.timestamp.toTimeString(),
+            text = collection.observationTime.toString(),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
         )
@@ -85,13 +76,50 @@ fun CollectionDetailScreen(
 
         SectionLabel("Header")
         KeyValueCard {
-            KeyValueRow("timestamp", collection.timestamp.toString())
+            KeyValueRow("observationTime", collection.observationTime.toString())
             HorizontalDivider()
-            KeyValueRow("date", collection.timestamp.toDateTimeString())
-            HorizontalDivider()
-            KeyValueRow("tag", collection.tag)
+            KeyValueRow("sensorTag", collection.sensorTag)
             HorizontalDivider()
             KeyValueRow("collectionId", entry.id)
+        }
+
+        // ── deviceInfoSignals ─────────────────────────────────────────────────
+
+        collection.observation.deviceInfoSignals.let { d ->
+            SectionLabel("deviceInfoSignals")
+            KeyValueCard {
+                d.model?.let { KeyValueRow("model", it); HorizontalDivider() }
+                d.manufacturer?.let { KeyValueRow("manufacturer", it); HorizontalDivider() }
+                d.device?.let { KeyValueRow("device", it); HorizontalDivider() }
+                d.screenResolution?.let { KeyValueRow("screenResolution", it); HorizontalDivider() }
+                d.screenDensityDpi?.let {
+                    KeyValueRow(
+                        "screenDensityDpi",
+                        it.toString()
+                    ); HorizontalDivider()
+                }
+                d.androidVersion?.let { KeyValueRow("androidVersion", it); HorizontalDivider() }
+                d.sdkInt?.let { KeyValueRow("sdkInt", it.toString()); HorizontalDivider() }
+                d.uptimeMs?.let { KeyValueRow("uptimeMs", it.toString()); HorizontalDivider() }
+                d.language?.let { KeyValueRow("language", it); HorizontalDivider() }
+                d.region?.let { KeyValueRow("region", it); HorizontalDivider() }
+                d.debuggerAttached?.let {
+                    KeyValueRow(
+                        "debuggerAttached",
+                        it.toString()
+                    ); HorizontalDivider()
+                }
+                d.developerModeEnabled?.let {
+                    KeyValueRow(
+                        "developerModeEnabled",
+                        it.toString()
+                    ); HorizontalDivider()
+                }
+                d.appVersion?.let { KeyValueRow("appVersion", it); HorizontalDivider() }
+                d.installerPackage?.let { KeyValueRow("installerPackage", it); HorizontalDivider() }
+                d.batteryLevel?.let { KeyValueRow("batteryLevel", "$it%"); HorizontalDivider() }
+                d.batteryStatus?.let { KeyValueRow("batteryStatus", it) }
+            }
         }
 
         // ── observation.wifiScan ──────────────────────────────────────────────
@@ -99,7 +127,7 @@ fun CollectionDetailScreen(
         obs.wifiScan?.let { wifiScan ->
             SectionLabel("observation.wifiScan")
             KeyValueCard {
-                PermissionRow(wifiScan.permission)
+                PermissionRow(wifiScan.permissionGranted)
                 HorizontalDivider()
                 if (wifiScan.scanResults.isEmpty()) {
                     InfoRow("no scan results")
@@ -117,7 +145,7 @@ fun CollectionDetailScreen(
         obs.bleScan?.let { bleScan ->
             SectionLabel("observation.bleScan")
             KeyValueCard {
-                PermissionRow(bleScan.permission)
+                PermissionRow(bleScan.permissionGranted)
                 HorizontalDivider()
                 if (bleScan.scanResults.isEmpty()) {
                     InfoRow("no peripherals discovered")
@@ -130,10 +158,10 @@ fun CollectionDetailScreen(
             }
         }
 
-        // ── observation.locationCollection ────────────────────────────────────
+        // ── observation.location ──────────────────────────────────────────────
 
-        obs.locationCollection?.let { loc ->
-            SectionLabel("observation.locationCollection")
+        obs.location?.let { loc ->
+            SectionLabel("observation.location")
             KeyValueCard {
                 KeyValueRow("lat", loc.lat.toString())
                 HorizontalDivider()
@@ -147,7 +175,7 @@ fun CollectionDetailScreen(
                     KeyValueRow("speed", it.toString())
                 }
                 HorizontalDivider()
-                KeyValueRow("timestamp", loc.timestamp.toString())
+                KeyValueRow("observationTime", loc.observationTime.toString())
             }
         }
 
@@ -166,7 +194,7 @@ fun CollectionDetailScreen(
                     KeyValueRow("rssi", it.toString())
                 }
                 HorizontalDivider()
-                KeyValueRow("timestamp", net.timestamp.toString())
+                KeyValueRow("observationTime", net.observationTime.toString())
                 net.connectedDevices?.takeIf { it.isNotEmpty() }?.let { devices ->
                     devices.forEachIndexed { i, device ->
                         HorizontalDivider()
@@ -181,7 +209,7 @@ fun CollectionDetailScreen(
         obs.blePeripherals?.let { ble ->
             SectionLabel("observation.blePeripherals")
             KeyValueCard {
-                PermissionRow(ble.permission)
+                PermissionRow(ble.permissionGranted)
                 HorizontalDivider()
                 if (ble.connectedBLEs.isEmpty()) {
                     InfoRow("no peripherals connected")
@@ -223,43 +251,7 @@ fun CollectionDetailScreen(
 
         SectionLabel("observation.timezone")
         KeyValueCard {
-            KeyValueRow("id", obs.timezone.id)
-            HorizontalDivider()
-            KeyValueRow("name", obs.timezone.name)
-        }
-
-        // ── observation.device ────────────────────────────────────────────────
-
-        obs.device?.let { device ->
-            SectionLabel("observation.device")
-            KeyValueCard {
-                KeyValueRow("model", device.model)
-                HorizontalDivider()
-                KeyValueRow("manufacturer", device.manufacturer)
-                HorizontalDivider()
-                KeyValueRow("device", device.device)
-                HorizontalDivider()
-                KeyValueRow("screenResolution", device.screenResolution)
-                HorizontalDivider()
-                KeyValueRow("screenDensityDpi", device.screenDensityDpi.toString())
-                HorizontalDivider()
-                KeyValueRow("androidVersion", device.androidVersion)
-                HorizontalDivider()
-                KeyValueRow("sdkInt", device.sdkInt.toString())
-                HorizontalDivider()
-                KeyValueRow("uptimeMs", device.uptimeMs.toString())
-            }
-        }
-
-        // ── observation.locale ────────────────────────────────────────────────
-
-        obs.locale?.let { locale ->
-            SectionLabel("observation.locale")
-            KeyValueCard {
-                KeyValueRow("language", locale.language)
-                HorizontalDivider()
-                KeyValueRow("region", locale.region)
-            }
+            KeyValueRow("timezone", obs.timezone)
         }
 
         // ── observation.networkState ──────────────────────────────────────────
@@ -281,39 +273,6 @@ fun CollectionDetailScreen(
             SectionLabel("observation.activeCall")
             KeyValueCard {
                 KeyValueRow("active", if (activeCall) "yes" else "no")
-            }
-        }
-
-        // ── observation.security ──────────────────────────────────────────────
-
-        obs.security?.let { security ->
-            SectionLabel("observation.security")
-            KeyValueCard {
-                KeyValueRow("debuggerAttached", security.debuggerAttached.toString())
-                HorizontalDivider()
-                KeyValueRow("developerModeEnabled", security.developerModeEnabled.toString())
-            }
-        }
-
-        // ── observation.app ───────────────────────────────────────────────────
-
-        obs.app?.let { app ->
-            SectionLabel("observation.app")
-            KeyValueCard {
-                KeyValueRow("version", app.version ?: "—")
-                HorizontalDivider()
-                KeyValueRow("installerPackage", app.installerPackage ?: "—")
-            }
-        }
-
-        // ── observation.battery ───────────────────────────────────────────────
-
-        obs.battery?.let { battery ->
-            SectionLabel("observation.battery")
-            KeyValueCard {
-                KeyValueRow("level", "${battery.level}%")
-                HorizontalDivider()
-                KeyValueRow("status", battery.status)
             }
         }
 

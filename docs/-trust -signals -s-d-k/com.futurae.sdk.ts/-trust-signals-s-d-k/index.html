@@ -43,7 +43,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-            0.0.4-alpha
+            0.1.2-alpha
         </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
@@ -116,7 +116,7 @@
               <p class="paragraph">Public entry point for the Trust Signals SDK.</p>
               <p class="paragraph">Usage:</p>
               <div class="sample-container">
-                  <pre><code class="block lang-kotlin" theme="idea">TrustSignalsSDK.initialize(context, TSConfiguration(serverURL = &quot;…&quot;))<br><br>// Coroutine<br>val collection = TrustSignalsSDK.collect()<br>val uploaded  = TrustSignalsSDK.collectAndUpload(TSCollectionRequest(accountId = &quot;…&quot;, accessToken = &quot;…&quot;, appId = &quot;…&quot;))<br><br>// Coroutine — override the configured timeout for this call only<br>val collectionWithTimeoutOverriden = TrustSignalsSDK.collect(timeoutMs = 5_000L)<br><br>// Coroutine — multiple accounts: collect once, upload in parallel<br>val uploaded = TrustSignalsSDK.collectAndUpload(<br>    TSCollectionRequest(accountId = &quot;…&quot;, accessToken = &quot;…&quot;, appId = &quot;…&quot;),<br>    TSCollectionRequest(accountId = &quot;…&quot;, accessToken = &quot;…&quot;, appId = &quot;…&quot;),<br>)<br><br>// Callback<br>TrustSignalsSDK.collect(onSuccess = { … }, onError = { … })<br>TrustSignalsSDK.collectAndUpload(TSCollectionRequest(accountId = &quot;…&quot;, accessToken = &quot;…&quot;, appId = &quot;…&quot;), onSuccess = { … }, onError = { … })<br><br>// Scheduled (WorkManager — minimum interval enforced by the OS is 15 minutes)<br>TrustSignalsSDK.scheduleCollections(<br>    interval = 15.minutes,<br>    TSCollectionRequest(accountId = &quot;…&quot;, accessToken = &quot;…&quot;, appId = &quot;…&quot;),<br>    TSCollectionRequest(accountId = &quot;…&quot;, accessToken = &quot;…&quot;, appId = &quot;…&quot;),<br>)<br>TrustSignalsSDK.stopScheduledCollections()</code></pre>
+                  <pre><code class="block lang-kotlin" theme="idea">TrustSignalsSDK.initialize(context, TSConfiguration(collectionUrl = &quot;…&quot;))<br><br>// Coroutine<br>val collection = TrustSignalsSDK.collect()<br>val credentials = TSCredentials(<br>    accountId = &quot;…&quot;,<br>    accessToken = &quot;…&quot;,<br>    serviceId = &quot;…&quot;,          // UUID<br>    unitId = &quot;futapp-android&quot;,<br>    interactionId = &quot;…&quot;,      // UUID or &lt;UUID&gt;-&lt;sessionId&gt;<br>    verificationStatus = TSVerificationStatus.VERIFIED,<br>)<br>val uploaded  = TrustSignalsSDK.collectAndUpload(credentials)<br><br>// Coroutine — override the configured timeout for this call only<br>val collectionWithTimeoutOverriden = TrustSignalsSDK.collect(timeoutMs = 5_000L)<br><br>// Coroutine — multiple accounts: collect once, upload in parallel<br>val uploaded = TrustSignalsSDK.collectAndUpload(<br>    credentialsForAccount1,<br>    credentialsForAccount2,<br>)<br><br>// Callback<br>TrustSignalsSDK.collect(onSuccess = { … }, onError = { … })<br>TrustSignalsSDK.collectAndUpload(credentials, onSuccess = { … }, onError = { … })<br><br>// Scheduled (WorkManager — minimum collectionInterval enforced by the OS is 15 minutes)<br>TrustSignalsSDK.scheduleCollections(<br>    collectionInterval = 15.minutes,<br>    credentialsForAccount1,<br>    credentialsForAccount2,<br>)<br>TrustSignalsSDK.stopScheduledCollections()</code></pre>
                   <span class="copy-tooltip"><div class="copy-popup-wrapper popup-to-left"><span
                           class="copy-popup-icon"></span><span>Content copied to clipboard</span></div><span
                           class="copy-icon"></span></span></div>
@@ -138,7 +138,51 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-i-n_-c-o-l-l-e-c-t-i-o-n_-i-n-t-e-r-v-a-l.html">MIN_COLLECTION_INTERVAL</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/-duration/index.html">Duration</a></div><div class="brief "><p class="paragraph">Minimum interval accepted by <a href="schedule-collections.html">scheduleCollections</a>.</p></div></div></div>
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">val </span><a
+                                    href="-m-i-n_-c-o-l-l-e-c-t-i-o-n_-i-n-t-e-r-v-a-l.html">MIN_COLLECTION_INTERVAL</a><span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/-duration/index.html">Duration</a>
+                            </div>
+                            <div class="brief "><p class="paragraph">Minimum collectionInterval
+                                accepted by <a
+                                        href="schedule-collections.html">scheduleCollections</a>.
+                            </p></div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <a anchor-label="version" data-filterable-set=":sdk/release"
+               data-name="-769319116%2FProperties%2F108330000" id="-769319116%2FProperties%2F108330000"></a>
+            <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                 data-filterable-set=":sdk/release">
+                <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex">
+                  <div><a href="version.html"><span><span>version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-769319116%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                    <div>
+                        <div class="title">
+                            <div class="platform-hinted "
+                                 data-platform-hinted="data-platform-hinted">
+                                <div class="content sourceset-dependent-content" data-active=""
+                                     data-togglable=":sdk/release">
+                                    <div class="symbol monospace"><span
+                                            class="token keyword">const </span><span
+                                            class="token keyword">val </span><a href="version.html">version</a><span
+                                            class="token operator">: </span><a
+                                            href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>
+                                    </div>
+                                    <div class="brief "><p class="paragraph">SDK version string.</p>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
               </div>
             </div>
@@ -205,13 +249,13 @@
             </div>
           </div>
               <a anchor-label="collectAndUpload" data-filterable-set=":sdk/release"
-                 data-name="285950328%2FFunctions%2F108330000" id="285950328%2FFunctions%2F108330000"></a>
+                 data-name="-325707560%2FFunctions%2F108330000" id="-325707560%2FFunctions%2F108330000"></a>
           <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="collect-and-upload.html"><span>collect</span><wbr></wbr><span>And</span><wbr></wbr><span><span>Upload</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="285950328%2FFunctions%2F108330000"></span>
+                                   pointing-to="-325707560%2FFunctions%2F108330000"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -225,9 +269,9 @@
                                     href="collect-and-upload.html"><span class="token function">collectAndUpload</span></a><span
                                     class="token punctuation">(</span><span
                                     class="parameters "><span class="parameter "><span
-                                    class="token keyword">vararg </span>requests<span
+                                    class="token keyword">vararg </span>credentials<span
                                     class="token operator">: </span><a
-                                    href="../../com.futurae.sdk.ts.model.public/-t-s-collection-request/index.html">TSCollectionRequest</a><span
+                                    href="../../com.futurae.sdk.ts.model.public/-t-s-credentials/index.html">TSCredentials</a><span
                                     class="token punctuation">, </span></span><span
                                     class="parameter ">timeoutMs<span
                                     class="token operator">: </span><a
@@ -240,16 +284,16 @@
                             </div>
                             <div class="brief "><p class="paragraph">Collects signals once and
                                 uploads the result to the server for each provided <a
-                                        href="collect-and-upload.html">requests</a> in parallel.
-                                Signals are only collected once regardless of how many requests are
-                                supplied.</p></div>
+                                        href="collect-and-upload.html">credentials</a> in parallel.
+                                Signals are only collected once regardless of how many credentials
+                                are supplied.</p></div>
                             <div class="symbol monospace"><span class="token keyword">fun </span><a
                                     href="collect-and-upload.html"><span class="token function">collectAndUpload</span></a><span
                                     class="token punctuation">(</span><span
                                     class="parameters "><span class="parameter "><span
-                                    class="token keyword">vararg </span>requests<span
+                                    class="token keyword">vararg </span>credentials<span
                                     class="token operator">: </span><a
-                                    href="../../com.futurae.sdk.ts.model.public/-t-s-collection-request/index.html">TSCollectionRequest</a><span
+                                    href="../../com.futurae.sdk.ts.model.public/-t-s-credentials/index.html">TSCredentials</a><span
                                     class="token punctuation">, </span></span><span
                                     class="parameter ">timeoutMs<span
                                     class="token operator">: </span><a
@@ -305,17 +349,42 @@
               </div>
             </div>
           </div>
-<a data-name="891644607%2FFunctions%2F108330000" anchor-label="scheduleCollections" id="891644607%2FFunctions%2F108330000" data-filterable-set=":sdk/release"></a>
+              <a anchor-label="scheduleCollections" data-filterable-set=":sdk/release"
+                 data-name="-194948310%2FFunctions%2F108330000" id="-194948310%2FFunctions%2F108330000"></a>
           <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="schedule-collections.html"><span>schedule</span><wbr></wbr><span><span>Collections</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="891644607%2FFunctions%2F108330000"></span>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-194948310%2FFunctions%2F108330000"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="schedule-collections.html"><span class="token function">scheduleCollections</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">interval<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/-duration/index.html">Duration</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>requests<span class="token operator">: </span><a href="../../com.futurae.sdk.ts.model.public/-t-s-collection-request/index.html">TSCollectionRequest</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Enqueues (or replaces) one independent recurring WorkManager job per <a href="schedule-collections.html">requests</a> entry. Each job collects and uploads signals on its own and can be cancelled individually via <a href="stop-scheduled-collections.html">stopScheduledCollections</a>. Calling again with the same account ID replaces that account's existing schedule.</p></div></div></div>
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">fun </span><a
+                                    href="schedule-collections.html"><span class="token function">scheduleCollections</span></a><span
+                                    class="token punctuation">(</span><span
+                                    class="parameters "><span
+                                    class="parameter ">collectionInterval<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/-duration/index.html">Duration</a><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">vararg </span>credentials<span
+                                    class="token operator">: </span><a
+                                    href="../../com.futurae.sdk.ts.model.public/-t-s-credentials/index.html">TSCredentials</a></span></span><span
+                                    class="token punctuation">)</span></div>
+                            <div class="brief "><p class="paragraph">Enqueues (or replaces) one
+                                independent recurring WorkManager job per <a
+                                        href="schedule-collections.html">credentials</a> entry. Each
+                                job collects and uploads signals on its own and can be cancelled
+                                individually via <a href="stop-scheduled-collections.html">stopScheduledCollections</a>.
+                                Calling again with the same account ID replaces that account's
+                                existing schedule.</p></div>
+                        </div>
+                    </div>
                 </div>
               </div>
             </div>

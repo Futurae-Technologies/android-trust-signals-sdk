@@ -43,7 +43,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-            0.0.4-alpha
+            0.1.2-alpha
         </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
@@ -104,12 +104,39 @@
         </nav>
         <div id="resizer" class="resizer" data-item-type="BAR"></div>
         <div id="main" data-item-type="SECTION" role="main">
-<div class="main-content" data-page-type="member" id="content" pageIds="Trust Signals SDK::com.futurae.sdk.ts.model.public/TSCollection/TSCollection/#kotlin.Long#kotlin.String#com.futurae.sdk.ts.model.public.SignalsObservation/PointingToDeclaration//108330000">
+            <div class="main-content" data-page-type="member" id="content"
+                 pageIds="Trust Signals SDK::com.futurae.sdk.ts.model.public/TSCollection/TSCollection/#kotlin.String#java.util.Date#kotlin.String#kotlin.Boolean#com.futurae.sdk.ts.model.public.TSObservation/PointingToDeclaration//108330000">
   <div class="breadcrumbs"><a href="../../../index.html">Trust Signals SDK</a><span class="delimiter">/</span><a href="../index.html">com.futurae.sdk.ts.model.public</a><span class="delimiter">/</span><a href="index.html">TSCollection</a><span class="delimiter">/</span><span class="current">TSCollection</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>TSCollection</span></span></h1>
   </div>
-  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span>TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis())<span class="token punctuation">, </span></span><span class="parameter ">tag<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;android&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">observation<span class="token operator">: </span><a href="../-signals-observation/index.html">SignalsObservation</a></span></span><span class="token punctuation">)</span></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                    <div class="content sourceset-dependent-content" data-active=""
+                         data-togglable=":sdk/release">
+                        <div class="symbol monospace"><span class="token keyword">constructor</span><span
+                                class="token punctuation">(</span><span class="parameters "><span
+                                class="parameter ">collectionId<span
+                                class="token operator">: </span><a
+                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                class="token operator"> = </span>UUID.randomUUID().toString()<span
+                                class="token punctuation">, </span></span><span class="parameter ">observationTime<span
+                                class="token operator">: </span><a
+                                href="https://developer.android.com/reference/kotlin/java/util/Date.html">Date</a><span
+                                class="token operator"> = </span>now()<span
+                                class="token punctuation">, </span></span><span class="parameter ">sensorTag<span
+                                class="token operator">: </span><a
+                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                class="token punctuation">, </span></span><span class="parameter ">timedOut<span
+                                class="token operator">: </span><a
+                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
+                                class="token operator"> = </span><span
+                                class="token boolean">false</span><span
+                                class="token punctuation">, </span></span><span class="parameter ">observation<span
+                                class="token operator">: </span><a
+                                href="../-t-s-observation/index.html">TSObservation</a></span></span><span
+                                class="token punctuation">)</span></div>
+                    </div>
+                </div>
 </div>
     <div class="footer">
         <div class="footer--container">
