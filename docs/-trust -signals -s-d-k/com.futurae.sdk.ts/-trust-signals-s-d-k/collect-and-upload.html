@@ -43,7 +43,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-            0.0.4-alpha
+            0.1.2-alpha
         </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
@@ -105,7 +105,7 @@
         <div id="resizer" class="resizer" data-item-type="BAR"></div>
         <div id="main" data-item-type="SECTION" role="main">
             <div class="main-content" data-page-type="member" id="content"
-                 pageIds="Trust Signals SDK::com.futurae.sdk.ts/TrustSignalsSDK/collectAndUpload/#vararg(com.futurae.sdk.ts.model.public.TSCollectionRequest)#kotlin.Long?/PointingToDeclaration//108330000">
+                 pageIds="Trust Signals SDK::com.futurae.sdk.ts/TrustSignalsSDK/collectAndUpload/#vararg(com.futurae.sdk.ts.model.public.TSCredentials)#kotlin.Long?/PointingToDeclaration//108330000">
   <div class="breadcrumbs"><a href="../../../index.html">Trust Signals SDK</a><span class="delimiter">/</span><a href="../index.html">com.futurae.sdk.ts</a><span class="delimiter">/</span><a href="index.html">TrustSignalsSDK</a><span class="delimiter">/</span><span class="current">collectAndUpload</span></div>
   <div class="cover ">
     <h1 class="cover"><span>collect</span><wbr></wbr><span>And</span><wbr></wbr><span><span>Upload</span></span></h1>
@@ -118,9 +118,9 @@
                                 class="token keyword">fun </span><a
                                 href="collect-and-upload.html"><span class="token function">collectAndUpload</span></a><span
                                 class="token punctuation">(</span><span class="parameters "><span
-                                class="parameter "><span class="token keyword">vararg </span>requests<span
+                                class="parameter "><span class="token keyword">vararg </span>credentials<span
                                 class="token operator">: </span><a
-                                href="../../com.futurae.sdk.ts.model.public/-t-s-collection-request/index.html">TSCollectionRequest</a><span
+                                href="../../com.futurae.sdk.ts.model.public/-t-s-credentials/index.html">TSCredentials</a><span
                                 class="token punctuation">, </span></span><span class="parameter ">timeoutMs<span
                                 class="token operator">: </span><a
                                 href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span
@@ -131,9 +131,10 @@
                                 href="../../com.futurae.sdk.ts.model.public/-t-s-collection/index.html">TSCollection</a>
                         </div>
                         <p class="paragraph">Collects signals once and uploads the result to the
-                            server for each provided <a href="collect-and-upload.html">requests</a>
-                            in parallel. Signals are only collected once regardless of how many
-                            requests are supplied.</p>
+                            server for each provided <a
+                                    href="collect-and-upload.html">credentials</a> in parallel.
+                            Signals are only collected once regardless of how many credentials are
+                            supplied.</p>
                         <p class="paragraph">All uploads are always attempted — a failure for one
                             account does not cancel the others. If any uploads fail, a <a
                                     href="../../com.futurae.sdk.ts.error/-t-s-upload-exception/index.html">TSUploadException</a>
@@ -148,7 +149,7 @@
                                     </div>
                                     <div>
                                         <div class="title"><p class="paragraph">Overrides <a
-                                                href="../../com.futurae.sdk.ts.model.public/-t-s-configuration/collection-timeout-m-s.html">TSConfiguration.collectionTimeoutMS</a>
+                                                href="../../com.futurae.sdk.ts.model.public/-t-s-configuration/collection-timeout-ms.html">TSConfiguration.collectionTimeoutMs</a>
                                             for this call only. Defaults to the value configured at
                                             <a href="initialize.html">initialize</a> when omitted.
                                         </p></div>
@@ -167,7 +168,7 @@
                                     </div>
                                     <div>
                                         <div class="title"><p class="paragraph">if <a
-                                                href="collect-and-upload.html">requests</a> is
+                                                href="collect-and-upload.html">credentials</a> is
                                             empty.</p></div>
                                     </div>
                                 </div>
@@ -177,7 +178,7 @@
                                  data-filterable-set=":sdk/release">
                                 <div class="main-subrow keyValue ">
                                     <div class=""><span class="inline-flex"><div><a
-                                            href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-illegal-state-exception/index.html"><span>Illegal</span><wbr></wbr><span>State</span><wbr></wbr><span><span>Exception</span></span></a></div></span>
+                                            href="../../com.futurae.sdk.ts.error/-t-s-not-initialized-exception/index.html"><span>TSNot</span><wbr></wbr><span>Initialized</span><wbr></wbr><span><span>Exception</span></span></a></div></span>
                                     </div>
                                     <div>
                                         <div class="title"><p class="paragraph">if <a
@@ -191,11 +192,34 @@
                                  data-filterable-set=":sdk/release">
                                 <div class="main-subrow keyValue ">
                                     <div class=""><span class="inline-flex"><div><a
+                                            href="../../com.futurae.sdk.ts.error/-t-s-collection-timed-out-exception/index.html"><span>TSCollection</span><wbr></wbr><span>Timed</span><wbr></wbr><span>Out</span><wbr></wbr><span><span>Exception</span></span></a></div></span>
+                                    </div>
+                                    <div>
+                                        <div class="title"><p class="paragraph">if every
+                                            long-running collector timed out before producing any
+                                            data. When only some timed out, collection succeeds with
+                                            <a href="../../com.futurae.sdk.ts.model.public/-t-s-collection/timed-out.html">TSCollection.timedOut</a>
+                                            set to <code class="lang-kotlin">true</code> and missing
+                                            fields as null.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-row table-row_content"
+                                 data-filterable-current=":sdk/release"
+                                 data-filterable-set=":sdk/release">
+                                <div class="main-subrow keyValue ">
+                                    <div class=""><span class="inline-flex"><div><a
                                             href="../../com.futurae.sdk.ts.error/-t-s-upload-exception/index.html"><span>TSUpload</span><wbr></wbr><span><span>Exception</span></span></a></div></span>
                                     </div>
                                     <div>
                                         <div class="title"><p class="paragraph">if one or more
-                                            uploads fail.</p></div>
+                                            uploads fail. Per-account causes are <a
+                                                    href="../../com.futurae.sdk.ts.error/-t-s-authentication-exception/index.html">TSAuthenticationException</a>
+                                            (HTTP 401/403), <a
+                                                    href="../../com.futurae.sdk.ts.error/-t-s-upload-rejected-exception/index.html">TSUploadRejectedException</a>
+                                            (other non-2xx), or <a
+                                                    href="../../com.futurae.sdk.ts.error/-t-s-upload-transport-exception/index.html">TSUploadTransportException</a>
+                                            (network/IO failure).</p></div>
                                     </div>
                                 </div>
                             </div>
@@ -204,9 +228,9 @@
                         <div class="symbol monospace"><span class="token keyword">fun </span><a
                                 href="collect-and-upload.html"><span class="token function">collectAndUpload</span></a><span
                                 class="token punctuation">(</span><span class="parameters "><span
-                                class="parameter "><span class="token keyword">vararg </span>requests<span
+                                class="parameter "><span class="token keyword">vararg </span>credentials<span
                                 class="token operator">: </span><a
-                                href="../../com.futurae.sdk.ts.model.public/-t-s-collection-request/index.html">TSCollectionRequest</a><span
+                                href="../../com.futurae.sdk.ts.model.public/-t-s-credentials/index.html">TSCredentials</a><span
                                 class="token punctuation">, </span></span><span class="parameter ">timeoutMs<span
                                 class="token operator">: </span><a
                                 href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span
@@ -235,9 +259,34 @@
                                     </div>
                                     <div>
                                         <div class="title"><p class="paragraph">Overrides <a
-                                                href="../../com.futurae.sdk.ts.model.public/-t-s-configuration/collection-timeout-m-s.html">TSConfiguration.collectionTimeoutMS</a>
+                                                href="../../com.futurae.sdk.ts.model.public/-t-s-configuration/collection-timeout-ms.html">TSConfiguration.collectionTimeoutMs</a>
                                             for this call only. Defaults to the value configured at
                                             <a href="initialize.html">initialize</a> when omitted.
+                                        </p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-row table-row_content"
+                                 data-filterable-current=":sdk/release"
+                                 data-filterable-set=":sdk/release">
+                                <div class="main-subrow keyValue ">
+                                    <div class=""><span class="inline-flex"><div><u><span>on</span><wbr></wbr><span><span>Error</span></span></u></div></span>
+                                    </div>
+                                    <div>
+                                        <div class="title"><p class="paragraph">Receives <a
+                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a>
+                                            if <a href="collect-and-upload.html">credentials</a> is
+                                            empty, <a
+                                                    href="../../com.futurae.sdk.ts.error/-t-s-not-initialized-exception/index.html">TSNotInitializedException</a>
+                                            if <a href="initialize.html">initialize</a> has not been
+                                            called, <a
+                                                    href="../../com.futurae.sdk.ts.error/-t-s-collection-timed-out-exception/index.html">TSCollectionTimedOutException</a>
+                                            if every long-running collector timed out, or <a
+                                                    href="../../com.futurae.sdk.ts.error/-t-s-upload-exception/index.html">TSUploadException</a>
+                                            if one or more uploads fail (per-account causes: <a
+                                                    href="../../com.futurae.sdk.ts.error/-t-s-authentication-exception/index.html">TSAuthenticationException</a>,
+                                            <a href="../../com.futurae.sdk.ts.error/-t-s-upload-rejected-exception/index.html">TSUploadRejectedException</a>,
+                                            <a href="../../com.futurae.sdk.ts.error/-t-s-upload-transport-exception/index.html">TSUploadTransportException</a>).
                                         </p></div>
                                     </div>
                                 </div>

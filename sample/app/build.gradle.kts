@@ -12,9 +12,9 @@ fun gitVersionName(): String =
     providers.exec { commandLine("git", "describe", "--tags", "--abbrev=0") }
         .standardOutput.asText.get().trim()
 
-val tsBaseUrl = providers.environmentVariable("TS_BASE_URL").orNull
-    ?: providers.gradleProperty("TS_BASE_URL").orNull
-    ?: error("TS_BASE_URL not set — provide it as an environment variable (CI) or in gradle.properties (local)")
+val tsBaseUrl = providers.environmentVariable("TS_COLLECTION_URL").orNull
+    ?: providers.gradleProperty("TS_COLLECTION_URL").orNull
+    ?: error("TS_COLLECTION_URL not set — provide it as an environment variable (CI) or in gradle.properties (local)")
 
 android {
     namespace = "com.futurae.sdk.ts.sample"
@@ -33,7 +33,7 @@ android {
 
         buildConfigField(
             "String",
-            "TS_BASE_URL",
+            "TS_COLLECTION_URL",
             tsBaseUrl
         )
 

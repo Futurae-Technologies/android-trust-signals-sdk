@@ -30,7 +30,10 @@ class MainActivity : ComponentActivity() {
 
         TrustSignalsSDK.initialize(
             context = this,
-            configuration = TSConfiguration(serverURL = BuildConfig.TS_BASE_URL),
+            configuration = TSConfiguration(
+                collectionUrl = BuildConfig.TS_COLLECTION_URL,
+                sensorTag = "android-ts-sample-app"
+            ),
         )
 
         permissionsLauncher.launch(buildRequiredPermissions())

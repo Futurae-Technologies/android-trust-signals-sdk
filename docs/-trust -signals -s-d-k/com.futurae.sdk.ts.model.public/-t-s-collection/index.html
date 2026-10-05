@@ -43,7 +43,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-            0.0.4-alpha
+            0.1.2-alpha
         </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
@@ -108,24 +108,94 @@
   <div class="breadcrumbs"><a href="../../../index.html">Trust Signals SDK</a><span class="delimiter">/</span><a href="../index.html">com.futurae.sdk.ts.model.public</a><span class="delimiter">/</span><span class="current">TSCollection</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>TSCollection</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">TSCollection</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>timestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span>TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis())<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>tag<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;android&quot;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>observation<span class="token operator">: </span><a href="../-signals-observation/index.html">SignalsObservation</a></span></span><span class="token punctuation">)</span></div></div></div>
+      <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+          <div class="content sourceset-dependent-content" data-active=""
+               data-togglable=":sdk/release">
+              <div class="symbol monospace">
+                  <div class="block">
+                      <div class="block"><span class="token annotation builtin">@</span><span
+                              data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span
+                              class="token annotation builtin">Serializable</span></span></div>
+                  </div>
+                  <span class="token keyword">data </span><span
+                      class="token keyword">class </span><a href="index.html">TSCollection</a><span
+                      class="token punctuation">(</span><span class="parameters "><span
+                      class="parameter "><span class="token keyword">val </span>collectionId<span
+                      class="token operator">: </span><a
+                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                      class="token operator"> = </span>UUID.randomUUID().toString()<span
+                      class="token punctuation">, </span></span><span class="parameter "><span
+                      class="token keyword">val </span>observationTime<span
+                      class="token operator">: </span><a
+                      href="https://developer.android.com/reference/kotlin/java/util/Date.html">Date</a><span
+                      class="token operator"> = </span>now()<span
+                      class="token punctuation">, </span></span><span class="parameter "><span
+                      class="token keyword">val </span>sensorTag<span
+                      class="token operator">: </span><a
+                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                      class="token punctuation">, </span></span><span class="parameter "><span
+                      class="token keyword">val </span>timedOut<span
+                      class="token operator">: </span><a
+                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
+                      class="token operator"> = </span><span class="token boolean">false</span><span
+                      class="token punctuation">, </span></span><span class="parameter "><span
+                      class="token keyword">val </span>observation<span
+                      class="token operator">: </span><a href="../-t-s-observation/index.html">TSObservation</a></span></span><span
+                      class="token punctuation">)</span></div>
+              <p class="paragraph">A single observation collected by the Trust Signals SDK.</p>
+          </div>
+      </div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
         <h2 class="tableheader">Constructors</h2>
-        <div class="table"><a data-name="-1029367537%2FConstructors%2F108330000" anchor-label="TSCollection" id="-1029367537%2FConstructors%2F108330000" data-filterable-set=":sdk/release"></a>
+          <div class="table"><a anchor-label="TSCollection"
+                                data-filterable-set=":sdk/release"
+                                data-name="-1159167047%2FConstructors%2F108330000"
+                                id="-1159167047%2FConstructors%2F108330000"></a>
           <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-t-s-collection.html"><span><span>TSCollection</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1029367537%2FConstructors%2F108330000"></span>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-1159167047%2FConstructors%2F108330000"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span>TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis())<span class="token punctuation">, </span></span><span class="parameter ">tag<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;android&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">observation<span class="token operator">: </span><a href="../-signals-observation/index.html">SignalsObservation</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span
+                                    class="token keyword">constructor</span><span
+                                    class="token punctuation">(</span><span
+                                    class="parameters "><span class="parameter ">collectionId<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token operator"> = </span>UUID.randomUUID().toString()<span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter ">observationTime<span
+                                    class="token operator">: </span><a
+                                    href="https://developer.android.com/reference/kotlin/java/util/Date.html">Date</a><span
+                                    class="token operator"> = </span>now()<span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter ">sensorTag<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter ">timedOut<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
+                                    class="token operator"> = </span><span class="token boolean">false</span><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter ">observation<span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-observation/index.html">TSObservation</a></span></span><span
+                                    class="token punctuation">)</span></div>
+                        </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -134,7 +204,41 @@
       </div>
       <div data-togglable="PROPERTY">
         <h2 class="tableheader">Properties</h2>
-        <div class="table"><a data-name="-1817517080%2FProperties%2F108330000" anchor-label="observation" id="-1817517080%2FProperties%2F108330000" data-filterable-set=":sdk/release"></a>
+          <div class="table"><a anchor-label="collectionId"
+                                data-filterable-set=":sdk/release"
+                                data-name="-1086124659%2FProperties%2F108330000"
+                                id="-1086124659%2FProperties%2F108330000"></a>
+              <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                   data-filterable-set=":sdk/release">
+                  <div class="main-subrow keyValue ">
+                      <div class=""><span class="inline-flex">
+                  <div><a href="collection-id.html"><span>collection</span><wbr></wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-1086124659%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                      <div>
+                          <div class="title">
+                              <div class="platform-hinted "
+                                   data-platform-hinted="data-platform-hinted">
+                                  <div class="content sourceset-dependent-content" data-active=""
+                                       data-togglable=":sdk/release">
+                                      <div class="symbol monospace"><span
+                                              class="token keyword">val </span><a
+                                              href="collection-id.html">collectionId</a><span
+                                              class="token operator">: </span><a
+                                              href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>
+                                      </div>
+                                      <div class="brief "><p class="paragraph">Unique identifier for
+                                          this collection.</p></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <a anchor-label="observation" data-filterable-set=":sdk/release"
+                 data-name="-1817517080%2FProperties%2F108330000" id="-1817517080%2FProperties%2F108330000"></a>
           <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
@@ -144,37 +248,124 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="observation.html">observation</a><span class="token operator">: </span><a href="../-signals-observation/index.html">SignalsObservation</a></div></div></div>
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">val </span><a
+                                    href="observation.html">observation</a><span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-observation/index.html">TSObservation</a></div>
+                            <div class="brief "><p class="paragraph">The collected sensor
+                                signals.</p></div>
+                        </div>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1258511162%2FProperties%2F108330000" anchor-label="tag" id="1258511162%2FProperties%2F108330000" data-filterable-set=":sdk/release"></a>
+              <a anchor-label="observationTime" data-filterable-set=":sdk/release"
+                 data-name="1889387547%2FProperties%2F108330000" id="1889387547%2FProperties%2F108330000"></a>
           <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="tag.html"><span><span>tag</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1258511162%2FProperties%2F108330000"></span>
+                  <div><a href="observation-time.html"><span>observation</span><wbr></wbr><span><span>Time</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="1889387547%2FProperties%2F108330000"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="tag.html">tag</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace">
+                                <div class="block">
+                                    <div class="block"><span
+                                            class="token annotation builtin">@</span><span
+                                            data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span
+                                            class="token annotation builtin">Serializable</span></span><span
+                                            class="token punctuation">(</span><span>with<span
+                                            class="token operator"> = </span><span
+                                            data-unresolved-link="com.futurae.sdk.ts.util/DateRfc3339Serializer///PointingToDeclaration/">DateRfc3339Serializer::class</span></span>
+                                        <wbr></wbr>
+                                        <span class="token punctuation">)</span></div>
+                                </div>
+                                <span class="token keyword">val </span><a
+                                    href="observation-time.html">observationTime</a><span
+                                    class="token operator">: </span><a
+                                    href="https://developer.android.com/reference/kotlin/java/util/Date.html">Date</a>
+                            </div>
+                            <div class="brief "><p class="paragraph">When the observation was
+                                recorded (RFC 3339 on the wire).</p></div>
+                        </div>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1026533378%2FProperties%2F108330000" anchor-label="timestamp" id="-1026533378%2FProperties%2F108330000" data-filterable-set=":sdk/release"></a>
+              <a anchor-label="sensorTag" data-filterable-set=":sdk/release"
+                 data-name="-354661676%2FProperties%2F108330000" id="-354661676%2FProperties%2F108330000"></a>
           <div class="table-row table-row_content" data-filterable-current=":sdk/release" data-filterable-set=":sdk/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="timestamp.html"><span><span>timestamp</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1026533378%2FProperties%2F108330000"></span>
+                  <div><a href="sensor-tag.html"><span>sensor</span><wbr></wbr><span><span>Tag</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-354661676%2FProperties%2F108330000"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="timestamp.html">timestamp</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span class="token keyword">val </span><a
+                                    href="sensor-tag.html">sensorTag</a><span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>
+                            </div>
+                            <div class="brief "><p class="paragraph">Tag identifying the sensor
+                                source (e.g. <code class="lang-kotlin">&quot;android&quot;</code>).
+                            </p></div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              <a anchor-label="timedOut" data-filterable-set=":sdk/release"
+                 data-name="386356111%2FProperties%2F108330000" id="386356111%2FProperties%2F108330000"></a>
+              <div class="table-row table-row_content" data-filterable-current=":sdk/release"
+                   data-filterable-set=":sdk/release">
+                  <div class="main-subrow keyValue ">
+                      <div class=""><span class="inline-flex">
+                  <div><a href="timed-out.html"><span>timed</span><wbr></wbr><span><span>Out</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="386356111%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                      <div>
+                          <div class="title">
+                              <div class="platform-hinted "
+                                   data-platform-hinted="data-platform-hinted">
+                                  <div class="content sourceset-dependent-content" data-active=""
+                                       data-togglable=":sdk/release">
+                                      <div class="symbol monospace"><span
+                                              class="token keyword">val </span><a
+                                              href="timed-out.html">timedOut</a><span
+                                              class="token operator">: </span><a
+                                              href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a>
+                                      </div>
+                                      <div class="brief "><p class="paragraph"><code
+                                              class="lang-kotlin">true</code> when at least one
+                                          long-running collector (location, Wi-Fi scan, BLE scan,
+                                          nearby devices, BLE peripherals) was still pending when
+                                          the collection deadline fired. Collectors that completed
+                                          (including those denied permission) do not contribute.
+                                          When every long-running collector timed out, <a
+                                                  href="../../com.futurae.sdk.ts.error/-t-s-collection-timed-out-exception/index.html">TSCollectionTimedOutException</a>
+                                          is thrown instead of returning a collection.</p></div>
+                                  </div>
+                              </div>
                 </div>
               </div>
             </div>

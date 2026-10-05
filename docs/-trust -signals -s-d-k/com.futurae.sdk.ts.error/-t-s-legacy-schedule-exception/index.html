@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport">
+    <title>TSLegacyScheduleException</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+    <script async="async" src="../../../scripts/sourceset_dependencies.js"
+            type="text/javascript"></script>
+    <link href="../../../styles/style.css" rel="Stylesheet">
+    <link href="../../../styles/main.css" rel="Stylesheet">
+    <link href="../../../styles/prism.css" rel="Stylesheet">
+    <link href="../../../styles/logo-styles.css" rel="Stylesheet">
+    <link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+    <script src="../../../scripts/safe-local-storage_blocking.js" type="text/javascript"></script>
+    <script async="async" src="../../../scripts/navigation-loader.js"
+            type="text/javascript"></script>
+    <script async="async" src="../../../scripts/platform-content-handler.js"
+            type="text/javascript"></script>
+    <script defer="defer" src="../../../scripts/main.js" type="text/javascript"></script>
+    <script async="async" src="../../../scripts/prism.js" type="text/javascript"></script>
+    <script defer="defer" src="../../../ui-kit/ui-kit.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+        <a class="library-name--link" href="../../../index.html" tabindex="1">
+            Trust Signals SDK
+        </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only"
+                id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+            0.1.2-alpha
+        </div>
+        <div class="navigation-controls">
+            <ul aria-label="Target filter" class="filter-section filter-section_loading"
+                id="filter-section">
+                <button aria-pressed="true" class="platform-tag platform-selector jvm-like"
+                        data-active=""
+                        data-filter=":sdk/release">release
+                </button>
+                <div class="dropdown filter-section--dropdown" data-role="dropdown"
+                     id="filter-section-dropdown">
+                    <button aria-controls="platform-tags-listbox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-label="Toggle source sets"
+                            class="button button_dropdown filter-section--dropdown-toggle"
+                            data-role="dropdown-toggle"
+                            role="combobox"
+                    ></button>
+                    <ul aria-label="Target filter" class="dropdown--list" data-role="dropdown-listbox"
+                        id="platform-tags-listbox" role="listbox">
+                        <div class="dropdown--header"><span>Target filter</span>
+                            <button aria-label="Close target filter" class="button"
+                                    data-role="dropdown-toggle">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <li class="dropdown--option platform-selector-option jvm-like" role="option"
+                            tabindex="0">
+                            <label class="checkbox">
+                                <input class="checkbox--input" data-filter=":sdk/release" id=":sdk/release"
+                                       type="checkbox"/>
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme"
+                    id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar"
+                 role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav class="sidebar" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}' data-item-type="SECTION"
+             id="leftColumn">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul aria-label="Table of contents" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox"
+                    id="toc-listbox" role="listbox">
+                    <div class="dropdown--header">
+                            <span>
+                                    Trust Signals SDK
+                            </span>
+                        <button aria-label="Close table of contents" class="button"
+                                data-role="dropdown-toggle">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div class="resizer" data-item-type="BAR" id="resizer"></div>
+        <div data-item-type="SECTION" id="main" role="main">
+            <div class="main-content" data-page-type="classlike" id="content"
+                 pageIds="Trust Signals SDK::com.futurae.sdk.ts.error/TSLegacyScheduleException///PointingToDeclaration//108330000">
+                <div class="breadcrumbs"><a href="../../../index.html">Trust Signals SDK</a><span
+                        class="delimiter">/</span><a
+                        href="../index.html">com.futurae.sdk.ts.error</a><span
+                        class="delimiter">/</span><span
+                        class="current">TSLegacyScheduleException</span></div>
+                <div class="cover ">
+                    <h1 class="cover"><span>TSLegacy</span>
+                        <wbr></wbr>
+                        <span>Schedule</span>
+                        <wbr></wbr>
+                        <span><span>Exception</span></span></h1>
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace"><span
+                                    class="token keyword">class </span><a href="index.html">TSLegacyScheduleException</a><span
+                                    class="token punctuation">(</span><span
+                                    class="parameters "><span class="parameter ">message<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token operator"> = </span>&quot;This scheduled collection was created by an earlier SDK version and is no longer &quot; +
+        &quot;supported, so it has been cancelled. Call scheduleCollections again with a complete &quot; +
+        &quot;TSCredentials to resume collections.&quot;</span></span><span
+                                    class="token punctuation">)</span> : <a
+                                    href="https://developer.android.com/reference/kotlin/java/lang/Exception.html">Exception</a>
+                            </div>
+                            <p class="paragraph">Delivered to the handler registered via <a
+                                    href="../../com.futurae.sdk.ts/-trust-signals-s-d-k/register-error-handler.html">com.futurae.sdk.ts.TrustSignalsSDK.registerErrorHandler</a>
+                                when a scheduled collection created by an earlier SDK version runs
+                                after an upgrade.</p>
+                            <p class="paragraph">Such schedules were created with <code
+                                    class="lang-kotlin">appId</code> and lack the identifiers now
+                                required by the server (<code class="lang-kotlin">serviceId</code>,
+                                <code class="lang-kotlin">unitId</code>, <code class="lang-kotlin">interactionId</code>,
+                                <code class="lang-kotlin">verificationStatus</code>), or with a base
+                                <code class="lang-kotlin">serverURL</code> instead of the full <code
+                                        class="lang-kotlin">collectionUrl</code>. The SDK cancels
+                                the outdated schedule automatically; call <a
+                                        href="../../com.futurae.sdk.ts/-trust-signals-s-d-k/schedule-collections.html">com.futurae.sdk.ts.TrustSignalsSDK.scheduleCollections</a>
+                                again with a complete <a
+                                        href="../../com.futurae.sdk.ts.model.public/-t-s-credentials/index.html">com.futurae.sdk.ts.model.public.TSCredentials</a>
+                                to resume collections.</p></div>
+                    </div>
+                </div>
+                <div class="tabbedcontent">
+                    <div class="tabs-section" tabs-section="tabs-section">
+                        <button class="section-tab" data-active=""
+                                data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members
+                        </button>
+                    </div>
+                    <div class="tabs-section-body">
+                        <div data-togglable="CONSTRUCTOR">
+                            <h2 class="tableheader">Constructors</h2>
+                            <div class="table"><a anchor-label="TSLegacyScheduleException"
+                                                  data-filterable-set=":sdk/release"
+                                                  data-name="-45634901%2FConstructors%2F108330000"
+                                                  id="-45634901%2FConstructors%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release"
+                                     data-togglable="CONSTRUCTOR">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="-t-s-legacy-schedule-exception.html"><span>TSLegacy</span><wbr></wbr><span>Schedule</span><wbr></wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-45634901%2FConstructors%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">constructor</span><span
+                                                                class="token punctuation">(</span><span
+                                                                class="parameters "><span
+                                                                class="parameter ">message<span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                                                class="token operator"> = </span>&quot;This scheduled collection was created by an earlier SDK version and is no longer &quot; +
+        &quot;supported, so it has been cancelled. Call scheduleCollections again with a complete &quot; +
+        &quot;TSCredentials to resume collections.&quot;</span></span><span
+                                                                class="token punctuation">)</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-togglable="PROPERTY">
+                            <h2 class="tableheader">Properties</h2>
+                            <div class="table"><a anchor-label="cause"
+                                                  data-filterable-set=":sdk/release"
+                                                  data-name="-654012527%2FProperties%2F108330000"
+                                                  id="-654012527%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="../-t-s-upload-transport-exception/index.html#-654012527%2FProperties%2F108330000"><span><span>cause</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-654012527%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">open </span><span
+                                                                class="token keyword">val </span><a
+                                                                href="../-t-s-upload-transport-exception/index.html#-654012527%2FProperties%2F108330000">cause</a><span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="message"
+                                   data-filterable-set=":sdk/release" data-name="1824300659%2FProperties%2F108330000"
+                                   id="1824300659%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="../-t-s-upload-transport-exception/index.html#1824300659%2FProperties%2F108330000"><span><span>message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="1824300659%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">open </span><span
+                                                                class="token keyword">val </span><a
+                                                                href="../-t-s-upload-transport-exception/index.html#1824300659%2FProperties%2F108330000">message</a><span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer--container">
+                    <a class="footer--button footer--button_go-to-top" href="#content"
+                       id="go-to-top-link"></a>
+                    <div class="footer--content">
+                        <div>
+                            <span>Generated by </span>
+                            <a class="footer--link footer--link_external"
+                               href="https://github.com/Kotlin/dokka">
+                                Dokka
+                            </a>
+                            <div>© 2026 Copyright</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
