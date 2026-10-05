@@ -43,7 +43,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-            0.0.4-alpha
+            0.1.2-alpha
         </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
@@ -109,7 +109,23 @@
   <div class="cover ">
     <h1 class="cover"><span>MIN_</span><wbr></wbr><span>COLLECTION_</span><wbr></wbr><span>INTERVAL</span></h1>
   </div>
-  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="-m-i-n_-c-o-l-l-e-c-t-i-o-n_-i-n-t-e-r-v-a-l.html">MIN_COLLECTION_INTERVAL</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/-duration/index.html">Duration</a></div><p class="paragraph">Minimum interval accepted by <a href="schedule-collections.html">scheduleCollections</a>.</p><p class="paragraph">WorkManager does not throw when given a shorter value — it silently clamps the interval to 15 minutes, which would cause collections to run at an unexpected frequency. The SDK enforces this limit upfront so callers receive a clear <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a> instead of silent misbehaviour.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+        <div class="content sourceset-dependent-content" data-active=""
+             data-togglable=":sdk/release">
+            <div class="symbol monospace"><span class="token keyword">val </span><a
+                    href="-m-i-n_-c-o-l-l-e-c-t-i-o-n_-i-n-t-e-r-v-a-l.html">MIN_COLLECTION_INTERVAL</a><span
+                    class="token operator">: </span><a
+                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/-duration/index.html">Duration</a>
+            </div>
+            <p class="paragraph">Minimum collectionInterval accepted by <a
+                    href="schedule-collections.html">scheduleCollections</a>.</p>
+            <p class="paragraph">WorkManager does not throw when given a shorter value — it silently
+                clamps the collectionInterval to 15 minutes, which would cause collections to run at
+                an unexpected frequency. The SDK enforces this limit upfront so callers receive a
+                clear <a
+                        href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a>
+                instead of silent misbehaviour.</p></div>
+    </div>
 </div>
     <div class="footer">
         <div class="footer--container">

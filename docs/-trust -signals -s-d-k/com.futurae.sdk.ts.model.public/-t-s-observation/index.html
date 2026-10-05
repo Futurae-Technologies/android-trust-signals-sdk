@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport">
+    <title>TSObservation</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+    <script async="async" src="../../../scripts/sourceset_dependencies.js"
+            type="text/javascript"></script>
+    <link href="../../../styles/style.css" rel="Stylesheet">
+    <link href="../../../styles/main.css" rel="Stylesheet">
+    <link href="../../../styles/prism.css" rel="Stylesheet">
+    <link href="../../../styles/logo-styles.css" rel="Stylesheet">
+    <link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+    <script src="../../../scripts/safe-local-storage_blocking.js" type="text/javascript"></script>
+    <script async="async" src="../../../scripts/navigation-loader.js"
+            type="text/javascript"></script>
+    <script async="async" src="../../../scripts/platform-content-handler.js"
+            type="text/javascript"></script>
+    <script defer="defer" src="../../../scripts/main.js" type="text/javascript"></script>
+    <script async="async" src="../../../scripts/prism.js" type="text/javascript"></script>
+    <script defer="defer" src="../../../ui-kit/ui-kit.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+        <a class="library-name--link" href="../../../index.html" tabindex="1">
+            Trust Signals SDK
+        </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only"
+                id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+            0.1.2-alpha
+        </div>
+        <div class="navigation-controls">
+            <ul aria-label="Target filter" class="filter-section filter-section_loading"
+                id="filter-section">
+                <button aria-pressed="true" class="platform-tag platform-selector jvm-like"
+                        data-active=""
+                        data-filter=":sdk/release">release
+                </button>
+                <div class="dropdown filter-section--dropdown" data-role="dropdown"
+                     id="filter-section-dropdown">
+                    <button aria-controls="platform-tags-listbox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-label="Toggle source sets"
+                            class="button button_dropdown filter-section--dropdown-toggle"
+                            data-role="dropdown-toggle"
+                            role="combobox"
+                    ></button>
+                    <ul aria-label="Target filter" class="dropdown--list" data-role="dropdown-listbox"
+                        id="platform-tags-listbox" role="listbox">
+                        <div class="dropdown--header"><span>Target filter</span>
+                            <button aria-label="Close target filter" class="button"
+                                    data-role="dropdown-toggle">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <li class="dropdown--option platform-selector-option jvm-like" role="option"
+                            tabindex="0">
+                            <label class="checkbox">
+                                <input class="checkbox--input" data-filter=":sdk/release" id=":sdk/release"
+                                       type="checkbox"/>
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme"
+                    id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar"
+                 role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav class="sidebar" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}' data-item-type="SECTION"
+             id="leftColumn">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul aria-label="Table of contents" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox"
+                    id="toc-listbox" role="listbox">
+                    <div class="dropdown--header">
+                            <span>
+                                    Trust Signals SDK
+                            </span>
+                        <button aria-label="Close table of contents" class="button"
+                                data-role="dropdown-toggle">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div class="resizer" data-item-type="BAR" id="resizer"></div>
+        <div data-item-type="SECTION" id="main" role="main">
+            <div class="main-content" data-page-type="classlike" id="content"
+                 pageIds="Trust Signals SDK::com.futurae.sdk.ts.model.public/TSObservation///PointingToDeclaration//108330000">
+                <div class="breadcrumbs"><a href="../../../index.html">Trust Signals SDK</a><span
+                        class="delimiter">/</span><a href="../index.html">com.futurae.sdk.ts.model.public</a><span
+                        class="delimiter">/</span><span class="current">TSObservation</span></div>
+                <div class="cover ">
+                    <h1 class="cover"><span><span>TSObservation</span></span></h1>
+                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
+                        <div class="content sourceset-dependent-content" data-active=""
+                             data-togglable=":sdk/release">
+                            <div class="symbol monospace">
+                                <div class="block">
+                                    <div class="block"><span
+                                            class="token annotation builtin">@</span><span
+                                            data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span
+                                            class="token annotation builtin">Serializable</span></span>
+                                    </div>
+                                </div>
+                                <span class="token keyword">data </span><span class="token keyword">class </span><a
+                                    href="index.html">TSObservation</a><span
+                                    class="token punctuation">(</span><span
+                                    class="parameters "><span class="parameter "><span
+                                    class="token keyword">val </span>deviceInfoSignals<span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-device-info-signals/index.html">TSDeviceInfoSignals</a><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">val </span>wifiScan<span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-wifi-scan/index.html">TSWifiScan</a><span
+                                    class="token operator">?</span><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">val </span>bleScan<span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-ble-scan/index.html">TSBleScan</a><span
+                                    class="token operator">?</span><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">val </span>location<span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-location/index.html">TSLocation</a><span
+                                    class="token operator">?</span><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">val </span>wifiNetwork<span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-wifi-network/index.html">TSWifiNetwork</a><span
+                                    class="token operator">?</span><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">val </span>blePeripherals<span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-ble-peripherals/index.html">TSBlePeripherals</a><span
+                                    class="token operator">?</span><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">val </span>nearbyDevices<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span
+                                    class="token operator">&lt;</span><a
+                                    href="../-t-s-device/index.html">TSDevice</a><span
+                                    class="token operator">&gt;</span><span
+                                    class="token operator">?</span><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span
+                                    class="token keyword">val </span>ip<span class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token operator">?</span><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">val </span>timezone<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">val </span>networkState<span
+                                    class="token operator">: </span><a
+                                    href="../-t-s-network-state/index.html">TSNetworkState</a><span
+                                    class="token operator">?</span><span
+                                    class="token punctuation">, </span></span><span
+                                    class="parameter "><span class="token keyword">val </span>activeCall<span
+                                    class="token operator">: </span><a
+                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
+                                    class="token operator">?</span></span></span><span
+                                    class="token punctuation">)</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabbedcontent">
+                    <div class="tabs-section" tabs-section="tabs-section">
+                        <button class="section-tab" data-active=""
+                                data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members
+                        </button>
+                    </div>
+                    <div class="tabs-section-body">
+                        <div data-togglable="CONSTRUCTOR">
+                            <h2 class="tableheader">Constructors</h2>
+                            <div class="table"><a anchor-label="TSObservation"
+                                                  data-filterable-set=":sdk/release"
+                                                  data-name="1952750793%2FConstructors%2F108330000"
+                                                  id="1952750793%2FConstructors%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release"
+                                     data-togglable="CONSTRUCTOR">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="-t-s-observation.html"><span><span>TSObservation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="1952750793%2FConstructors%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">constructor</span><span
+                                                                class="token punctuation">(</span><span
+                                                                class="parameters "><span
+                                                                class="parameter ">deviceInfoSignals<span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-device-info-signals/index.html">TSDeviceInfoSignals</a><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">wifiScan<span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-wifi-scan/index.html">TSWifiScan</a><span
+                                                                class="token operator">?</span><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">bleScan<span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-ble-scan/index.html">TSBleScan</a><span
+                                                                class="token operator">?</span><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">location<span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-location/index.html">TSLocation</a><span
+                                                                class="token operator">?</span><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">wifiNetwork<span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-wifi-network/index.html">TSWifiNetwork</a><span
+                                                                class="token operator">?</span><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">blePeripherals<span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-ble-peripherals/index.html">TSBlePeripherals</a><span
+                                                                class="token operator">?</span><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">nearbyDevices<span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span
+                                                                class="token operator">&lt;</span><a
+                                                                href="../-t-s-device/index.html">TSDevice</a><span
+                                                                class="token operator">&gt;</span><span
+                                                                class="token operator">?</span><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">ip<span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                                                class="token operator">?</span><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">timezone<span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">networkState<span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-network-state/index.html">TSNetworkState</a><span
+                                                                class="token operator">?</span><span
+                                                                class="token punctuation">, </span></span><span
+                                                                class="parameter ">activeCall<span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
+                                                                class="token operator">?</span></span></span><span
+                                                                class="token punctuation">)</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-togglable="PROPERTY">
+                            <h2 class="tableheader">Properties</h2>
+                            <div class="table"><a anchor-label="activeCall"
+                                                  data-filterable-set=":sdk/release"
+                                                  data-name="-1029763236%2FProperties%2F108330000"
+                                                  id="-1029763236%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="active-call.html"><span>active</span><wbr></wbr><span><span>Call</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-1029763236%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="active-call.html">activeCall</a><span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="blePeripherals"
+                                   data-filterable-set=":sdk/release"
+                                   data-name="-437666492%2FProperties%2F108330000"
+                                   id="-437666492%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="ble-peripherals.html"><span>ble</span><wbr></wbr><span><span>Peripherals</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-437666492%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="ble-peripherals.html">blePeripherals</a><span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-ble-peripherals/index.html">TSBlePeripherals</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="bleScan"
+                                   data-filterable-set=":sdk/release" data-name="1933613442%2FProperties%2F108330000"
+                                   id="1933613442%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="ble-scan.html"><span>ble</span><wbr></wbr><span><span>Scan</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="1933613442%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="ble-scan.html">bleScan</a><span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-ble-scan/index.html">TSBleScan</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="deviceInfoSignals"
+                                   data-filterable-set=":sdk/release"
+                                   data-name="714072211%2FProperties%2F108330000"
+                                   id="714072211%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="device-info-signals.html"><span>device</span><wbr></wbr><span>Info</span><wbr></wbr><span><span>Signals</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="714072211%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="device-info-signals.html">deviceInfoSignals</a><span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-device-info-signals/index.html">TSDeviceInfoSignals</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="ip" data-filterable-set=":sdk/release"
+                                   data-name="131923225%2FProperties%2F108330000"
+                                   id="131923225%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="ip.html"><span><span>ip</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="131923225%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="ip.html">ip</a><span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="location"
+                                   data-filterable-set=":sdk/release" data-name="699695115%2FProperties%2F108330000"
+                                   id="699695115%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="location.html"><span><span>location</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="699695115%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="location.html">location</a><span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-location/index.html">TSLocation</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="nearbyDevices"
+                                   data-filterable-set=":sdk/release"
+                                   data-name="-981509220%2FProperties%2F108330000"
+                                   id="-981509220%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="nearby-devices.html"><span>nearby</span><wbr></wbr><span><span>Devices</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-981509220%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="nearby-devices.html">nearbyDevices</a><span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span
+                                                                class="token operator">&lt;</span><a
+                                                                href="../-t-s-device/index.html">TSDevice</a><span
+                                                                class="token operator">&gt;</span><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="networkState"
+                                   data-filterable-set=":sdk/release"
+                                   data-name="1202438909%2FProperties%2F108330000"
+                                   id="1202438909%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="network-state.html"><span>network</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="1202438909%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="network-state.html">networkState</a><span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-network-state/index.html">TSNetworkState</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="timezone"
+                                   data-filterable-set=":sdk/release" data-name="233565255%2FProperties%2F108330000"
+                                   id="233565255%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="timezone.html"><span><span>timezone</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="233565255%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="timezone.html">timezone</a><span
+                                                                class="token operator">: </span><a
+                                                                href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="wifiNetwork"
+                                   data-filterable-set=":sdk/release"
+                                   data-name="2136212289%2FProperties%2F108330000"
+                                   id="2136212289%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="wifi-network.html"><span>wifi</span><wbr></wbr><span><span>Network</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="2136212289%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="wifi-network.html">wifiNetwork</a><span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-wifi-network/index.html">TSWifiNetwork</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a anchor-label="wifiScan"
+                                   data-filterable-set=":sdk/release" data-name="-1974059218%2FProperties%2F108330000"
+                                   id="-1974059218%2FProperties%2F108330000"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":sdk/release"
+                                     data-filterable-set=":sdk/release">
+                                    <div class="main-subrow keyValue ">
+                                        <div class=""><span class="inline-flex">
+                  <div><a href="wifi-scan.html"><span>wifi</span><wbr></wbr><span><span>Scan</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon"
+                                   pointing-to="-1974059218%2FProperties%2F108330000"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+                                        <div>
+                                            <div class="title">
+                                                <div class="platform-hinted "
+                                                     data-platform-hinted="data-platform-hinted">
+                                                    <div class="content sourceset-dependent-content"
+                                                         data-active=""
+                                                         data-togglable=":sdk/release">
+                                                        <div class="symbol monospace"><span
+                                                                class="token keyword">val </span><a
+                                                                href="wifi-scan.html">wifiScan</a><span
+                                                                class="token operator">: </span><a
+                                                                href="../-t-s-wifi-scan/index.html">TSWifiScan</a><span
+                                                                class="token operator">?</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer--container">
+                    <a class="footer--button footer--button_go-to-top" href="#content"
+                       id="go-to-top-link"></a>
+                    <div class="footer--content">
+                        <div>
+                            <span>Generated by </span>
+                            <a class="footer--link footer--link_external"
+                               href="https://github.com/Kotlin/dokka">
+                                Dokka
+                            </a>
+                            <div>© 2026 Copyright</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

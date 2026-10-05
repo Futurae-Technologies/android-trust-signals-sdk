@@ -43,7 +43,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-            0.0.4-alpha
+            0.1.2-alpha
         </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
@@ -126,6 +126,61 @@
                                 class="token operator">: </span><a
                                 href="../../com.futurae.sdk.ts.model.public/-t-s-collection/index.html">TSCollection</a>
                         </div>
+                        <h4 class="tableheader">Parameters</h4>
+                        <div class="table">
+                            <div class="table-row table-row_content"
+                                 data-filterable-current=":sdk/release"
+                                 data-filterable-set=":sdk/release">
+                                <div class="main-subrow keyValue ">
+                                    <div class=""><span class="inline-flex"><div><u><span>timeout</span><wbr></wbr><span><span>Ms</span></span></u></div></span>
+                                    </div>
+                                    <div>
+                                        <div class="title"><p class="paragraph">Overrides <a
+                                                href="../../com.futurae.sdk.ts.model.public/-t-s-configuration/collection-timeout-ms.html">TSConfiguration.collectionTimeoutMs</a>
+                                            for this call only. Defaults to the value configured at
+                                            <a href="initialize.html">initialize</a> when omitted.
+                                        </p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="tableheader">Throws</h4>
+                        <div class="table">
+                            <div class="table-row table-row_content"
+                                 data-filterable-current=":sdk/release"
+                                 data-filterable-set=":sdk/release">
+                                <div class="main-subrow keyValue ">
+                                    <div class=""><span class="inline-flex"><div><a
+                                            href="../../com.futurae.sdk.ts.error/-t-s-not-initialized-exception/index.html"><span>TSNot</span><wbr></wbr><span>Initialized</span><wbr></wbr><span><span>Exception</span></span></a></div></span>
+                                    </div>
+                                    <div>
+                                        <div class="title"><p class="paragraph">if <a
+                                                href="initialize.html">initialize</a> has not been
+                                            called.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-row table-row_content"
+                                 data-filterable-current=":sdk/release"
+                                 data-filterable-set=":sdk/release">
+                                <div class="main-subrow keyValue ">
+                                    <div class=""><span class="inline-flex"><div><a
+                                            href="../../com.futurae.sdk.ts.error/-t-s-collection-timed-out-exception/index.html"><span>TSCollection</span><wbr></wbr><span>Timed</span><wbr></wbr><span>Out</span><wbr></wbr><span><span>Exception</span></span></a></div></span>
+                                    </div>
+                                    <div>
+                                        <div class="title"><p class="paragraph">if every
+                                            long-running collector (location, Wi-Fi scan, BLE scan,
+                                            nearby devices, BLE peripherals) timed out before
+                                            producing any data. When only some timed out, the call
+                                            returns normally with <a
+                                                    href="../../com.futurae.sdk.ts.model.public/-t-s-collection/timed-out.html">TSCollection.timedOut</a>
+                                            set to <code class="lang-kotlin">true</code> and missing
+                                            fields as null.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
                         <div class="symbol monospace"><span class="token keyword">fun </span><a
                                 href="collect.html"><span
                                 class="token function">collect</span></a><span
@@ -157,10 +212,26 @@
                                     </div>
                                     <div>
                                         <div class="title"><p class="paragraph">Overrides <a
-                                                href="../../com.futurae.sdk.ts.model.public/-t-s-configuration/collection-timeout-m-s.html">TSConfiguration.collectionTimeoutMS</a>
+                                                href="../../com.futurae.sdk.ts.model.public/-t-s-configuration/collection-timeout-ms.html">TSConfiguration.collectionTimeoutMs</a>
                                             for this call only. Defaults to the value configured at
                                             <a href="initialize.html">initialize</a> when omitted.
                                         </p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-row table-row_content"
+                                 data-filterable-current=":sdk/release"
+                                 data-filterable-set=":sdk/release">
+                                <div class="main-subrow keyValue ">
+                                    <div class=""><span class="inline-flex"><div><u><span>on</span><wbr></wbr><span><span>Error</span></span></u></div></span>
+                                    </div>
+                                    <div>
+                                        <div class="title"><p class="paragraph">Receives <a
+                                                href="../../com.futurae.sdk.ts.error/-t-s-collection-timed-out-exception/index.html">TSCollectionTimedOutException</a>
+                                            if every long-running collector timed out, or <a
+                                                    href="../../com.futurae.sdk.ts.error/-t-s-not-initialized-exception/index.html">TSNotInitializedException</a>
+                                            if <a href="initialize.html">initialize</a> has not been
+                                            called.</p></div>
                                     </div>
                                 </div>
                             </div>
