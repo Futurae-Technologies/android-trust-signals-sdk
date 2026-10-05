@@ -145,15 +145,18 @@ Holds the static SDK configuration. Passed once to `TrustSignalsSDK.initialize()
 import com.futurae.sdk.ts.model.public.TSConfiguration
 
 TSConfiguration(
-  serverURL = "https://your-trust-signals-server.example.com",
-  collectionTimeoutMS = 20_000L, // optional, default is 20 000 ms
+  collectionUrl = "https://your-trust-signals-server.example.com/api/v1/collections",
+  collectionTimeoutMs = 20_000L, // optional, default is 20 000 ms
 )
 ```
 
-| Parameter | Type | Required | Description |
-|---|---|---|---|
-| `serverURL` | `String` | Yes | Base URL of the Trust Signals backend that will receive uploaded observations. |
-| `collectionTimeoutMS` | `Long` | No | Maximum time in milliseconds to wait for all signal collectors before returning a partial result. Defaults to 20 000 ms. |
+| Parameter             | Type     | Required | Description                                                                                                              |
+|-----------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------|
+| `collectionUrl`       | `String` | Yes      | Full URL of the Trust Signals backend that will receive uploaded observations.                                           |
+| `collectionTimeoutMs` | `Long`   | No       | Maximum time in milliseconds to wait for all signal collectors before returning a partial result. Defaults to 20 000 ms. |
+
+***Note*** SampleApp receives the collection URL via `gradle.properties` setting `TS_COLLECTION_URL`
+variable.
 
 ---
 
@@ -205,7 +208,7 @@ class MyApplication : Application() {
     TrustSignalsSDK.initialize(
       context = this,
       configuration = TSConfiguration(
-        serverURL = "https://your-trust-signals-server.example.com",
+        collectionUrl = "https://your-trust-signals-server.example.com/api/v1/collections",
       )
     )
   }
@@ -231,7 +234,7 @@ import com.futurae.sdk.ts.error.TSUploadException
 // Collect only (no upload)
 val collection = TrustSignalsSDK.collect()
 
-// Collect only, overriding collectionTimeoutMS for this call. Falls back to the value from
+// Collect only, overriding collectionTimeoutMs for this call. Falls back to the value from
 // TSConfiguration when omitted.
 val fastCollection = TrustSignalsSDK.collect(timeoutMs = 5_000L)
 
@@ -246,7 +249,7 @@ try {
       interactionId = "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
       verificationStatus = TSVerificationStatus.VERIFIED,
     ),
-    timeoutMs = 5_000L, // optional — overrides collectionTimeoutMS for this call
+    timeoutMs = 5_000L, // optional — overrides collectionTimeoutMs for this call
   )
   // collection contains the signals that were uploaded
 } catch (e: TSUploadException) {
