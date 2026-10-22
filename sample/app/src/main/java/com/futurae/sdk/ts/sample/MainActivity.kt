@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
             context = this,
             configuration = TSConfiguration(
                 collectionUrl = BuildConfig.TS_COLLECTION_URL,
-                sensorTag = "android-ts-sample-app"
+                sensorTag = "android"
             ),
         )
 
