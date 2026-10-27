@@ -103,10 +103,10 @@ class SampleViewModel : ViewModel() {
 
     private suspend fun doCollectAndUpload(requests: List<TSCredentials>) {
         val entry = try {
-            val collection = TrustSignalsSDK.collectAndUpload(*requests.toTypedArray())
+            val uploadOutcome = TrustSignalsSDK.collectAndUpload(*requests.toTypedArray())
             CollectionEntry.Success(
-                id = collection.collectionId,
-                collection = collection,
+                id = uploadOutcome.collection.collectionId,
+                collection = uploadOutcome.collection,
                 uploaded = true,
             )
         } catch (e: TSUploadException) {
