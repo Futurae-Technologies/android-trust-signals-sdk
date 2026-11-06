@@ -135,7 +135,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 
 ## Core Types
 
-All public types are in the `com.futurae.sdk.ts.model.public` package. The main entry point `TrustSignalsSDK` and the error types `TSAuthenticationException` / `TSUploadException` live in `com.futurae.sdk.ts.error`.
+All public types are in the `com.futurae.sdk.ts.model.public` package. The main entry point
+`TrustSignalsSDK` lives in `com.futurae.sdk.ts`. Error types live in `com.futurae.sdk.ts.error`.
 
 ### `TSConfiguration`
 
@@ -147,13 +148,15 @@ import com.futurae.sdk.ts.model.public.TSConfiguration
 TSConfiguration(
   collectionUrl = "https://your-trust-signals-server.example.com/api/v1/collections",
   collectionTimeoutMs = 20_000L, // optional, default is 20 000 ms
+  sensorTag = "app-sensor-tag",
 )
 ```
 
 | Parameter             | Type     | Required | Description                                                                                                              |
 |-----------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| `collectionUrl`       | `String` | Yes      | Full URL of the Trust Signals backend that will receive uploaded observations.                                           |
+| `collectionUrl`       | `String` | Yes      | Full HTTPS URL of the Trust Signals backend that will receive uploaded observations.                                     |
 | `collectionTimeoutMs` | `Long`   | No       | Maximum time in milliseconds to wait for all signal collectors before returning a partial result. Defaults to 20 000 ms. |
+| `sensorTag`           | `String` | Yes      | A non-blank tag that identifies the sensor/integration. Included in every uploaded observation.                          |
 
 ***Note*** SampleApp receives the collection URL via `gradle.properties` setting `TS_COLLECTION_URL`
 variable.
@@ -182,11 +185,11 @@ TSCredentials(
 
 | Parameter            | Type                   | Description                                                                                                                                                                  |
 |----------------------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `accountId`          | `String`               | Identifies the end-user account associated with this upload. Must be a UUID.                                                                                                 |
+| `accountId`          | `String`               | Identifies the end-user account associated with this upload. 1–50 characters: letters, numbers and `-` only.                                                                 |
 | `accessToken`        | `String`               | Bearer token used to authenticate the upload request. An expired or invalid token is reported as `TSAuthenticationException` (HTTP 401/403) in `TSUploadException.failures`. |
 | `serviceId`          | `String`               | Tenant identifier. Must be a UUID.                                                                                                                                           |
 | `unitId`             | `String`               | Mobile app identifier, e.g. `futapp-android`. 1–1000 characters: letters, numbers and `-` only.                                                                              |
-| `interactionId`      | `String`               | Per-installation identifier. Must be a UUID.                                                                                                                                 |
+| `interactionId`      | `String`               | Per-interaction identifier. 1–1000 characters: letters, numbers and `-` only.                                                                                                |
 | `verificationStatus` | `TSVerificationStatus` | Outcome of the host app's own verification: `VERIFIED`, `UNVERIFIED` or `FRAUD`.                                                                                             |
 
 ---
@@ -209,6 +212,7 @@ class MyApplication : Application() {
       context = this,
       configuration = TSConfiguration(
         collectionUrl = "https://your-trust-signals-server.example.com/api/v1/collections",
+        sensorTag = "app-sensor-tag",
       )
     )
   }
@@ -217,9 +221,21 @@ class MyApplication : Application() {
 
 See [`TSConfiguration`](#tsconfiguration) for a full parameter reference.
 
+> **Note:** `initialize()` throws `IllegalArgumentException` if `collectionUrl` is not a valid HTTPS
+> URL or if `sensorTag` is blank.
+
 ---
 
 ### 2. Collect and Upload
+
+`collectAndUpload` has two overloads with different return types and error contracts:
+
+| Overload                                              | Returns           | Throws on failure                                                                                      |
+|-------------------------------------------------------|-------------------|--------------------------------------------------------------------------------------------------------|
+| `collectAndUpload(credentials: TSCredentials)`        | `TSCollection`    | `TSAuthenticationException`, `TSUploadRejectedException`, or `TSUploadTransportException` directly     |
+| `collectAndUpload(vararg credentials: TSCredentials)` | `TSUploadOutcome` | `TSUploadException` only if **every** upload fails; partial failures are in `TSUploadOutcome.failures` |
+
+Signals are collected **once** regardless of how many credentials are supplied.
 
 #### Using coroutines (recommended)
 
@@ -229,7 +245,8 @@ import com.futurae.sdk.ts.model.public.TSCredentials
 import com.futurae.sdk.ts.model.public.TSVerificationStatus
 import com.futurae.sdk.ts.error.TSAuthenticationException
 import com.futurae.sdk.ts.error.TSNotInitializedException
-import com.futurae.sdk.ts.error.TSUploadException
+import com.futurae.sdk.ts.error.TSUploadRejectedException
+import com.futurae.sdk.ts.error.TSUploadTransportException
 
 // Collect only (no upload)
 val collection = TrustSignalsSDK.collect()
@@ -252,11 +269,12 @@ try {
     timeoutMs = 5_000L, // optional — overrides collectionTimeoutMs for this call
   )
   // collection contains the signals that were uploaded
-} catch (e: TSUploadException) {
-  // One or more uploads failed — inspect per-account causes
-  e.failures.forEach { (accountId, error) ->
-    if (error is TSAuthenticationException) { /* refresh token for accountId */ }
-  }
+} catch (e: TSAuthenticationException) {
+  // Token is invalid or expired — refresh and retry
+} catch (e: TSUploadRejectedException) {
+  // Upload failed with a non-auth HTTP error
+} catch (e: TSUploadTransportException) {
+  // Upload could not reach the server
 } catch (e: TSNotInitializedException) {
   // SDK not initialized — call TrustSignalsSDK.initialize() first
 }
@@ -264,14 +282,9 @@ try {
 
 #### Multiple accounts — signals collected once, uploaded in parallel
 
-__
-`collectAndUpload` accepts any number of `TSCredentials` objects. Signals are collected **once** and
-uploaded in parallel for every account. All uploads are always attempted — a failure for one account
-does not cancel the others.
-
 ```kotlin
 try {
-  val collection = TrustSignalsSDK.collectAndUpload(
+  val outcome = TrustSignalsSDK.collectAndUpload(
     TSCredentials(
       accountId = "account-1",
       accessToken = "token-1",
@@ -297,9 +310,10 @@ try {
       verificationStatus = TSVerificationStatus.VERIFIED
     ),
   )
-  // All uploads succeeded
+  // outcome.uploadedForIds — accounts whose upload succeeded
+  // outcome.failures — accounts that failed (empty here, since no exception was thrown)
 } catch (e: TSUploadException) {
-  // e.failures contains only the accounts that failed
+  // thrown only when every upload failed
   e.failures.forEach { (accountId, error) ->
     if (error is TSAuthenticationException) { /* refresh token for accountId */ }
   }
@@ -445,14 +459,18 @@ TrustSignalsSDK.stopScheduledCollections()
 
 **Error behaviour summary:**
 
-| Context            | Error type                             | Retry                                 | How it surfaces                                                                          |
-|--------------------|----------------------------------------|---------------------------------------|------------------------------------------------------------------------------------------|
-| `collectAndUpload` | HTTP 401 / 403                         | No                                    | `TSUploadException` with `TSAuthenticationException` in `failures`                       |
-| `collectAndUpload` | Other HTTP errors                      | No                                    | `TSUploadException` with `TSUploadFailedException` in `failures`                         |
-| Scheduled worker   | Network / connectivity (`IOException`) | Up to 3 times, then permanent failure | Error handler, after final attempt, as `TSUploadFailedException` (cause = `IOException`) |
-| Scheduled worker   | HTTP 401 / 403                         | No                                    | Error handler, as `TSAuthenticationException`                                            |
-| Scheduled worker   | Other HTTP errors                      | No                                    | Error handler, as `TSUploadFailedException`                                              |
-| Scheduled worker   | Unexpected exceptions                  | No                                    | Error handler                                                                            |
+| Context            | Error type                             | Retry                                 | How it surfaces                                                                             |
+|--------------------|----------------------------------------|---------------------------------------|---------------------------------------------------------------------------------------------|
+| `collect`          | All collectors timed out               | No                                    | `TSCollectionTimedOutException`                                                             |
+| `collectAndUpload` | HTTP 401 / 403                         | No                                    | `TSUploadException` with `TSAuthenticationException` in `failures`                          |
+| `collectAndUpload` | Other HTTP errors                      | No                                    | `TSUploadException` with `TSUploadRejectedException` in `failures`                          |
+| `collectAndUpload` | Network / connectivity (`IOException`) | No                                    | `TSUploadException` with `TSUploadTransportException` in `failures`                         |
+| Scheduled worker   | Network / connectivity (`IOException`) | Up to 3 times, then permanent failure | Error handler, after final attempt, as `TSUploadTransportException` (cause = `IOException`) |
+| Scheduled worker   | HTTP 401 / 403                         | No                                    | Error handler, as `TSAuthenticationException`                                               |
+| Scheduled worker   | Other HTTP errors                      | No                                    | Error handler, as `TSUploadRejectedException`                                               |
+| Scheduled worker   | Keystore failure                       | No                                    | Error handler, as `TSKeystoreException`; all schedules cancelled, key recreated             |
+| Scheduled worker   | Legacy schedule (pre-upgrade)          | No                                    | Error handler, as `TSLegacyScheduleException`; schedule cancelled automatically             |
+| Scheduled worker   | Unexpected exceptions                  | No                                    | Error handler                                                                               |
 
 ---
 
