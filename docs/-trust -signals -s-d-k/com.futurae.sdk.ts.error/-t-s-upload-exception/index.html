@@ -43,8 +43,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-            0.1.2-alpha
-        </div>
+1.0.0        </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
                 <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
@@ -108,42 +107,7 @@
   <div class="breadcrumbs"><a href="../../../index.html">Trust Signals SDK</a><span class="delimiter">/</span><a href="../index.html">com.futurae.sdk.ts.error</a><span class="delimiter">/</span><span class="current">TSUploadException</span></div>
   <div class="cover ">
     <h1 class="cover"><span>TSUpload</span><wbr></wbr><span><span>Exception</span></span></h1>
-      <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
-          <div class="content sourceset-dependent-content" data-active=""
-               data-togglable=":sdk/release">
-              <div class="symbol monospace"><span class="token keyword">class </span><a
-                      href="index.html">TSUploadException</a><span
-                      class="token punctuation">(</span><span class="parameters "><span
-                      class="parameter "><span class="token keyword">val </span>failures<span
-                      class="token operator">: </span><a
-                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span
-                      class="token operator">&lt;</span><a
-                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
-                      class="token punctuation">, </span><a
-                      href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-exception/index.html">Exception</a><span
-                      class="token operator">&gt;</span></span></span><span
-                      class="token punctuation">)</span> : <a
-                      href="https://developer.android.com/reference/kotlin/java/lang/Exception.html">Exception</a>
-              </div>
-              <p class="paragraph">Thrown by <a
-                      href="../../com.futurae.sdk.ts/-trust-signals-s-d-k/collect-and-upload.html">com.futurae.sdk.ts.TrustSignalsSDK.collectAndUpload</a>
-                  when one or more account uploads fail.</p>
-              <p class="paragraph">Signals are collected once before any uploads are attempted.
-                  Failures in individual uploads do not cancel uploads for other accounts — all
-                  accounts are attempted and every failure is captured here.</p>
-              <p class="paragraph"><span
-                      data-unresolved-link="com.futurae.sdk.ts.error/TSUploadException//#kotlin.collections.Map[kotlin.String,java.lang.Exception]/PointingToCallableParameters(0)/">failures</span>
-                  maps each failing account ID to its cause:</p>
-              <ul>
-                  <li><p class="paragraph"><a href="../-t-s-authentication-exception/index.html">TSAuthenticationException</a>
-                      — HTTP 401 or 403.</p></li>
-                  <li><p class="paragraph"><a href="../-t-s-upload-rejected-exception/index.html">TSUploadRejectedException</a>
-                      — any other non-2xx HTTP response.</p></li>
-                  <li><p class="paragraph"><a href="../-t-s-upload-transport-exception/index.html">TSUploadTransportException</a>
-                      — network or IO failure reaching the server.</p></li>
-              </ul>
-          </div>
-      </div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">TSUploadException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>failures<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-exception/index.html">Exception</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/java/lang/Exception.html">Exception</a></div><p class="paragraph">Thrown by <a href="../../com.futurae.sdk.ts/-trust-signals-s-d-k/collect-and-upload.html">com.futurae.sdk.ts.TrustSignalsSDK.collectAndUpload</a> when upload(s) fail.</p><p class="paragraph">For single-account calls, thrown whenever the upload fails. For multi-account calls, thrown only when every upload fails; partial failures are returned in <a href="../../com.futurae.sdk.ts.model.public/-t-s-upload-outcome/failures.html">com.futurae.sdk.ts.model.public.TSUploadOutcome.failures</a> instead.</p><p class="paragraph">Signals are collected once before any uploads are attempted. Failures in individual uploads do not cancel uploads for other accounts — all accounts are always attempted.</p><p class="paragraph"><span data-unresolved-link="com.futurae.sdk.ts.error/TSUploadException//#kotlin.collections.Map[kotlin.String,java.lang.Exception]/PointingToCallableParameters(0)/">failures</span> maps each failing account ID to its cause:</p><ul><li><p class="paragraph"><a href="../-t-s-authentication-exception/index.html">TSAuthenticationException</a> — HTTP 401 or 403.</p></li><li><p class="paragraph"><a href="../-t-s-upload-rejected-exception/index.html">TSUploadRejectedException</a> — any other non-2xx HTTP response.</p></li><li><p class="paragraph"><a href="../-t-s-upload-transport-exception/index.html">TSUploadTransportException</a> — network or IO failure reaching the server.</p></li></ul></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
@@ -179,17 +143,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
-                        <div class="content sourceset-dependent-content" data-active=""
-                             data-togglable=":sdk/release">
-                            <div class="symbol monospace"><span
-                                    class="token keyword">open </span><span class="token keyword">val </span><a
-                                    href="../-t-s-upload-transport-exception/index.html#-654012527%2FProperties%2F108330000">cause</a><span
-                                    class="token operator">: </span><a
-                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span
-                                    class="token operator">?</span></div>
-                        </div>
-                    </div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">val </span><a href="../-t-s-upload-transport-exception/index.html#-654012527%2FProperties%2F108330000">cause</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -219,17 +173,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                    <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
-                        <div class="content sourceset-dependent-content" data-active=""
-                             data-togglable=":sdk/release">
-                            <div class="symbol monospace"><span
-                                    class="token keyword">open </span><span class="token keyword">val </span><a
-                                    href="../-t-s-upload-transport-exception/index.html#1824300659%2FProperties%2F108330000">message</a><span
-                                    class="token operator">: </span><a
-                                    href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span
-                                    class="token operator">?</span></div>
-                        </div>
-                    </div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">val </span><a href="../-t-s-upload-transport-exception/index.html#1824300659%2FProperties%2F108330000">message</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
                 </div>
               </div>
             </div>
